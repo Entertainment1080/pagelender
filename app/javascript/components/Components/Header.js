@@ -10,8 +10,9 @@ export default class Header extends Component {
             sign_out_route
         } = this.props
         return(
-            <>
-                <h3>PageLender</h3>
+            <div id="header">
+
+                <h3 className="title">PageLender</h3>
 
                 <Nav>
                     
@@ -38,7 +39,7 @@ export default class Header extends Component {
                     }
 
                 </Nav>
-            </>
+            </div>
         )
     }
 }
