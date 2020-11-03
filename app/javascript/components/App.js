@@ -21,11 +21,32 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      books: []
+    }
+  }
+
+
   render () {
+    const {
+      logged_in,
+      sign_in_route,
+      sign_up_route,
+      sign_out_route,
+      current_user
+    } = this.props
     return (
       <Router>
         
-        <Header />
+        <Header 
+          logged_in={logged_in}
+          sign_in_route={sign_in_route}
+          sign_up_route={sign_up_route}
+          sign_out_route={sign_out_route}
+          current_user={current_user}
+        />
 
         <Switch>
           <Route exact path="/" component={Home}/>
@@ -41,7 +62,7 @@ export default class App extends React.Component {
         </Switch>
 
         <Footer />
-        
+
       </Router>
     );
   }
