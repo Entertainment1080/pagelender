@@ -31,13 +31,11 @@ export default class Header extends Component {
                         <a href="/lend">Lend</a>
                     </NavItem>
 
-                    <NavItem>
-                        <a href={sign_in_route}>Sign In</a>
-                    </NavItem>
-                   
-                    <NavItem>
-                        <a href={sign_out_route}>Sign Out</a>
-                    </NavItem>
+                    { logged_in && 
+                        <NavItem>
+                            <a href={sign_out_route}>Sign Out</a>
+                        </NavItem>
+                    }
 
                 </Nav>
             </>
