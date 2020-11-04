@@ -1,45 +1,36 @@
-import React, { Component } from "react"
+import React from "react"
 import { Nav, NavItem } from 'reactstrap'
 
-export default class Header extends Component {
-    render(){
-        const {
-            logged_in,
-            sign_in_route,
-            sign_up_route,
-            sign_out_route
-        } = this.props
-        return(
-            <div id="header">
+const Header = (props) => (
 
-                <h3 className="title">PageLender</h3>
+    <div id="header">
 
-                <Nav>
-                    
-                    <NavItem>
-                        <a href="/">Home</a>
-                    </NavItem>
-                   
-                    <NavItem>
-                        <a href="/library">Library</a>
-                    </NavItem>
-                   
-                    <NavItem>
-                        <a href="/borrow">Borrow</a>
-                    </NavItem>
-                   
-                    <NavItem>
-                        <a href="/lend">Lend</a>
-                    </NavItem>
+        <h3 className="title">PageLender</h3>
 
-                    { logged_in && 
-                        <NavItem>
-                            <a href={sign_out_route}>Sign Out</a>
-                        </NavItem>
-                    }
+        <Nav>
 
-                </Nav>
-            </div>
-        )
-    }
-}
+            <NavItem>
+                <a href="/">Home</a>
+            </NavItem>
+
+            <NavItem>
+                <a href="/library">Library</a>
+            </NavItem>
+
+            <NavItem>
+                <a href="/borrow">Borrow</a>
+            </NavItem>
+
+            <NavItem>
+                <a href="/lend">Lend</a>
+            </NavItem>
+
+            <NavItem>
+                <a href={props.sign_out_route}>Sign Out</a>
+            </NavItem>
+
+        </Nav>
+    </div>
+)
+
+export default Header;
