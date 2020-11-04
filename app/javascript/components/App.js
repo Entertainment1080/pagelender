@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 
 import Home from './Pages/Home'
-import Library from './Pages/Library'
+import MyLibrary from './Pages/MyLibrary'
 import Borrow from './Pages/Borrow'
 import BorrowShow from './Pages/BorrowShow'
 import BorrowConfirmation from './Pages/BorrowConfirmation'
@@ -20,16 +20,18 @@ import NotFound from './Pages/NotFound'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 
+import MockBooks from './mockBooks.js'
+
 export default class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
-      books: []
+      books: MockBooks
     }
   }
 
 
-  render () {
+  render() {
     const {
       logged_in,
       sign_in_route,
@@ -37,10 +39,11 @@ export default class App extends React.Component {
       sign_out_route,
       current_user
     } = this.props
+    console.log(current_user);
     return (
       <Router>
-        
-        <Header 
+
+        <Header
           logged_in={logged_in}
           sign_in_route={sign_in_route}
           sign_up_route={sign_up_route}
@@ -49,16 +52,75 @@ export default class App extends React.Component {
         />
 
         <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route path="/library" component={Library}/>
-          <Route path="/borrow" component={Borrow}/>
-          <Route path="/borrowshow" component={BorrowShow}/>
-          <Route path="/borrowconfirmation" component={BorrowConfirmation}/>
-          <Route path="/borrowedshow" component={BorrowedShow}/>
-          <Route path="/lend" component={Lend}/>
-          <Route path="/lendconfirmation" component={LendConfirmation}/>
-          <Route path="/lendedshow" component={LendedShow}/>
-          <Route component={NotFound}/>
+
+          <Route exact path="/" component={Home} />
+
+          <Route path="/library"
+            render={(props) => {
+              let user = current_user.id
+              let books = this.state.books.filter(book => book.user_id === user)
+              return (
+                <MyLibrary
+                  {...props}
+                  books={books}
+                />
+              )
+            }}
+          />
+
+          <Route exact path="/borrow"
+            render={(props) => {
+              return (
+                <Borrow
+                  books={this.state.books}
+                />
+              )
+            }}
+          />
+
+          <Route
+            path="/borrow/:id"
+            render={(props) => {
+              let id = props.match.params.id
+              let book = this.state.books.find(book => book.id === parseInt(id))
+              return (
+                <BorrowShow book={book} />
+              )
+            }}
+          />
+
+          <Route path="/borrowconfirmation" component={BorrowConfirmation} />
+
+          <Route
+            path="/borrowed/:id"
+            render={(props) => {
+              let id = props.match.params.id
+              let book = this.state.books.find(book => book.id === parseInt(id))
+              return (
+                <BorrowedShow
+                  book={book}
+                />
+              )
+            }}
+          />
+
+          <Route exact path="/lend" component={Lend} />
+
+          <Route path="/lendconfirmation" component={LendConfirmation} />
+
+          <Route
+            path="/lended/:id"
+            render={(props) => {
+              let id = props.match.params.id
+              let book = this.state.books.find(book => book.id === parseInt(id))
+              return (
+                <LendedShow book={book} />
+              )
+            }}
+          />
+
+          <Route component={NotFound} />
+
         </Switch>
 
         <Footer />

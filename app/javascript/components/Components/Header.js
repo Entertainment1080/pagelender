@@ -1,7 +1,7 @@
 import React from "react"
 import { Nav, NavItem } from 'reactstrap'
 
-const Header = (props) => (
+const Header = ({ sign_out_route }) => (
 
     <div id="header">
 
@@ -26,7 +26,7 @@ const Header = (props) => (
             </NavItem>
 
             <NavItem>
-                <a href={props.sign_out_route}>Sign Out</a>
+                <a href={sign_out_route}>Sign Out</a>
             </NavItem>
 
         </Nav>

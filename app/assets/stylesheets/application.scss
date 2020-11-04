@@ -2,7 +2,7 @@
 
 body {
     text-align: center;
-    height: 100vh;
+    margin-bottom: 10vh;
 }
 
 .nav {
@@ -11,6 +11,10 @@ body {
     justify-content: space-around;
     position: sticky;
     width: 100%;
+}
+
+.nav-item {
+    color: white;
 }
 
 #footer {
@@ -27,5 +31,5 @@ body {
 #header {
     display: flex;
     background-color: green;
-
+    color: white;
 }
