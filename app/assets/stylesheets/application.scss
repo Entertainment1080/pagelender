@@ -1,1 +1,31 @@
-@import 'bootstrap'
+@import 'bootstrap';
+
+body {
+    text-align: center;
+    height: 100vh;
+}
+
+.nav {
+    margin: 2vh 3vw 2vh 40vw;
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    width: 100%;
+}
+
+#footer {
+    background-color: green;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.title {
+    margin: 1vh 2vw 1vh 2vw;
+}
+
+#header {
+    display: flex;
+    background-color: green;
+
+}
