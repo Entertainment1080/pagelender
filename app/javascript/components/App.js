@@ -30,6 +30,9 @@ export default class App extends React.Component {
     }
   }
 
+  createNewBook = (form) => {
+    console.log(form);
+  }
 
   render() {
     const {
@@ -104,7 +107,16 @@ export default class App extends React.Component {
             }}
           />
 
-          <Route exact path="/lend" component={Lend} />
+          <Route exact path="/lend"
+            render={(props) => {
+              return (
+                <Lend
+                  createNewBook={this.createNewBook}
+                  current_user={current_user}
+                />
+              )
+            }}
+          />
 
           <Route path="/lendconfirmation" component={LendConfirmation} />
 
