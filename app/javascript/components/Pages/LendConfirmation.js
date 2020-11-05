@@ -1,10 +1,16 @@
 import React, { Component } from "react"
+import { Button } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
 export default class LendConfirmation extends Component {
-    render(){
-        return(
+    render() {
+        return (
             <>
-                <h3>Lend Confirmation</h3>
+                <h5>Your book is on the market! We'll notify you if someone wants to borrow it.</h5>
+
+                <Link to="/library">
+                    <Button>Go to Your Library</Button>
+                </Link>
             </>
         )
     }
