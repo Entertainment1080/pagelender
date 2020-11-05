@@ -47,20 +47,21 @@ RSpec.describe Book, type: :model do
     expect(book.pages).to eq 800
   end
 
-  # it "has pickup date" do
-  #   book = Book.new
-  #   book.pick_up_date = "2020-11-03 00:00:00.000000000 +0000"
-  #   expect(book.pick_up_date).to be_a DateTime
-  #   expect(book.pick_up_date).to eq "2020-11-03 00:00:00.000000000 +0000"
-  # end
+  it "has pickup date" do
+    book = Book.new
+    book.pick_up_date = "2020-11-03 00:00:00.000000000 +0000"
+    
+    expect(book.pick_up_date).to be_kind_of ActiveSupport::TimeWithZone
+    expect(book.pick_up_date).to eq Date.parse("2020-11-03 00:00:00.000000000 +0000")
+  end
 
-  #FOR due_date
-  # it "has pickup date" do
-  #   book = Book.new
-  #   book.pick_up_date = "2020-11-03 00:00:00.000000000 +0000"
-  #   expect(book.pick_up_date).to be_a DateTime
-  #   expect(book.pick_up_date).to eq "2020-11-03 00:00:00.000000000 +0000"
-  # end
+
+  it "has pickup date" do
+    book = Book.new
+    book.pick_up_date = "2020-11-03 00:00:00.000000000 +0000"
+    expect(book.pick_up_date).to be_kind_of ActiveSupport::TimeWithZone
+    expect(book.pick_up_date).to eq Date.parse("2020-11-03 00:00:00.000000000 +0000")
+  end
 
 it "has an img" do
     book = Book.new
@@ -69,12 +70,12 @@ it "has an img" do
     expect(book.img_url).to eq "https://i2.wp.com/www.tor.com/wp-content/uploads/2019/07/Dune-cover-1.jpg?type=vertical&ssl=1"
   end
 
-  # it "has a reservation" do
-  #   book = Book.new
-  #   book.reserved = TRUE
-  #   expect(book.reserved).to be_a Boolean
-  #   expect(book.reserved).to eq TRUE
-  # end
+  it "has a reservation" do
+    book = Book.new
+    book.reserved = true
+    expect(book.reserved).to be_kind_of TrueClass
+    expect(book.reserved).to eq true
+  end
 
   it "has a user id" do
     book = Book.new
