@@ -15,6 +15,7 @@ import BorrowedShow from './Pages/BorrowedShow'
 import Lend from './Pages/Lend'
 import LendConfirmation from './Pages/LendConfirmation'
 import LendedShow from './Pages/LendedShow'
+import LendEdit from './Pages/LendEdit'
 import NotFound from './Pages/NotFound'
 
 import Header from './Components/Header'
@@ -22,7 +23,7 @@ import Footer from './Components/Footer'
 
 import MockBooks from './mockBooks.js'
 
-export default class App extends React.Component{ 
+export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -34,6 +35,10 @@ export default class App extends React.Component{
     console.log(form);
   }
 
+  updateBook = (form, id) => {
+    console.log(form)
+    console.log(id)
+  }
   render() {
     const {
       logged_in,
@@ -42,7 +47,7 @@ export default class App extends React.Component{
       sign_out_route,
       current_user
     } = this.props
-    
+
     return (
       <Router>
 
@@ -85,7 +90,7 @@ export default class App extends React.Component{
             path="/borrow/:id"
             render={(props) => {
               let id = props.match.params.id
-              let book = this.state.books.find(book => book.id === parseInt(id)) 
+              let book = this.state.books.find(book => book.id === parseInt(id))
               return (
                 <BorrowShow book={book} />
               )
@@ -127,6 +132,20 @@ export default class App extends React.Component{
               let book = this.state.books.find(book => book.id === parseInt(id))
               return (
                 <LendedShow book={book} />
+              )
+            }}
+          />
+
+          <Route path="/lend/:id"
+            render={(props) => {
+              let id = props.match.params.id
+              let book = this.state.books.find(book => book.id === parseInt(id))
+              return (
+                <LendEdit
+                  updateBook={this.updateBook}
+                  current_user={current_user}
+                  book={book}
+                />
               )
             }}
           />
