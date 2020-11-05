@@ -7,9 +7,7 @@ export default class Home extends Component {
         return (
             <>
 
-                <h2>Home</h2>
-                <br></br>
-                <br></br>
+                {/* <h2 className="title">Home</h2> */}
                 <Row>
                     <Col>
                         <Link to="/library">
