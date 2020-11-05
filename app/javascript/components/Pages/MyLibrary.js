@@ -1,15 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
 
-const Borrow = ({ books }) => (
+const MyLibrary = ({ books }) => (
 
     <>
-        <h3 className="heading">All Books</h3>
+        <h2>My Library</h2>
         { books.map((book, index) => {
             return (
-                <div key={`book-${index}`} className="bookCard">
+                <div key={`library-${index}`} className="bookCard">
                     <p>{book.title}</p>
                     <div className="info">
                         <h4>Author: {book.author}</h4>
@@ -20,9 +20,6 @@ const Borrow = ({ books }) => (
                         <p>Due Date: {book.due_date}</p>
                     </div>
                     <br />
-                    <Link to={`/borrow/${book.id}`} className="button">
-                        <Button className="info">More Info</Button>
-                    </Link>
                     <Link to={`/`} className="button">
                         <Button className="info">Back to Home</Button>
                     </Link>
@@ -32,9 +29,9 @@ const Borrow = ({ books }) => (
     </>
 )
 
-export default Borrow;
+export default MyLibrary;
 
-Borrow.propTypes = { 
+MyLibrary.propTypes = { 
     books: PropTypes.shape({ 
        title: PropTypes.string,
        author: PropTypes.string,
