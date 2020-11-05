@@ -22,7 +22,7 @@ import Footer from './Components/Footer'
 
 import MockBooks from './mockBooks.js'
 
-export default class App extends React.Component{ 
+export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -42,7 +42,7 @@ export default class App extends React.Component{
       sign_out_route,
       current_user
     } = this.props
-    
+
     return (
       <Router>
 
@@ -73,9 +73,12 @@ export default class App extends React.Component{
 
           <Route exact path="/borrow"
             render={(props) => {
+              let user = current_user.id
+              let books = this.state.books.filter(book => book.user_id !== user)
               return (
                 <Borrow
-                  books={this.state.books}
+                  {...props}
+                  books={books}
                 />
               )
             }}
@@ -85,7 +88,7 @@ export default class App extends React.Component{
             path="/borrow/:id"
             render={(props) => {
               let id = props.match.params.id
-              let book = this.state.books.find(book => book.id === parseInt(id)) 
+              let book = this.state.books.find(book => book.id === parseInt(id))
               return (
                 <BorrowShow book={book} />
               )
