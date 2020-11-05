@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap'
 
@@ -32,3 +33,15 @@ const Borrow = ({ books }) => (
 )
 
 export default Borrow;
+
+Borrow.propTypes = { 
+    books: PropTypes.shape({ 
+       title: PropTypes.string,
+       author: PropTypes.string,
+       description: PropTypes.string,
+       pages: PropTypes.integer,
+       series: PropTypes.string,
+       pick_up_date: PropTypes.instanceOf(Date),
+       due_date: PropTypes.instanceOf(Date)
+    }).isRequired
+ }

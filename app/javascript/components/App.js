@@ -82,7 +82,7 @@ export default class App extends React.Component{
             path="/borrow/:id"
             render={(props) => {
               let id = props.match.params.id
-              let book = this.state.books.find(book => book.id === parseInt(id))
+              let book = this.state.books.find(book => book.id === parseInt(id)) 
               return (
                 <BorrowShow book={book} />
               )
