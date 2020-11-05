@@ -22,7 +22,7 @@ import Footer from './Components/Footer'
 
 import MockBooks from './mockBooks.js'
 
-export default class App extends React.Component {
+export default class App extends React.Component{ 
   constructor(props) {
     super(props)
     this.state = {
@@ -39,7 +39,7 @@ export default class App extends React.Component {
       sign_out_route,
       current_user
     } = this.props
-    console.log(current_user);
+    
     return (
       <Router>
 

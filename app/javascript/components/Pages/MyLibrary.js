@@ -8,7 +8,7 @@ const MyLibrary = ({ books }) => (
         <h2>My Library</h2>
         { books.map((book, index) => {
             return (
-                <div key={index} className="bookCard">
+                <div key={`library-${index}`} className="bookCard">
                     <p>{book.title}</p>
                     <div className="info">
                         <h4>Author: {book.author}</h4>

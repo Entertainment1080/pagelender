@@ -8,7 +8,7 @@ const Borrow = ({ books }) => (
         <h3 className="heading">All Books</h3>
         { books.map((book, index) => {
             return (
-                <div key={index} className="bookCard">
+                <div key={`book-${index}`} className="bookCard">
                     <p>{book.title}</p>
                     <div className="info">
                         <h4>Author: {book.author}</h4>
