@@ -31,14 +31,14 @@ const MyLibrary = ({ books }) => (
 
 export default MyLibrary;
 
-MyLibrary.propTypes = { 
-    books: PropTypes.shape({ 
-       title: PropTypes.string,
-       author: PropTypes.string,
-       description: PropTypes.string,
-       pages: PropTypes.integer,
-       series: PropTypes.string,
-       pick_up_date: PropTypes.instanceOf(Date),
-       due_date: PropTypes.instanceOf(Date)
+MyLibrary.propTypes = {
+    books: PropTypes.shape({
+        title: PropTypes.string,
+        author: PropTypes.string,
+        description: PropTypes.string,
+        pages: PropTypes.integer,
+        series: PropTypes.string,
+        pick_up_date: PropTypes.instanceOf(Date),
+        due_date: PropTypes.instanceOf(Date)
     }).isRequired
- }
+}
