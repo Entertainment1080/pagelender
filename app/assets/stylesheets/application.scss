@@ -5,6 +5,13 @@ body {
     margin-bottom: 10vh;
 }
 
+.title {
+    margin: 1vh 2vw 1vh 2vw;
+}
+
+
+// .................................................. Header
+
 .nav {
     margin: 2vh 3vw 2vh 40vw;
     display: flex;
@@ -17,6 +24,28 @@ body {
     color: white;
 }
 
+#header {
+    display: flex;
+    background-color: green;
+    color: white;
+}
+
+// .................................................. Lend
+
+.form-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form {
+    width: 30vw;
+}
+
+
+// .................................................. Footer
+
 #footer {
     background-color: green;
     position: fixed;
@@ -24,12 +53,4 @@ body {
     width: 100%;
 }
 
-.title {
-    margin: 1vh 2vw 1vh 2vw;
-}
 
-#header {
-    display: flex;
-    background-color: green;
-    color: white;
-}

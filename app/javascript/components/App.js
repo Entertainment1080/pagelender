@@ -15,6 +15,7 @@ import BorrowedShow from './Pages/BorrowedShow'
 import Lend from './Pages/Lend'
 import LendConfirmation from './Pages/LendConfirmation'
 import LendedShow from './Pages/LendedShow'
+import LendEdit from './Pages/LendEdit'
 import NotFound from './Pages/NotFound'
 
 import Header from './Components/Header'
@@ -22,7 +23,7 @@ import Footer from './Components/Footer'
 
 import MockBooks from './mockBooks.js'
 
-export default class App extends React.Component{ 
+export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -30,6 +31,18 @@ export default class App extends React.Component{
     }
   }
 
+  createNewBook = (form) => {
+    console.log(form);
+  }
+
+  updateBook = (form, id) => {
+    console.log(form)
+    console.log(id)
+  }
+
+  findBook = (arr, id) => {
+    arr.find(book => book.id === parseInt(id))
+  }
 
   render() {
     const {
@@ -39,7 +52,7 @@ export default class App extends React.Component{
       sign_out_route,
       current_user
     } = this.props
-    
+
     return (
       <Router>
 
@@ -70,9 +83,12 @@ export default class App extends React.Component{
 
           <Route exact path="/borrow"
             render={(props) => {
+              let user = current_user.id
+              let books = this.state.books.filter(book => book.user_id !== user)
               return (
                 <Borrow
-                  books={this.state.books}
+                  {...props}
+                  books={books}
                 />
               )
             }}
@@ -81,8 +97,7 @@ export default class App extends React.Component{
           <Route
             path="/borrow/:id"
             render={(props) => {
-              let id = props.match.params.id
-              let book = this.state.books.find(book => book.id === parseInt(id)) 
+              let book = findBook(this.state.books, props.match.params.id)
               return (
                 <BorrowShow book={book} />
               )
@@ -94,8 +109,7 @@ export default class App extends React.Component{
           <Route
             path="/borrowed/:id"
             render={(props) => {
-              let id = props.match.params.id
-              let book = this.state.books.find(book => book.id === parseInt(id))
+              let book = findBook(this.state.books, props.match.params.id)
               return (
                 <BorrowedShow
                   book={book}
@@ -104,7 +118,16 @@ export default class App extends React.Component{
             }}
           />
 
-          <Route exact path="/lend" component={Lend} />
+          <Route exact path="/lend"
+            render={(props) => {
+              return (
+                <Lend
+                  createNewBook={this.createNewBook}
+                  current_user={current_user}
+                />
+              )
+            }}
+          />
 
           <Route path="/lendconfirmation" component={LendConfirmation} />
 
@@ -115,6 +138,20 @@ export default class App extends React.Component{
               let book = this.state.books.find(book => book.id === parseInt(id))
               return (
                 <LendedShow book={book} />
+              )
+            }}
+          />
+
+          <Route path="/lend/:id"
+            render={(props) => {
+              let id = props.match.params.id
+              let book = this.state.books.find(book => book.id === parseInt(id))
+              return (
+                <LendEdit
+                  updateBook={this.updateBook}
+                  current_user={current_user}
+                  book={book}
+                />
               )
             }}
           />

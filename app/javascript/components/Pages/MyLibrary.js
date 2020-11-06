@@ -1,44 +1,48 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
-import { Button } from 'reactstrap'
+import { Button, Table } from 'reactstrap'
 
 const MyLibrary = ({ books }) => (
 
     <>
         <h2>My Library</h2>
-        { books.map((book, index) => {
-            return (
-                <div key={`library-${index}`} className="bookCard">
-                    <p>{book.title}</p>
-                    <div className="info">
-                        <h4>Author: {book.author}</h4>
-                        <p>Description: {book.description}</p>
-                        <p>Pages: {book.pages}</p>
-                        <p>Series: {book.series}</p>
-                        <p>Pick Up Date: {book.pick_up_date}</p>
-                        <p>Due Date: {book.due_date}</p>
-                    </div>
-                    <br />
-                    <Link to={`/`} className="button">
-                        <Button className="info">Back to Home</Button>
-                    </Link>
-                </div>
-            )
-        })}
+
+        <Table striped>
+            <thead>
+                <tr>
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Pick Up Date</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {books.map((book, index) => {
+                    return (
+                        <tr key={`book-${index}`}>
+                            <td>{book.title}</td>
+                            <td>{book.author}</td>
+                            <td>{book.pick_up_date}</td>
+                            <td>{book.due_date}</td>
+                        </tr>
+                    )
+                })}
+            </tbody>
+        </Table>
     </>
 )
 
 export default MyLibrary;
 
 MyLibrary.propTypes = {
-    books: PropTypes.shape({
+    books: PropTypes.arrayOf(PropTypes.shape({
         title: PropTypes.string,
         author: PropTypes.string,
         description: PropTypes.string,
         pages: PropTypes.integer,
         series: PropTypes.string,
-        pick_up_date: PropTypes.instanceOf(Date),
-        due_date: PropTypes.instanceOf(Date)
-    }).isRequired
+        pick_up_date: PropTypes.string,
+        due_date: PropTypes.string
+    }).isRequired)
 }

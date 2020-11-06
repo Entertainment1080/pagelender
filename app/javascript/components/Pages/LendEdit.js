@@ -7,15 +7,14 @@ export default class Lend extends Component {
         super(props)
         this.state = {
             form: {
-                title: "",
-                author: "",
-                description: "",
-                pages: "",
-                series: "",
-                pick_up_date: "",
-                due_date: "",
-                img_url: "",
-                user_id: this.props.current_user.id
+                title: this.props.book.title,
+                author: this.props.book.author,
+                description: this.props.book.description,
+                pages: this.props.book.pages,
+                series: this.props.book.series,
+                pick_up_date: this.props.book.pick_up_date,
+                due_date: this.props.book.due_date,
+                img_url: this.props.book.img_url
             },
             success: false
         }
@@ -29,7 +28,7 @@ export default class Lend extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.createNewBook(this.state.form)
+        this.props.updateBook(this.state.form, this.props.book.id)
         this.setState({ success: true })
     }
 
@@ -37,7 +36,7 @@ export default class Lend extends Component {
         let { form, success } = this.state
         return (
             <div className="form-page">
-                <h3 className="heading">Add a Book</h3>
+                <h3 className="heading">Edit Book</h3>
                 <div className="form">
                     <Form>
 
@@ -131,7 +130,7 @@ export default class Lend extends Component {
                     </Form>
                 </div>
 
-                { success && <Redirect to="/borrow" />}
+                { success && <Redirect to={`/lended/${this.props.book.id}`} />}
 
             </div>
         )
