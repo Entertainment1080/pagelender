@@ -32,7 +32,7 @@ BorrowedShow.propTypes = {
         description: PropTypes.string,
         pages: PropTypes.integer,
         series: PropTypes.string,
-        pick_up_date: PropTypes.instanceOf(Date),
-        due_date: PropTypes.instanceOf(Date)
+        pick_up_date: PropTypes.string,
+        due_date: PropTypes.string
     }).isRequired
 }
