@@ -53,6 +53,8 @@ export default class App extends React.Component {
       current_user
     } = this.props
 
+    console.log(current_user)
+
     return (
       <Router>
 
