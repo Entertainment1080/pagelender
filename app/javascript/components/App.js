@@ -52,9 +52,6 @@ export default class App extends React.Component {
       sign_out_route,
       current_user
     } = this.props
-
-    console.log(current_user)
-
     return (
       <Router>
 

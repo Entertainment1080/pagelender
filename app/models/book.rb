@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
-    belongs_to :user
-    # has_many :borrowers
+    has_many :rentals
+    has_many :users, through: :rentals
+    belongs_to :users
 end
