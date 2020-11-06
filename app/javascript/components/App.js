@@ -39,6 +39,11 @@ export default class App extends React.Component {
     console.log(form)
     console.log(id)
   }
+
+  findBook = (arr, id) => {
+    arr.find(book => book.id === parseInt(id))
+  }
+
   render() {
     const {
       logged_in,
@@ -89,8 +94,7 @@ export default class App extends React.Component {
           <Route
             path="/borrow/:id"
             render={(props) => {
-              let id = props.match.params.id
-              let book = this.state.books.find(book => book.id === parseInt(id))
+              let book = findBook(this.state.books, props.match.params.id)
               return (
                 <BorrowShow book={book} />
               )
@@ -102,8 +106,7 @@ export default class App extends React.Component {
           <Route
             path="/borrowed/:id"
             render={(props) => {
-              let id = props.match.params.id
-              let book = this.state.books.find(book => book.id === parseInt(id))
+              let book = findBook(this.state.books, props.match.params.id)
               return (
                 <BorrowedShow
                   book={book}
