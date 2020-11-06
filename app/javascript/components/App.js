@@ -15,6 +15,7 @@ import BorrowedShow from './Pages/BorrowedShow'
 import Lend from './Pages/Lend'
 import LendConfirmation from './Pages/LendConfirmation'
 import LendedShow from './Pages/LendedShow'
+import LendEdit from './Pages/LendEdit'
 import NotFound from './Pages/NotFound'
 
 import Header from './Components/Header'
@@ -32,6 +33,15 @@ export default class App extends React.Component {
 
   createNewBook = (form) => {
     console.log(form);
+  }
+
+  updateBook = (form, id) => {
+    console.log(form)
+    console.log(id)
+  }
+
+  findBook = (arr, id) => {
+    arr.find(book => book.id === parseInt(id))
   }
 
   render() {
@@ -87,8 +97,7 @@ export default class App extends React.Component {
           <Route
             path="/borrow/:id"
             render={(props) => {
-              let id = props.match.params.id
-              let book = this.state.books.find(book => book.id === parseInt(id))
+              let book = findBook(this.state.books, props.match.params.id)
               return (
                 <BorrowShow book={book} />
               )
@@ -100,8 +109,7 @@ export default class App extends React.Component {
           <Route
             path="/borrowed/:id"
             render={(props) => {
-              let id = props.match.params.id
-              let book = this.state.books.find(book => book.id === parseInt(id))
+              let book = findBook(this.state.books, props.match.params.id)
               return (
                 <BorrowedShow
                   book={book}
@@ -130,6 +138,20 @@ export default class App extends React.Component {
               let book = this.state.books.find(book => book.id === parseInt(id))
               return (
                 <LendedShow book={book} />
+              )
+            }}
+          />
+
+          <Route path="/lend/:id"
+            render={(props) => {
+              let id = props.match.params.id
+              let book = this.state.books.find(book => book.id === parseInt(id))
+              return (
+                <LendEdit
+                  updateBook={this.updateBook}
+                  current_user={current_user}
+                  book={book}
+                />
               )
             }}
           />
