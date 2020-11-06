@@ -20,12 +20,16 @@ const MyLibrary = ({ books }) => (
             <tbody>
                 {books.map((book, index) => {
                     return (
+
                         <tr key={`book-${index}`}>
-                            <td>{book.title}</td>
+                            <Link to={`/lended/${book.id}`}>
+                                <td>{book.title}</td>
+                            </Link>
                             <td>{book.author}</td>
                             <td>{book.pick_up_date}</td>
                             <td>{book.due_date}</td>
                         </tr>
+
                     )
                 })}
             </tbody>

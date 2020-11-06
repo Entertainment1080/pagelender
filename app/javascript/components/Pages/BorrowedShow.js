@@ -25,14 +25,14 @@ const BorrowedShow = ({ book }) => (
 
 export default BorrowedShow;
 
-BorrowedShow.propTypes = { 
-    book: PropTypes.shape({ 
-       title: PropTypes.string,
-       author: PropTypes.string,
-       description: PropTypes.string,
-       pages: PropTypes.integer,
-       series: PropTypes.string,
-       pick_up_date: PropTypes.instanceOf(Date),
-       due_date: PropTypes.instanceOf(Date)
+BorrowedShow.propTypes = {
+    book: PropTypes.shape({
+        title: PropTypes.string,
+        author: PropTypes.string,
+        description: PropTypes.string,
+        pages: PropTypes.integer,
+        series: PropTypes.string,
+        pick_up_date: PropTypes.string,
+        due_date: PropTypes.string
     }).isRequired
- }
+}
