@@ -83,9 +83,12 @@ export default class App extends React.Component {
 
           <Route exact path="/borrow"
             render={(props) => {
+              let user = current_user.id
+              let books = this.state.books.filter(book => book.user_id !== user)
               return (
                 <Borrow
-                  books={this.state.books}
+                  {...props}
+                  books={books}
                 />
               )
             }}
