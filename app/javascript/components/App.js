@@ -41,8 +41,9 @@ export default class App extends React.Component {
   }
 
   findBook = (arr, id) => {
-    arr.find(book => book.id === parseInt(id))
+    return arr.find(book => book.id === Number(id))
   }
+
 
   render() {
     const {
@@ -96,7 +97,7 @@ export default class App extends React.Component {
           <Route
             path="/borrow/:id"
             render={(props) => {
-              let book = findBook(this.state.books, props.match.params.id)
+              let book = this.findBook(this.state.books, props.match.params.id)
               return (
                 <BorrowShow book={book} />
               )
@@ -108,7 +109,7 @@ export default class App extends React.Component {
           <Route
             path="/borrowed/:id"
             render={(props) => {
-              let book = findBook(this.state.books, props.match.params.id)
+              let book = this.findBook(this.state.books, props.match.params.id)
               return (
                 <BorrowedShow
                   book={book}
