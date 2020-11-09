@@ -27,12 +27,14 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      books: []
+      books: [],
+      rentals: []
     }
   }
 
   componentDidMount() {
     this.bookIndex()
+    this.rentalIndex()
   }
 
   bookIndex = () => {
@@ -50,6 +52,21 @@ export default class App extends React.Component {
       })
   }
 
+  rentalIndex = () => {
+    fetch("http://localhost:3000/rentals")
+      .then(response => {
+        return response.json()
+      })
+      .then(rentalArr => {
+        this.setState({
+          rentals: rentalArr
+        })
+      })
+      .catch(errors => {
+        console.log("index errors: ", errors)
+      })
+  }
+
   createNewBook = (form) => {
     console.log(form);
   }
@@ -59,8 +76,8 @@ export default class App extends React.Component {
     console.log(id)
   }
 
-  findBook = (arr, id) => {
-    return arr.find(book => book.id === Number(id))
+  findItem = (arr, id) => {
+    return arr.find(item => item.id === Number(id))
   }
 
 
@@ -105,10 +122,12 @@ export default class App extends React.Component {
             render={(props) => {
               let user = current_user.id
               let books = this.state.books.filter(book => book.user_id !== user)
+              let rentals = this.state.rentals.filter(rental => rental.user_id !== user)
               return (
                 <Borrow
                   {...props}
                   books={books}
+                  rentals={rentals}
                 />
               )
             }}
@@ -117,10 +136,22 @@ export default class App extends React.Component {
           <Route
             path="/borrow/:id"
             render={(props) => {
-              let book = this.findBook(this.state.books, props.match.params.id)
-              return (
-                <BorrowShow book={book} />
-              )
+              let book = this.findItem(this.state.books, props.match.params.id)
+              if (book) {
+
+
+                return (
+                  <BorrowShow
+                    book={book}
+                  />
+                )
+              } else {
+                return (
+                  <div>
+                    loading borrowed books
+                  </div>
+                )
+              }
             }}
           />
 
@@ -129,12 +160,24 @@ export default class App extends React.Component {
           <Route
             path="/borrowed/:id"
             render={(props) => {
-              let book = this.findBook(this.state.books, props.match.params.id)
-              return (
-                <BorrowedShow
-                  book={book}
-                />
-              )
+              let book = this.findItem(this.state.books, props.match.params.id)
+              let rental = this.findItem(this.state.rentals, props.match.params.id)
+              if (book && rental) {
+
+
+                return (
+                  <BorrowedShow
+                    book={book}
+                    rental={rental}
+                  />
+                )
+              } else {
+                return (
+                  <div>
+                    loading borrowed books
+                  </div>
+                )
+              }
             }}
           />
 
