@@ -27,8 +27,27 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      books: MockBooks
+      books: []
     }
+  }
+
+  componentDidMount() {
+    this.bookIndex()
+  }
+
+  bookIndex = () => {
+    fetch("http://localhost:3000/books")
+      .then(response => {
+        return response.json()
+      })
+      .then(bookArr => {
+        this.setState({
+          books: bookArr
+        })
+      })
+      .catch(errors => {
+        console.log("index errors: ", errors)
+      })
   }
 
   createNewBook = (form) => {
@@ -43,6 +62,7 @@ export default class App extends React.Component {
   findBook = (arr, id) => {
     return arr.find(book => book.id === Number(id))
   }
+
 
 
   render() {
