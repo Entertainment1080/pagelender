@@ -90,9 +90,23 @@ export default class App extends React.Component {
   }
 
 
-  updateBook = (form, id) => {
-    console.log(form)
-    console.log(id)
+  updateBook = (book, id) => {
+    return fetch(`/books/${id}`, {
+      body: JSON.stringify(book),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then (response => {
+      if (response.status === 200) {
+        this.bookIndex()
+      }
+      return response
+    })
+    .catch (errors => {
+      console.log("edit errors:", error)
+    })
   }
 
   findItem = (arr, id) => {
@@ -264,14 +278,23 @@ export default class App extends React.Component {
             render={(props) => {
               let id = props.match.params.id
               let book = this.state.books.find(book => book.id === parseInt(id))
-              return (
-                <LendEdit
-                  updateBook={this.updateBook}
-                  current_user={current_user}
-                  book={book}
-                />
-              )
-            }}
+              console.log(book)
+              if (book) {
+                return (
+                  <LendEdit
+                    updateBook={this.updateBook}
+                    current_user={current_user}
+                    book={book}
+                  />
+                )
+              } else {
+                return (
+                 <div>
+                   Loading Your Book...
+                 </div>
+                )
+              }
+            }}   
           />
 
           <Route component={NotFound} />

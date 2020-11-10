@@ -74,7 +74,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks }) => (
                 <tr>
                     <th>Book</th>
                     <th>Author</th>
-                    <th>Pick Up Date</th>
+                    <th>Edit</th>
                     <th>Due Date</th>
                 </tr>
             </thead>
@@ -88,8 +88,10 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks }) => (
                             </Link>
                             <td>{book.author}</td>
 
-                            {/* <td>{rental.pick_up_date}</td>
-                                <td>{rental.due_date}</td> */}
+                            <Link to={`/lend/${book.id}`}>
+                                <td>Edit Book</td>
+                            </Link>
+                                {/* <td>{rental.due_date}</td> */}
 
                         </tr>
                     )

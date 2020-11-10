@@ -12,8 +12,6 @@ export default class Lend extends Component {
                 description: this.props.book.description,
                 pages: this.props.book.pages,
                 series: this.props.book.series,
-                pick_up_date: this.props.book.pick_up_date,
-                due_date: this.props.book.due_date,
                 img_url: this.props.book.img_url
             },
             success: false
@@ -87,26 +85,6 @@ export default class Lend extends Component {
                                 name="series"
                                 onChange={this.handleChange}
                                 value={form.series}
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label>Pick Up Date</Label>
-                            <Input
-                                type="datetime-local"
-                                name="pick_up_date"
-                                onChange={this.handleChange}
-                                value={form.pick_up_date}
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label>Due Date</Label>
-                            <Input
-                                type="datetime-local"
-                                name="due_date"
-                                onChange={this.handleChange}
-                                value={form.due_date}
                             />
                         </FormGroup>
 
