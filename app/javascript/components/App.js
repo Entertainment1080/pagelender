@@ -99,6 +99,20 @@ export default class App extends React.Component {
     return arr.find(item => item.id === Number(id))
   }
 
+  findRentedBooks = (arr, id) => {
+    let rentedBooks = arr.filter(book => book.rentals.length > 0)
+    return rentedBooks.filter(book => book.rentals[0].user_id === id)
+  }
+
+  findUsersNonRentedBooks = (arr, id) => {
+    return arr.filter(book => book.rentals.length === 0)
+  }
+
+  findNonRentedBooks = (arr, id) => {
+    let nonRented = arr.filter(book => book.rentals.length === 0)
+    return nonRented.filter(book => book.user_id !== id)
+  }
+
 
   render() {
     const {
@@ -108,9 +122,9 @@ export default class App extends React.Component {
       sign_out_route,
       current_user
     } = this.props
-    if (this.state.books.length > 0) {
-      // console.log("books:", this.state.books);
-    }
+
+    console.log(current_user);
+
     return (
       <Router>
 
@@ -130,10 +144,15 @@ export default class App extends React.Component {
             render={(props) => {
               let user = current_user.id
               let books = this.state.books.filter(book => book.user_id === user)
+              let rentedBooks = this.findRentedBooks(this.state.books, user)
+              let nonRentedBooks = this.findUsersNonRentedBooks(books, user)
+              console.log(nonRentedBooks);
               return (
                 <MyLibrary
                   {...props}
                   books={books}
+                  rentedBooks={rentedBooks}
+                  nonRentedBooks={nonRentedBooks}
                 />
               )
             }}
@@ -142,14 +161,12 @@ export default class App extends React.Component {
           <Route exact path="/borrow"
             render={(props) => {
               let user = current_user.id
-              let books = this.state.books.filter(book => book.user_id !== user)
-              let rentals = this.state.rentals.filter(rental => rental.user_id !== user)
+              let books = this.findNonRentedBooks(this.state.books, user)
               if (books) {
                 return (
                   <Borrow
                     {...props}
                     books={books}
-                    rentals={rentals}
                   />
                 )
               }
