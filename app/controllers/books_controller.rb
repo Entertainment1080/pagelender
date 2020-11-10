@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
     def index 
-        books = Book.all
-        render json: books
+        books = Book.all 
+        render json: books.to_json(include: :rentals)
     end
 
     def show
@@ -20,7 +20,7 @@ class BooksController < ApplicationController
     
     private
     def book_params
-        params.require(:book).permit(:title, :author, :description, :pages, :user_id)
+        params.require(:book).permit(:title, :author, :description, :pages, :series, :img_url, :user_id)
     end
 end
 

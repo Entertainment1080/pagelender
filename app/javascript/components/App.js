@@ -21,7 +21,6 @@ import NotFound from './Pages/NotFound'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 
-import MockBooks from './mockBooks.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -109,6 +108,9 @@ export default class App extends React.Component {
       sign_out_route,
       current_user
     } = this.props
+    if (this.state.books.length > 0) {
+      // console.log("books:", this.state.books);
+    }
     return (
       <Router>
 
@@ -223,11 +225,12 @@ export default class App extends React.Component {
             render={(props) => {
               let id = props.match.params.id
               let book = this.state.books.find(book => book.id === parseInt(id))
-              // let rental = this.state.rentals.find(rental => rental.book_id === props.match.params.id)
+              let rental = this.state.rentals.find(rental => rental.book_id === parseInt(id))
               if (book) {
                 return (
                   <LendedShow
                     book={book}
+                    rental={rental}
                   />
                 )
               } else {

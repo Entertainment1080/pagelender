@@ -3,10 +3,10 @@ import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
 import { Button, Table } from 'reactstrap'
 
-const MyLibrary = ({ books }) => (
+const MyLibrary = ({ books, rentedBooks }) => (
 
     <>
-        <h2>My Library</h2>
+        <h2>My Library: Borrowed</h2>
 
         <Table striped>
             <thead>
@@ -18,13 +18,45 @@ const MyLibrary = ({ books }) => (
                 </tr>
             </thead>
             <tbody>
-                {books.map((book, index) => {
+                {books.map((book) => {
+                    return book.rentals.map(rental => {
+                        return (
+
+                            <tr key={`book-${rental.id}`}>
+                                <Link to={`/lended/${book.id}`}>
+                                    <td>{book.title}</td>
+                                </Link>
+                                <td>{book.author}</td>
+
+                                <td>{rental.pick_up_date}</td>
+                                <td>{rental.due_date}</td>
+
+                            </tr>
+                        )
+                    })
+                })}
+            </tbody>
+        </Table>
+
+        <h2>My Rented Books</h2>
+
+        <Table striped>
+            <thead>
+                <tr>
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Pick Up Date</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {rentedBooks.map((book, index) => {
                     return (
 
                         <tr key={`book-${index}`}>
-                            <Link to={`/lended/${book.id}`}>
-                                <td>{book.title}</td>
-                            </Link>
+                            {/* <Link to={`/borrowed/${book.id}`}> */}
+                            <td>{book.title}</td>
+                            {/* </Link> */}
                             <td>{book.author}</td>
                             <td>{book.pick_up_date}</td>
                             <td>{book.due_date}</td>
@@ -34,6 +66,7 @@ const MyLibrary = ({ books }) => (
                 })}
             </tbody>
         </Table>
+
     </>
 )
 
