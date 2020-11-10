@@ -16,8 +16,6 @@ const Borrow = ({ books }) => (
                             <p>Description: {book.description}</p>
                             <p>Pages: {book.pages}</p>
                             <p>Series: {book.series}</p>
-                            <p>Pick Up Date: {book.pick_up_date}</p>
-                            <p>Due Date: {book.due_date}</p>
                         </div>
                         <br />
                         <Link to={`/borrow/${book.id}`} className="button">
