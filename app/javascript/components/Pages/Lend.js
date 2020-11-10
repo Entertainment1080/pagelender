@@ -12,8 +12,6 @@ export default class Lend extends Component {
                 description: "",
                 pages: "",
                 series: "",
-                pick_up_date: "",
-                due_date: "",
                 img_url: "",
                 user_id: this.props.current_user.id
             },
@@ -92,26 +90,6 @@ export default class Lend extends Component {
                         </FormGroup>
 
                         <FormGroup>
-                            <Label>Pick Up Date</Label>
-                            <Input
-                                type="datetime-local"
-                                name="pick_up_date"
-                                onChange={this.handleChange}
-                                value={form.pick_up_date}
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label>Due Date</Label>
-                            <Input
-                                type="datetime-local"
-                                name="due_date"
-                                onChange={this.handleChange}
-                                value={form.due_date}
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
                             <Label>Image Url</Label>
                             <Input
                                 type="text"
@@ -131,7 +109,7 @@ export default class Lend extends Component {
                     </Form>
                 </div>
 
-                { success && <Redirect to="/borrow" />}
+                { success && <Redirect to="/library" />}
 
             </div>
         )

@@ -38,7 +38,7 @@ export default class App extends React.Component {
   }
 
   bookIndex = () => {
-    fetch("http://localhost:3000/books")
+    fetch("/books")
       .then(response => {
         return response.json()
       })
@@ -53,7 +53,7 @@ export default class App extends React.Component {
   }
 
   rentalIndex = () => {
-    fetch("http://localhost:3000/rentals")
+    fetch("/rentals")
       .then(response => {
         return response.json()
       })
@@ -67,9 +67,29 @@ export default class App extends React.Component {
       })
   }
 
-  createNewBook = (form) => {
-    console.log(form);
+  createNewBook = (newBook) => {
+    console.log(newBook)
+    return fetch("/books", {
+      body: JSON.stringify(newBook),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+      .then(response => {
+        if (response.status === 422) {
+          alert("Invalid Submission")
+        }
+        return response.json()
+      })
+      .then(payload => {
+        this.bookIndex()
+      })
+      .catch(errors => {
+        console.log("Create errors: ", errors)
+      })
   }
+
 
   updateBook = (form, id) => {
     console.log(form)
@@ -79,7 +99,6 @@ export default class App extends React.Component {
   findItem = (arr, id) => {
     return arr.find(item => item.id === Number(id))
   }
-
 
 
   render() {
@@ -123,13 +142,22 @@ export default class App extends React.Component {
               let user = current_user.id
               let books = this.state.books.filter(book => book.user_id !== user)
               let rentals = this.state.rentals.filter(rental => rental.user_id !== user)
-              return (
-                <Borrow
-                  {...props}
-                  books={books}
-                  rentals={rentals}
-                />
-              )
+              if (books) {
+                return (
+                  <Borrow
+                    {...props}
+                    books={books}
+                    rentals={rentals}
+                  />
+                )
+              }
+              else {
+                return (
+                  <div>
+                    Loading Borroweable Books...
+                  </div>
+                )
+              }
             }}
           />
 
@@ -138,8 +166,6 @@ export default class App extends React.Component {
             render={(props) => {
               let book = this.findItem(this.state.books, props.match.params.id)
               if (book) {
-
-
                 return (
                   <BorrowShow
                     book={book}
@@ -148,7 +174,7 @@ export default class App extends React.Component {
               } else {
                 return (
                   <div>
-                    loading borrowed books
+                    Loading Book Your About To Borrow...
                   </div>
                 )
               }
@@ -163,8 +189,6 @@ export default class App extends React.Component {
               let book = this.findItem(this.state.books, props.match.params.id)
               let rental = this.findItem(this.state.rentals, props.match.params.id)
               if (book && rental) {
-
-
                 return (
                   <BorrowedShow
                     book={book}
@@ -174,7 +198,7 @@ export default class App extends React.Component {
               } else {
                 return (
                   <div>
-                    loading borrowed books
+                    Loading Book You Borrowed...
                   </div>
                 )
               }
@@ -199,9 +223,20 @@ export default class App extends React.Component {
             render={(props) => {
               let id = props.match.params.id
               let book = this.state.books.find(book => book.id === parseInt(id))
-              return (
-                <LendedShow book={book} />
-              )
+              // let rental = this.state.rentals.find(rental => rental.book_id === props.match.params.id)
+              if (book) {
+                return (
+                  <LendedShow
+                    book={book}
+                  />
+                )
+              } else {
+                return (
+                  <div>
+                    Loading Book You Lended...
+                  </div>
+                )
+              }
             }}
           />
 
@@ -229,4 +264,3 @@ export default class App extends React.Component {
     );
   }
 }
-
