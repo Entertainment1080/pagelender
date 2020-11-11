@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
 import { Button, Table } from 'reactstrap'
 
-const MyLibrary = ({ books, rentedBooks, nonRentedBooks }) => (
+const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook }) => (
 
     <>
         <h2>Books You Borrowed:</h2>
@@ -75,7 +75,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks }) => (
                     <th>Book</th>
                     <th>Author</th>
                     <th>Edit</th>
-                    <th>Due Date</th>
+                    <th>Delete Book</th>
                 </tr>
             </thead>
             <tbody>
@@ -91,7 +91,9 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks }) => (
                             <Link to={`/lend/${book.id}`}>
                                 <td>Edit Book</td>
                             </Link>
-                                {/* <td>{rental.due_date}</td> */}
+                            <td><Button onClick={() => deleteBook(book.id)}>
+                                Delete Book
+                            </Button></td>
 
                         </tr>
                     )

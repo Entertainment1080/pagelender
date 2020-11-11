@@ -105,7 +105,25 @@ export default class App extends React.Component {
       return response
     })
     .catch (errors => {
-      console.log("edit errors:", error)
+      console.log("edit errors:", errors)
+    })
+  }
+
+  deleteBook = (id) => {
+    return fetch(`/books/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then (response => {
+      if (response.status === 200) {
+        this.bookIndex()
+      }
+      return response.json()
+    })
+    .catch (errors => {
+      console.log("delete errors:", errors)
     })
   }
 
@@ -167,6 +185,7 @@ export default class App extends React.Component {
                   books={books}
                   rentedBooks={rentedBooks}
                   nonRentedBooks={nonRentedBooks}
+                  deleteBook={this.deleteBook}
                 />
               )
             }}
