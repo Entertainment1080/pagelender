@@ -17,6 +17,16 @@ class BooksController < ApplicationController
             render json: book.errors, status: 422
         end
     end
+
+    def update 
+        book = current_user.books.find(params[:id])
+        book.update(book_params)
+        if book.valid?
+            render json: book 
+        else 
+            render json: book.errors, status: 422
+        end
+    end
     
     private
     def book_params
