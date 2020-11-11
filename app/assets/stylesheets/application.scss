@@ -1,5 +1,10 @@
 @import 'bootstrap';
 
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
 body {
     text-align: center;
     margin-bottom: 10vh;
@@ -46,11 +51,31 @@ body {
 
 // .................................................. Footer
 
-#footer {
+div#footer {
     background-color: green;
     position: fixed;
     bottom: 0;
     width: 100%;
+    // text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#copy {
+    margin-right: 20vw;
+    text-align: left;
+}
+
+#about {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    text-align: center;
+}
+
+#top {
+    margin-left: 20vw;
+    text-align: right;
 }
 
 

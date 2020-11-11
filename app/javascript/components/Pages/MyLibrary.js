@@ -3,10 +3,10 @@ import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
 import { Button, Table } from 'reactstrap'
 
-const MyLibrary = ({ books }) => (
+const MyLibrary = ({ books, rentedBooks, nonRentedBooks }) => (
 
     <>
-        <h2>My Library</h2>
+        <h2>Books You Borrowed:</h2>
 
         <Table striped>
             <thead>
@@ -18,11 +18,11 @@ const MyLibrary = ({ books }) => (
                 </tr>
             </thead>
             <tbody>
-                {books.map((book, index) => {
+                {rentedBooks.map((book, index) => {
                     return (
 
                         <tr key={`book-${index}`}>
-                            <Link to={`/lended/${book.id}`}>
+                            <Link to={`/borrowed/${book.id}`}>
                                 <td>{book.title}</td>
                             </Link>
                             <td>{book.author}</td>
@@ -34,6 +34,71 @@ const MyLibrary = ({ books }) => (
                 })}
             </tbody>
         </Table>
+
+        <h2>Books You Lent:</h2>
+
+        <Table striped>
+            <thead>
+                <tr>
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Pick Up Date</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {books.map((book) => {
+                    return book.rentals.map(rental => {
+                        return (
+
+                            <tr key={`book-${rental.id}`}>
+                                <Link to={`/lended/${book.id}`}>
+                                    <td>{book.title}</td>
+                                </Link>
+                                <td>{book.author}</td>
+
+                                <td>{rental.pick_up_date}</td>
+                                <td>{rental.due_date}</td>
+
+                            </tr>
+                        )
+                    })
+                })}
+            </tbody>
+        </Table>
+
+        <h2>Your Available Books:</h2>
+
+        <Table striped>
+            <thead>
+                <tr>
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Pick Up Date</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {nonRentedBooks.map((book) => {
+                    return (
+
+                        <tr key={`book-${book.id}`}>
+                            <Link to={`/lended/${book.id}`}>
+                                <td>{book.title}</td>
+                            </Link>
+                            <td>{book.author}</td>
+
+                            {/* <td>{rental.pick_up_date}</td>
+                                <td>{rental.due_date}</td> */}
+
+                        </tr>
+                    )
+                })
+                }
+            </tbody>
+        </Table>
+
+
     </>
 )
 
