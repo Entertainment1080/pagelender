@@ -14,15 +14,12 @@ const Borrow = ({ books }) => (
                         <div className="info">
                             <h4>Author: {book.author}</h4>
                             <p>Description: {book.description}</p>
-                            <p>Pages: {book.pages}</p>
                             <p>Series: {book.series}</p>
+                            <p>Pages: {book.pages}</p>
                         </div>
                         <br />
                         <Link to={`/borrow/${book.id}`} className="button">
                             <Button className="info">More Info</Button>
-                        </Link>
-                        <Link to={`/`} className="button">
-                            <Button className="info">Back to Home</Button>
                         </Link>
                     </div>
                 )
@@ -39,8 +36,6 @@ Borrow.propTypes = {
         author: PropTypes.string,
         description: PropTypes.string,
         pages: PropTypes.integer,
-        series: PropTypes.string,
-        pick_up_date: PropTypes.string,
-        due_date: PropTypes.string
+        series: PropTypes.string
     })).isRequired
 }

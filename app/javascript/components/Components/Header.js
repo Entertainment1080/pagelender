@@ -5,13 +5,9 @@ const Header = ({ sign_out_route }) => (
 
     <div id="header">
 
-        <h3 className="title">PageLender</h3>
+        <a href="/"><h3 className="title">PageLender</h3></a>
 
         <Nav>
-
-            <NavItem>
-                <a href="/">Home</a>
-            </NavItem>
 
             <NavItem>
                 <a href="/library">Library</a>
@@ -23,6 +19,10 @@ const Header = ({ sign_out_route }) => (
 
             <NavItem>
                 <a href="/lend">Lend</a>
+            </NavItem>
+
+            <NavItem>
+                <a href="/">About Us</a>
             </NavItem>
 
             <NavItem>

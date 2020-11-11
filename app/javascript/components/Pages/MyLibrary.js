@@ -88,12 +88,19 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook }) => (
                             </Link>
                             <td>{book.author}</td>
 
-                            <Link to={`/lend/${book.id}`}>
-                                <td>Edit Book</td>
-                            </Link>
-                            <td><Button onClick={() => deleteBook(book.id)}>
-                                Delete Book
-                            </Button></td>
+                            <td>
+                                <Button>
+                                    <Link to={`/lend/${book.id}`}>
+                                        Edit Book
+                                    </Link>
+                                </Button>
+                            </td>
+
+                            <td>
+                                <Button onClick={() => deleteBook(book.id)}>
+                                    Delete Book
+                                </Button>
+                            </td>
 
                         </tr>
                     )

@@ -103,7 +103,7 @@ export default class Lend extends Component {
                             className="form-submit-btn"
                             onClick={this.handleSubmit}
                         >
-                            Add a new Book!
+                            Edit your Book!
                         </Button>
                     </Form>
                 </div>

@@ -6,8 +6,6 @@ export default class Home extends Component {
     render() {
         return (
             <>
-
-                {/* <h2 className="title">Home</h2> */}
                 <Row>
                     <Col>
                         <Link to="/library">

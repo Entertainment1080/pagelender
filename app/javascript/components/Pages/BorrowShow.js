@@ -12,8 +12,9 @@ const BorrowShow = ({ book }) => (
             <p className="apt-info">Description: {book.description}</p>
             <p className="apt-info">Pages: {book.pages}</p>
             <p className="apt-info">Series: {book.series}</p>
-            <p className="apt-info">Pick Up Date: {book.pick_up_date}</p>
-            <p className="apt-info">Due Date: {book.due_date}</p>
+            {/* Will impliment once I get create for rentals working */}
+            {/* <p className="apt-info">Pick Up Date: {book.rentals[0].pick_up_date}</p>
+            <p className="apt-info">Due Date: {book.rentals[0].due_date}</p> */}
             <Link to="/borrow" className="button">
                 <Button className="info">Back to All Books</Button>
             </Link>
