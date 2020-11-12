@@ -19,18 +19,25 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
             </thead>
             <tbody>
                 {rentedBooks.map((book, index) => {
-                    return (
+                    {
+                        return book.rentals.map(rental => {
 
-                        <tr key={`book-${index}`}>
-                            <Link className="libraryLink" to={`/borrowed/${book.id}`}>
-                                <td>{book.title}</td>
-                            </Link>
-                            <td>{book.author}</td>
-                            <td>{book.pick_up_date}</td>
-                            <td>{book.due_date}</td>
-                        </tr>
+                            return (
 
-                    )
+                                <tr key={`book-${index}`}>
+                                    <td>
+                                        <Link className="libraryLink" to={`/borrowed/${book.id}`}>
+                                            {book.title}
+                                        </Link>
+                                    </td>
+                                    <td>{book.author}</td>
+                                    <td>{parseDate(rental.pick_up_date)}</td>
+                                    <td>{parseDate(rental.due_date)}</td>
+                                </tr>
+
+                            )
+                        })
+                    }
                 })}
             </tbody>
         </Table>
@@ -52,9 +59,11 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                         return (
 
                             <tr key={`book-${rental.id}`}>
-                                <Link className="libraryLink" to={`/lended/${book.id}`}>
-                                    <td>{book.title}</td>
-                                </Link>
+                                <td>
+                                    <Link className="libraryLink" to={`/lended/${book.id}`}>
+                                        {book.title}
+                                    </Link>
+                                </td>
                                 <td>{book.author}</td>
 
                                 <td>{parseDate(rental.pick_up_date)}</td>
@@ -74,7 +83,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                 <tr>
                     <th>Book</th>
                     <th>Author</th>
-                    <th>Edit</th>
+                    <th>Edit Book</th>
                     <th>Delete Book</th>
                 </tr>
             </thead>
@@ -83,22 +92,24 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                     return (
 
                         <tr key={`book-${book.id}`}>
-                            <Link className="libraryLink" to={`/lended/${book.id}`}>
-                                <td>{book.title}</td>
-                            </Link>
+                            <td>
+                                <Link className="libraryLink" to={`/lended/${book.id}`}>
+                                    {book.title}
+                                </Link>
+                            </td>
                             <td>{book.author}</td>
 
                             <td>
                                 <Button>
                                     <Link to={`/lend/${book.id}`}>
-                                        Edit Book
+                                        Edit
                                     </Link>
                                 </Button>
                             </td>
 
                             <td>
                                 <Button onClick={() => deleteBook(book.id)}>
-                                    Delete Book
+                                    Delete
                                 </Button>
                             </td>
 

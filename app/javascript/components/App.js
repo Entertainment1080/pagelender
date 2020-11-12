@@ -16,6 +16,7 @@ import Lend from './Pages/Lend'
 import LendConfirmation from './Pages/LendConfirmation'
 import LendedShow from './Pages/LendedShow'
 import LendEdit from './Pages/LendEdit'
+import Rental from './Pages/Rental'
 import NotFound from './Pages/NotFound'
 
 import Header from './Components/Header'
@@ -86,6 +87,29 @@ export default class App extends React.Component {
       .catch(errors => {
         console.log("Create errors: ", errors)
       })
+  }
+
+  createNewRental = (newRental) => {
+    console.log(newRental);
+    // return fetch("/rentals", {
+    //   body: JSON.stringify(newRental),
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   method: "POST"
+    // })
+    //   .then(response => {
+    //     if (response.status === 422) {
+    //       alert("Invalid Submission")
+    //     }
+    //     return response.json()
+    //   })
+    //   .then(payload => {
+    //     this.bookIndex()
+    //   })
+    //   .catch(errors => {
+    //     console.log("Create errors: ", errors)
+    //   })
   }
 
 
@@ -214,6 +238,7 @@ export default class App extends React.Component {
                 return (
                   <BorrowShow
                     book={book}
+                    parseDate={this.parseDate}
                   />
                 )
               } else {
@@ -236,6 +261,7 @@ export default class App extends React.Component {
                 return (
                   <BorrowedShow
                     book={book}
+                    parseDate={this.parseDate}
                   />
                 )
               } else {
@@ -261,6 +287,17 @@ export default class App extends React.Component {
 
           <Route path="/lendconfirmation" component={LendConfirmation} />
 
+          <Route exact path="/rental"
+            render={(props) => {
+              return (
+                <Rental
+                  createNewRental={this.createNewRental}
+                  current_user={current_user}
+                />
+              )
+            }}
+          />
+
           <Route
             path="/lended/:id"
             render={(props) => {
@@ -270,6 +307,7 @@ export default class App extends React.Component {
                 return (
                   <LendedShow
                     book={book}
+                    parseDate={this.parseDate}
                   />
                 )
               } else {

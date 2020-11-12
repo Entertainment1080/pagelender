@@ -35,7 +35,7 @@ export default class Home extends Component {
                     <Col>
                         <Link to="/lend">
                             <div>
-                                <img class="homeImg" src={lend} />
+                                <img className="homeImg" src={lend} />
                                 <div className="text">
                                     <h3>Lend</h3>
                                     <p>Put your books up for other users to rent.</p>
