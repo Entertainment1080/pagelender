@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :rentals
   has_many :books
   has_many :book_rentals, through: :rentals, source: :book
+  validates :first_name, :last_name, :address, :city, :state, :zip_code, presence: true
 end
