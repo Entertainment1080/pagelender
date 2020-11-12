@@ -22,7 +22,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook }) => (
                     return (
 
                         <tr key={`book-${index}`}>
-                            <Link to={`/borrowed/${book.id}`}>
+                            <Link className="libraryLink" to={`/borrowed/${book.id}`}>
                                 <td>{book.title}</td>
                             </Link>
                             <td>{book.author}</td>
@@ -52,7 +52,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook }) => (
                         return (
 
                             <tr key={`book-${rental.id}`}>
-                                <Link to={`/lended/${book.id}`}>
+                                <Link className="libraryLink" to={`/lended/${book.id}`}>
                                     <td>{book.title}</td>
                                 </Link>
                                 <td>{book.author}</td>
@@ -83,7 +83,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook }) => (
                     return (
 
                         <tr key={`book-${book.id}`}>
-                            <Link to={`/lended/${book.id}`}>
+                            <Link className="libraryLink" to={`/lended/${book.id}`}>
                                 <td>{book.title}</td>
                             </Link>
                             <td>{book.author}</td>

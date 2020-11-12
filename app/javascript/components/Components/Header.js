@@ -27,7 +27,7 @@ const Header = ({ sign_out_route }) => (
             </NavItem>
 
             <NavItem>
-                <Link to={sign_out_route}>Sign Out</Link>
+                <a href={sign_out_route}>Sign Out</a>
             </NavItem>
 
         </Nav>
