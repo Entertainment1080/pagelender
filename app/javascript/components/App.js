@@ -5,7 +5,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-
+import { Spinner } from 'reactstrap'
 import Home from './Pages/Home'
 import MyLibrary from './Pages/MyLibrary'
 import Borrow from './Pages/Borrow'
@@ -224,6 +224,7 @@ export default class App extends React.Component {
                 return (
                   <div>
                     Loading Borrowable Books...
+                    <br /><Spinner style={{ width: '3rem', height: '3rem' }} color="dark" />
                   </div>
                 )
               }
@@ -245,6 +246,7 @@ export default class App extends React.Component {
                 return (
                   <div>
                     Loading the Book...
+                    <br /><Spinner style={{ width: '3rem', height: '3rem' }} color="dark" />
                   </div>
                 )
               }
@@ -268,6 +270,7 @@ export default class App extends React.Component {
                 return (
                   <div>
                     Loading Book You Borrowed...
+                    <br /><Spinner style={{ width: '3rem', height: '3rem' }} color="dark" />
                   </div>
                 )
               }
@@ -314,6 +317,7 @@ export default class App extends React.Component {
                 return (
                   <div>
                     Loading Book You Lended...
+                    <br /><Spinner style={{ width: '3rem', height: '3rem' }} color="dark" />
                   </div>
                 )
               }
@@ -336,6 +340,7 @@ export default class App extends React.Component {
                 return (
                   <div>
                     Loading Your Book...
+                    <br /><Spinner style={{ width: '3rem', height: '3rem' }} color="dark" />
                   </div>
                 )
               }
