@@ -67,7 +67,6 @@ export default class App extends React.Component {
   }
 
   createNewBook = (newBook) => {
-    console.log(newBook)
     return fetch("/books", {
       body: JSON.stringify(newBook),
       headers: {
@@ -127,23 +126,13 @@ export default class App extends React.Component {
       })
   }
 
-  findItem = (arr, id) => {
-    return arr.find(item => item.id === Number(id))
-  }
+  findItem = (arr, id) => arr.find(item => item.id === Number(id))
 
-  findRentedBooks = (arr, id) => {
-    let rentedBooks = arr.filter(book => book.rentals.length > 0)
-    return rentedBooks.filter(book => book.rentals[0].user_id === id)
-  }
+  findRentedBooks = (arr, id) => arr.filter(book => book.rentals.length > 0 && book.rentals[0].user_id === id)
 
-  findUsersNonRentedBooks = (arr, id) => {
-    return arr.filter(book => book.rentals.length === 0)
-  }
+  findUsersNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0)
 
-  findNonRentedBooks = (arr, id) => {
-    let nonRented = arr.filter(book => book.rentals.length === 0)
-    return nonRented.filter(book => book.user_id !== id)
-  }
+  findNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0 && book.user_id !== id)
 
 
   render() {
@@ -289,7 +278,6 @@ export default class App extends React.Component {
             render={(props) => {
               let id = props.match.params.id
               let book = this.state.books.find(book => book.id === parseInt(id))
-              console.log(book)
               if (book) {
                 return (
                   <LendEdit
