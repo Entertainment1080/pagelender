@@ -109,7 +109,7 @@ export default class Lend extends Component {
                     </Form>
                 </div>
 
-                { success && <Redirect to="/rental" />}
+                { success && <Redirect to="/lendconfirmation" />}
 
             </div>
         )

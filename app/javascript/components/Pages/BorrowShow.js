@@ -23,6 +23,10 @@ const BorrowShow = ({ book }) => (
             {/* Will impliment once I get create for rentals working */}
             {/* <p className="apt-info">Pick Up Date: {parseDate(book.rentals[0].pick_up_date)}</p>
             <p className="apt-info">Due Date: {parseDate(book.rentals[0].due_date)}</p> */}
+            <Link to={`/rental?book_id=${book.id}`} className="button">
+                <Button className="info">Rent Book</Button>
+            </Link>
+
             <Link to="/borrow" className="button">
                 <Button className="info">Back to All Books</Button>
             </Link>

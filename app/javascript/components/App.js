@@ -29,7 +29,8 @@ export default class App extends React.Component {
     this.state = {
       books: [],
       rentals: [],
-      headerColor: "#044f6d"
+      headerColor: "#044f6d",
+      newBook: null
     }
   }
 
@@ -83,6 +84,7 @@ export default class App extends React.Component {
         return response.json()
       })
       .then(payload => {
+        this.setState({ newBook: payload })
         this.bookIndex()
       })
       .catch(errors => {
@@ -91,26 +93,26 @@ export default class App extends React.Component {
   }
 
   createNewRental = (newRental) => {
-    console.log(newRental);
-    // return fetch("/rentals", {
-    //   body: JSON.stringify(newRental),
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   method: "POST"
-    // })
-    //   .then(response => {
-    //     if (response.status === 422) {
-    //       alert("Invalid Submission")
-    //     }
-    //     return response.json()
-    //   })
-    //   .then(payload => {
-    //     this.bookIndex()
-    //   })
-    //   .catch(errors => {
-    //     console.log("Create errors: ", errors)
-    //   })
+    return fetch("/rentals", {
+      body: JSON.stringify(newRental),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+      .then(response => {
+        if (response.status === 422) {
+          alert("Invalid Submission")
+        }
+        return response
+      })
+      .then(payload => {
+        this.bookIndex()
+        this.rentalIndex()
+      })
+      .catch(errors => {
+        console.log("Create errors: ", errors)
+      })
   }
 
 
@@ -263,7 +265,13 @@ export default class App extends React.Component {
             }}
           />
 
-          <Route path="/borrowconfirmation" component={BorrowConfirmation} />
+          <Route path="/borrowconfirmation" render={(props) => {
+            return (
+              <BorrowConfirmation
+                changeColor={this.changeColor}
+              />
+            )
+          }} />
 
           <Route
             path="/borrowed/:id"
@@ -298,12 +306,19 @@ export default class App extends React.Component {
             }}
           />
 
-          <Route path="/lendconfirmation" component={LendConfirmation} />
+          <Route path="/lendconfirmation" render={(props) => {
+            return (
+              <LendConfirmation
+                changeColor={this.changeColor}
+              />
+            )
+          }} />
 
           <Route exact path="/rental"
             render={(props) => {
               return (
                 <Rental
+                  book={this.state.newBook}
                   createNewRental={this.createNewRental}
                   current_user={current_user}
                 />

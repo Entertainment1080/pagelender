@@ -8,8 +8,6 @@ const Borrow = ({ books }) => (
     <>
         <h3 className="heading">All Books</h3>
         {books.map((book, index) => {
-            console.log(book);
-            console.log(book.img_url);
             return (
                 <div key={`book-${index}`} className="bookCard">
                     {book.img_url === "" &&
