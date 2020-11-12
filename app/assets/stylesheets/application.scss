@@ -1,31 +1,144 @@
-@import 'bootstrap';
+@import "bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@200;400&display=swap");
+// font-family: 'Fredoka One', cursive;
+// font-family: 'Poppins', sans-serif;
+
+html {
+  height: 100%;
+}
 
 body {
-    text-align: center;
-    height: 100vh;
-}
-
-.nav {
-    margin: 2vh 3vw 2vh 40vw;
-    display: flex;
-    justify-content: space-around;
-    position: sticky;
-    width: 100%;
-}
-
-#footer {
-    background-color: green;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  padding-bottom: 5vh;
 }
 
 .title {
-    margin: 1vh 2vw 1vh 2vw;
+  margin: 1vh 2vw 1vh 2vw;
+  font-family: "Fredoka One", cursive;
+}
+
+.page {
+  padding: 5vw;
+}
+
+// .................................................. Header
+
+.nav {
+  margin: 2vh 3vw 2vh 40vw;
+  display: flex;
+  justify-content: space-around;
+  position: sticky;
+  width: 100%;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+.nav-item {
+  color: white;
 }
 
 #header {
-    display: flex;
-    background-color: green;
+  display: flex;
+  background-color: #044f6d;
+  color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
 
+a {
+  text-decoration: none !important;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: white;
+}
+
+// .................................................. Home
+
+.homeImg {
+  height: 70vh;
+  min-width: 10vw;
+  width: 25vw;
+  max-width: 30vw;
+  border-radius: 30px;
+  box-shadow: 5px 5px 2.5px #5d5d5d;
+}
+
+.text{
+object-fit: cover;
+position: absolute;
+color: white;
+padding: 5vw;
+bottom: 5px;
+top:5px;
+right:5px;
+left:5px;
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+}
+
+img{
+  object-fit: cover;
+}
+
+#lendButton{
+background-image: url("");
+}
+
+// .................................................. Library
+
+.libraryLink{
+  color: black
+}
+
+// .................................................. Borrow
+
+.bookImg{
+  width: 15vw;
+}
+
+// .................................................. Lend
+
+.form-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 30vw;
+}
+
+// .................................................. Footer
+
+div#footer {
+  background-color: #044f6d;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  // text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#copy {
+  margin-right: 20vw;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#top {
+  margin-left: 20vw;
+  text-align: right;
 }

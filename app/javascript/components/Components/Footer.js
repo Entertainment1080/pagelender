@@ -1,11 +1,16 @@
-import React, { Component } from "react"
+import React from "react"
+import { Link } from 'react-router-dom'
 
-export default class Footer extends Component {
-    render(){
-        return(
-            <div id="footer">
-                <h3>Footer</h3>
-            </div>
-        )
-    }
+const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+
+const Footer = (props) => (
+
+    <div id="footer">
+        <p id="copy">PageLender &copy; 2020</p>
+        <h6 id="top" onClick={scrollTop}>Back to Top</h6>
+    </div>
+)
+
+export default Footer;

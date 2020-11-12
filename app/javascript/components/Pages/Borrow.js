@@ -1,11 +1,49 @@
-import React, { Component } from "react"
+import React from "react"
+import PropTypes from "prop-types"
+import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap'
+import Book from '../../../assets/images/book.png'
 
-export default class Borrow extends Component {
-    render(){
-        return(
-            <>
-                <h3>Borrow</h3>
-            </>
-        )
-    }
+const Borrow = ({ books }) => (
+    <>
+        <h3 className="heading">All Books</h3>
+        {books.map((book, index) => {
+            console.log(book);
+            console.log(book.img_url);
+            return (
+                <div key={`book-${index}`} className="bookCard">
+                    {book.img_url === "" &&
+                        <img className="bookImg" src={Book} />
+                    }
+                    {book.img_url.length > 0 &&
+                        <img className="bookImg" src={book.img_url} />
+                    }
+                    <p>{book.title}</p>
+                    <div className="info">
+                        <h4>Author: {book.author}</h4>
+                        <p>Description: {book.description}</p>
+                        <p>Series: {book.series}</p>
+                        <p>Pages: {book.pages}</p>
+                    </div>
+                    <br />
+                    <Link to={`/borrow/${book.id}`} className="button">
+                        <Button className="info">More Info</Button>
+                    </Link>
+                </div>
+            )
+        })
+        }
+    </>
+)
+
+export default Borrow;
+
+Borrow.propTypes = {
+    books: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string,
+        author: PropTypes.string,
+        description: PropTypes.string,
+        pages: PropTypes.integer,
+        series: PropTypes.string
+    })).isRequired
 }

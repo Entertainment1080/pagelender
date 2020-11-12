@@ -1,45 +1,37 @@
-import React, { Component } from "react"
+import React from "react"
 import { Nav, NavItem } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
-export default class Header extends Component {
-    render(){
-        const {
-            logged_in,
-            sign_in_route,
-            sign_up_route,
-            sign_out_route
-        } = this.props
-        return(
-            <div id="header">
+const Header = ({ sign_out_route }) => (
 
-                <h3 className="title">PageLender</h3>
+    <div id="header">
 
-                <Nav>
-                    
-                    <NavItem>
-                        <a href="/">Home</a>
-                    </NavItem>
-                   
-                    <NavItem>
-                        <a href="/library">Library</a>
-                    </NavItem>
-                   
-                    <NavItem>
-                        <a href="/borrow">Borrow</a>
-                    </NavItem>
-                   
-                    <NavItem>
-                        <a href="/lend">Lend</a>
-                    </NavItem>
+        <a href="/"><h2 className="title">PageLender</h2></a>
 
-                    { logged_in && 
-                        <NavItem>
-                            <a href={sign_out_route}>Sign Out</a>
-                        </NavItem>
-                    }
+        <Nav>
 
-                </Nav>
-            </div>
-        )
-    }
-}
+            <NavItem>
+                <Link to="/library">Library</Link>
+            </NavItem>
+
+            <NavItem>
+                <Link to="/borrow">Borrow</Link>
+            </NavItem>
+
+            <NavItem>
+                <Link to="/lend">Lend</Link>
+            </NavItem>
+
+            <NavItem>
+                <Link to="/">About Us</Link>
+            </NavItem>
+
+            <NavItem>
+                <a href={sign_out_route}>Sign Out</a>
+            </NavItem>
+
+        </Nav>
+    </div>
+)
+
+export default Header;
