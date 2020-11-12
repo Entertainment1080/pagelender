@@ -9,7 +9,7 @@ const Footer = (props) => (
 
     <div id="footer">
         <p id="copy">PageLender &copy; 2020</p>
-        <h5 id="top" onClick={scrollTop}>Back to Top</h5>
+        <h6 id="top" onClick={scrollTop}>Back to Top</h6>
     </div>
 )
 
