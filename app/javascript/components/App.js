@@ -331,7 +331,6 @@ export default class App extends React.Component {
             render={(props) => {
               let id = props.match.params.id
               let book = this.findItem(this.state.books, parseInt(id))
-              console.log("Lended:", book);
               if (book) {
                 return (
                   <LendedShow
