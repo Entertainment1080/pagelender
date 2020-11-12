@@ -5,11 +5,14 @@ import { Redirect } from 'react-router-dom'
 export default class Rental extends Component {
     constructor(props) {
         super(props)
+        const urlParams = new URLSearchParams(window.location.search);
+        const book_id = urlParams.get('book_id');
         this.state = {
             form: {
-                book_id: "",
+                book_id: book_id,
                 pick_up_date: "",
-                due_date: ""
+                due_date: "",
+                user_id: this.props.current_user.id
             },
             success: false
         }

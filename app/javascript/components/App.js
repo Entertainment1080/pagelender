@@ -28,7 +28,9 @@ export default class App extends React.Component {
     super(props)
     this.state = {
       books: [],
-      rentals: []
+      rentals: [],
+      headerColor: "#044f6d",
+      newBook: null
     }
   }
 
@@ -82,6 +84,7 @@ export default class App extends React.Component {
         return response.json()
       })
       .then(payload => {
+        this.setState({ newBook: payload })
         this.bookIndex()
       })
       .catch(errors => {
@@ -90,26 +93,26 @@ export default class App extends React.Component {
   }
 
   createNewRental = (newRental) => {
-    console.log(newRental);
-    // return fetch("/rentals", {
-    //   body: JSON.stringify(newRental),
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   method: "POST"
-    // })
-    //   .then(response => {
-    //     if (response.status === 422) {
-    //       alert("Invalid Submission")
-    //     }
-    //     return response.json()
-    //   })
-    //   .then(payload => {
-    //     this.bookIndex()
-    //   })
-    //   .catch(errors => {
-    //     console.log("Create errors: ", errors)
-    //   })
+    return fetch("/rentals", {
+      body: JSON.stringify(newRental),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+      .then(response => {
+        if (response.status === 422) {
+          alert("Invalid Submission")
+        }
+        return response
+      })
+      .then(payload => {
+        this.bookIndex()
+        this.rentalIndex()
+      })
+      .catch(errors => {
+        console.log("Create errors: ", errors)
+      })
   }
 
 
@@ -154,7 +157,7 @@ export default class App extends React.Component {
 
   findRentedBooks = (arr, id) => arr.filter(book => book.rentals.length > 0 && book.rentals[0].user_id === id)
 
-  findUsersNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0)
+  findUsersNonRentedBooks = (arr) => arr.filter(book => book.rentals.length === 0)
 
   findNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0 && book.user_id !== id)
 
@@ -165,6 +168,8 @@ export default class App extends React.Component {
     const minOffset = offsetMult * (+d[8] || 0);
     return new Date(Date.UTC(+d[0], +d[1] - 1, +d[2], +d[3] + hrOffset, +d[4] + minOffset, +d[5], +d[6] || 0)).toString();
   };
+
+  changeColor = (color) => this.setState({ headerColor: color })
 
   render() {
     const {
@@ -182,12 +187,19 @@ export default class App extends React.Component {
           sign_in_route={sign_in_route}
           sign_up_route={sign_up_route}
           sign_out_route={sign_out_route}
-          current_user={current_user}
+          changeColor={this.changeColor}
+          headerColor={this.state.headerColor}
         />
 
         <Switch>
 
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={(props) => {
+            return (
+              <Home
+                changeColor={this.changeColor}
+              />
+            )
+          }} />
 
           <Route path="/library"
             render={(props) => {
@@ -253,7 +265,13 @@ export default class App extends React.Component {
             }}
           />
 
-          <Route path="/borrowconfirmation" component={BorrowConfirmation} />
+          <Route path="/borrowconfirmation" render={(props) => {
+            return (
+              <BorrowConfirmation
+                changeColor={this.changeColor}
+              />
+            )
+          }} />
 
           <Route
             path="/borrowed/:id"
@@ -288,12 +306,19 @@ export default class App extends React.Component {
             }}
           />
 
-          <Route path="/lendconfirmation" component={LendConfirmation} />
+          <Route path="/lendconfirmation" render={(props) => {
+            return (
+              <LendConfirmation
+                changeColor={this.changeColor}
+              />
+            )
+          }} />
 
           <Route exact path="/rental"
             render={(props) => {
               return (
                 <Rental
+                  book={this.state.newBook}
                   createNewRental={this.createNewRental}
                   current_user={current_user}
                 />
@@ -351,7 +376,9 @@ export default class App extends React.Component {
 
         </Switch>
 
-        <Footer />
+        <Footer
+          headerColor={this.state.headerColor}
+        />
 
       </Router>
     );

@@ -7,11 +7,12 @@ import lend from '../../../assets/images/lendImg.png'
 
 export default class Home extends Component {
     render() {
+        const { changeColor } = this.props
         return (
             <div className="page" style={{ backgroundColor: "#ECFDFF" }}>
                 <Row>
                     <Col>
-                        <Link to="/library">
+                        <Link to="/library" onClick={() => changeColor("#46C2A5")}>
                             <div>
                                 <img className="homeImg" src={library} />
                                 <div className="text">
@@ -22,7 +23,7 @@ export default class Home extends Component {
                         </Link>
                     </Col>
                     <Col>
-                        <Link to="/borrow">
+                        <Link to="/borrow" onClick={() => changeColor("#044F6D")}>
                             <div>
                                 <img className="homeImg" src={borrow} />
                                 <div className="text">
@@ -33,7 +34,7 @@ export default class Home extends Component {
                         </Link>
                     </Col>
                     <Col>
-                        <Link to="/lend">
+                        <Link to="/lend" onClick={() => changeColor("#F8C922")}>
                             <div>
                                 <img className="homeImg" src={lend} />
                                 <div className="text">
