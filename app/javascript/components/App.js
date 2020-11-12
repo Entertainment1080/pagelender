@@ -67,7 +67,6 @@ export default class App extends React.Component {
   }
 
   createNewBook = (newBook) => {
-    console.log(newBook)
     return fetch("/books", {
       body: JSON.stringify(newBook),
       headers: {
@@ -98,34 +97,42 @@ export default class App extends React.Component {
       },
       method: "PATCH"
     })
-    .then (response => {
-      if (response.status === 200) {
-        this.bookIndex()
-      }
-      return response
+      .then(response => {
+        if (response.status === 200) {
+          this.bookIndex()
+        }
+        return response
+      })
+      .catch(errors => {
+        console.log("edit errors:", errors)
+      })
+  }
+
+  deleteBook = (id) => {
+    return fetch(`/books/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
     })
-    .catch (errors => {
-      console.log("edit errors:", error)
-    })
+      .then(response => {
+        if (response.status === 200) {
+          this.bookIndex()
+        }
+        return response.json()
+      })
+      .catch(errors => {
+        console.log("delete errors:", errors)
+      })
   }
 
-  findItem = (arr, id) => {
-    return arr.find(item => item.id === Number(id))
-  }
+  findItem = (arr, id) => arr.find(item => item.id === Number(id))
 
-  findRentedBooks = (arr, id) => {
-    let rentedBooks = arr.filter(book => book.rentals.length > 0)
-    return rentedBooks.filter(book => book.rentals[0].user_id === id)
-  }
+  findRentedBooks = (arr, id) => arr.filter(book => book.rentals.length > 0 && book.rentals[0].user_id === id)
 
-  findUsersNonRentedBooks = (arr, id) => {
-    return arr.filter(book => book.rentals.length === 0)
-  }
+  findUsersNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0)
 
-  findNonRentedBooks = (arr, id) => {
-    let nonRented = arr.filter(book => book.rentals.length === 0)
-    return nonRented.filter(book => book.user_id !== id)
-  }
+  findNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0 && book.user_id !== id)
 
 
   render() {
@@ -136,9 +143,6 @@ export default class App extends React.Component {
       sign_out_route,
       current_user
     } = this.props
-
-    console.log(current_user);
-
     return (
       <Router>
 
@@ -160,13 +164,13 @@ export default class App extends React.Component {
               let books = this.state.books.filter(book => book.user_id === user)
               let rentedBooks = this.findRentedBooks(this.state.books, user)
               let nonRentedBooks = this.findUsersNonRentedBooks(books, user)
-              console.log(nonRentedBooks);
               return (
                 <MyLibrary
                   {...props}
                   books={books}
                   rentedBooks={rentedBooks}
                   nonRentedBooks={nonRentedBooks}
+                  deleteBook={this.deleteBook}
                 />
               )
             }}
@@ -187,7 +191,7 @@ export default class App extends React.Component {
               else {
                 return (
                   <div>
-                    Loading Borroweable Books...
+                    Loading Borrowable Books...
                   </div>
                 )
               }
@@ -207,7 +211,7 @@ export default class App extends React.Component {
               } else {
                 return (
                   <div>
-                    Loading Book Your About To Borrow...
+                    Loading the Book...
                   </div>
                 )
               }
@@ -220,12 +224,10 @@ export default class App extends React.Component {
             path="/borrowed/:id"
             render={(props) => {
               let book = this.findItem(this.state.books, props.match.params.id)
-              let rental = this.findItem(this.state.rentals, props.match.params.id)
-              if (book && rental) {
+              if (book) {
                 return (
                   <BorrowedShow
                     book={book}
-                    rental={rental}
                   />
                 )
               } else {
@@ -255,13 +257,11 @@ export default class App extends React.Component {
             path="/lended/:id"
             render={(props) => {
               let id = props.match.params.id
-              let book = this.state.books.find(book => book.id === parseInt(id))
-              let rental = this.state.rentals.find(rental => rental.book_id === parseInt(id))
+              let book = this.findItem(this.state.books, parseInt(id))
               if (book) {
                 return (
                   <LendedShow
                     book={book}
-                    rental={rental}
                   />
                 )
               } else {
@@ -278,7 +278,6 @@ export default class App extends React.Component {
             render={(props) => {
               let id = props.match.params.id
               let book = this.state.books.find(book => book.id === parseInt(id))
-              console.log(book)
               if (book) {
                 return (
                   <LendEdit
@@ -289,12 +288,12 @@ export default class App extends React.Component {
                 )
               } else {
                 return (
-                 <div>
-                   Loading Your Book...
-                 </div>
+                  <div>
+                    Loading Your Book...
+                  </div>
                 )
               }
-            }}   
+            }}
           />
 
           <Route component={NotFound} />

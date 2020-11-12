@@ -27,6 +27,15 @@ class BooksController < ApplicationController
             render json: book.errors, status: 422
         end
     end
+
+    def destroy
+        book = current_user.books.find(params[:id])
+        if book.destroy
+            render json: book 
+        else 
+            render json: book.errors, status: 422
+        end
+    end
     
     private
     def book_params
