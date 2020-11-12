@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
 import { Button, Table } from 'reactstrap'
 
-const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook }) => (
+const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }) => (
 
     <>
         <h2>Books You Borrowed:</h2>
@@ -57,8 +57,8 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook }) => (
                                 </Link>
                                 <td>{book.author}</td>
 
-                                <td>{rental.pick_up_date}</td>
-                                <td>{rental.due_date}</td>
+                                <td>{parseDate(rental.pick_up_date)}</td>
+                                <td>{parseDate(rental.due_date)}</td>
 
                             </tr>
                         )

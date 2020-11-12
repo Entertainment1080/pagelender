@@ -134,6 +134,13 @@ export default class App extends React.Component {
 
   findNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0 && book.user_id !== id)
 
+  parseDate = (isoString) => {
+    const d = isoString.split(/\D+/);
+    const offsetMult = isoString.indexOf('+') !== -1 ? -1 : 1;
+    const hrOffset = offsetMult * (+d[7] || 0);
+    const minOffset = offsetMult * (+d[8] || 0);
+    return new Date(Date.UTC(+d[0], +d[1] - 1, +d[2], +d[3] + hrOffset, +d[4] + minOffset, +d[5], +d[6] || 0)).toString();
+  };
 
   render() {
     const {
@@ -171,6 +178,7 @@ export default class App extends React.Component {
                   rentedBooks={rentedBooks}
                   nonRentedBooks={nonRentedBooks}
                   deleteBook={this.deleteBook}
+                  parseDate={this.parseDate}
                 />
               )
             }}
