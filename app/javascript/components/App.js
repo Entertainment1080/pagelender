@@ -28,7 +28,8 @@ export default class App extends React.Component {
     super(props)
     this.state = {
       books: [],
-      rentals: []
+      rentals: [],
+      headerColor: "#044f6d"
     }
   }
 
@@ -154,7 +155,7 @@ export default class App extends React.Component {
 
   findRentedBooks = (arr, id) => arr.filter(book => book.rentals.length > 0 && book.rentals[0].user_id === id)
 
-  findUsersNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0)
+  findUsersNonRentedBooks = (arr) => arr.filter(book => book.rentals.length === 0)
 
   findNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0 && book.user_id !== id)
 
@@ -165,6 +166,8 @@ export default class App extends React.Component {
     const minOffset = offsetMult * (+d[8] || 0);
     return new Date(Date.UTC(+d[0], +d[1] - 1, +d[2], +d[3] + hrOffset, +d[4] + minOffset, +d[5], +d[6] || 0)).toString();
   };
+
+  changeColor = (color) => this.setState({ headerColor: color })
 
   render() {
     const {
@@ -182,12 +185,19 @@ export default class App extends React.Component {
           sign_in_route={sign_in_route}
           sign_up_route={sign_up_route}
           sign_out_route={sign_out_route}
-          current_user={current_user}
+          changeColor={this.changeColor}
+          headerColor={this.state.headerColor}
         />
 
         <Switch>
 
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={(props) => {
+            return (
+              <Home
+                changeColor={this.changeColor}
+              />
+            )
+          }} />
 
           <Route path="/library"
             render={(props) => {
@@ -351,7 +361,9 @@ export default class App extends React.Component {
 
         </Switch>
 
-        <Footer />
+        <Footer
+          headerColor={this.state.headerColor}
+        />
 
       </Router>
     );
