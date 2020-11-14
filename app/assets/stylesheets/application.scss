@@ -2,11 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@200;400&display=swap");
 // font-family: 'Fredoka One', cursive;
 // font-family: 'Poppins', sans-serif;
-*{
+* {
   margin: 0;
 }
 
-html, body {
+html,
+body {
   text-align: center;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
@@ -21,7 +22,7 @@ html, body {
   font-family: "Fredoka One", cursive;
 }
 
-.homePage{
+.homePage {
   padding: 5vw;
 }
 
@@ -81,34 +82,34 @@ a:hover {
   box-shadow: 5px 5px 2.5px #5d5d5d;
 }
 
-.text{
-object-fit: cover;
-position: absolute;
-color: white;
-padding: 5vw;
-bottom: 5px;
-top:5px;
-right:5px;
-left:5px;
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-overflow: hidden;
+.text {
+  object-fit: cover;
+  position: absolute;
+  color: white;
+  padding: 5vw;
+  bottom: 5px;
+  top: 5px;
+  right: 5px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-img{
+img {
   object-fit: cover;
 }
 
-#lendButton{
-background-image: url("");
+#lendButton {
+  background-image: url("");
 }
 
 // .................................................. Library
-.libraryHeaderText{
+.libraryHeaderText {
   font-family: "Fredoka One", cursive;
-  color: #46C2A5;
+  color: #46c2a5;
   padding-top: 3vh;
 }
 
@@ -116,46 +117,46 @@ background-image: url("");
 //   padding-top: 2vh
 // }
 
-.table{
-  margin-left:auto;
-  margin-right:auto;
+.table {
+  margin-left: auto;
+  margin-right: auto;
   width: 90vw;
   box-shadow: 3px 3px 2.5px #5d5d5d;
 }
 
-.mainRow{
-  background-color: #46C2A5;
-  color: white
+.mainRow {
+  background-color: #46c2a5;
+  color: white;
 }
 
-.bodyRow{
+.bodyRow {
   background-color: white;
 }
 
-.libraryLink{
-  color: black
+.libraryLink {
+  color: black;
 }
 
-#editButton{
-  background-color: #46C2A5;
-  }
+#editButton {
+  background-color: #46c2a5;
+}
 
-#editButton:hover{
-  background-color: #4CDBB9;
-  }
+#editButton:hover {
+  background-color: #4cdbb9;
+}
 
-#deleteButton{
-  background-color: #F14B4B;
-  }
+#deleteButton {
+  background-color: #f14b4b;
+}
 
-#deleteButton:hover{
-  background-color:#FF6060 ;
-  }
+#deleteButton:hover {
+  background-color: #ff6060;
+}
 
 // .................................................. Library-Books You Borrowed Page
 
-.imgCard{
-  border: 2px solid #46C2A5;
+.imgCard {
+  border: 2px solid #46c2a5;
   background-color: white;
   padding: 20px;
   border-radius: 20px;
@@ -166,10 +167,10 @@ background-image: url("");
   float: left;
 }
 
-.imgCard img{
+.imgCard img {
   width: 100%;
   max-width: 100%;
-  height: auto; 
+  height: auto;
   max-height: 75vh;
   display: block;
   margin-left: auto;
@@ -177,23 +178,22 @@ background-image: url("");
   border-radius: 20px;
 }
 
-.detailsCard{
-  border: 2px solid #46C2A5;
+.detailsCard {
+  border: 2px solid #46c2a5;
   background-color: white;
   padding: 20px;
   border-radius: 20px;
   width: 60%;
   height: 80vh;
   text-align: center;
-  float:right;
+  float: right;
 }
 
 // .................................................. Library-Books You Borrowed Page
 
-
 // .................................................. Borrow
 
-.bookImg{
+.bookImg {
   width: 15vw;
 }
 
@@ -210,16 +210,46 @@ background-image: url("");
   width: 30vw;
 }
 
+// .................................................. Lend
+
+#intro {
+  display: block;
+  padding: 10px;
+  margin: 25px 5px 25px 5px;
+}
+
+.whatIsPage {
+  margin: 25px;
+}
+
+#appUse {
+  display: block;
+  padding: 10px;
+  margin: 25px 5px 25px 5px;
+}
+
+.mission {
+  margin: 25px;
+}
+
+#whoWeAre {
+  display: block;
+  padding: 10px;
+  margin: 25px 5px 25px 5px;
+}
+.team {
+  margin: 25px;
+}
+
 // .................................................. Footer
 
 div#footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  // text-align: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   width: 100%;
 }
 
@@ -227,9 +257,12 @@ div#footer {
   margin-right: 20vw;
   text-align: left;
   vertical-align: middle;
+  align-items: center;
 }
 
 #top {
   margin-left: 20vw;
   text-align: right;
+  vertical-align: middle;
+  align-items: center;
 }
