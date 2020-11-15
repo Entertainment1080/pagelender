@@ -7,7 +7,7 @@ import Book from '../../../assets/images/book.png'
 const LendedShow = ({ book, parseDate }) => (
 
 
-    <div className="show">
+    <div className="page" style={{ backgroundColor: "#E3F8F2" }}>
         {book.rentals.length > 0 &&
             <div className="bookCard">
                 {book.img_url === "" &&
@@ -47,7 +47,6 @@ const LendedShow = ({ book, parseDate }) => (
             </div>
         }
     </div>
-
 )
 
 export default LendedShow;

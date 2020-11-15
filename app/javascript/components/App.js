@@ -22,6 +22,8 @@ import NotFound from './Pages/NotFound'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 
+import { format, parseISO } from 'date-fns'
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -38,6 +40,8 @@ export default class App extends React.Component {
     this.bookIndex()
     this.rentalIndex()
   }
+
+  //........................................... Fetch Requests
 
   bookIndex = () => {
     fetch("/books")
@@ -153,6 +157,23 @@ export default class App extends React.Component {
       })
   }
 
+  // fetchReview = (title, author) => {
+  //   return fetch(`https://www.goodreads.com/book/title.json?key=C6ADuioOC7UwvXyJm2pGQ&title=${title}&author=${author}`)
+  //     .then(response => {
+  //       return response
+  //     })
+  //     .then(payload => {
+  //       this.setState({
+  //         bookReview: payload
+  //       })
+  //     })
+  //     .catch(errors => {
+  //       console.log("review errors: ", errors)
+  //     })
+  // }
+
+  //........................................... Helper Methods
+
   findItem = (arr, id) => arr.find(item => item.id === Number(id))
 
   findRentedBooks = (arr, id) => arr.filter(book => book.rentals.length > 0 && book.rentals[0].user_id === id)
@@ -162,12 +183,9 @@ export default class App extends React.Component {
   findNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0 && book.user_id !== id)
 
   parseDate = (isoString) => {
-    const d = isoString.split(/\D+/);
-    const offsetMult = isoString.indexOf('+') !== -1 ? -1 : 1;
-    const hrOffset = offsetMult * (+d[7] || 0);
-    const minOffset = offsetMult * (+d[8] || 0);
-    return new Date(Date.UTC(+d[0], +d[1] - 1, +d[2], +d[3] + hrOffset, +d[4] + minOffset, +d[5], +d[6] || 0)).toString();
-  };
+    let parsedIso = parseISO(isoString)
+    return format(parsedIso, "MMM, do y h:m a")
+  }
 
   changeColor = (color) => this.setState({ headerColor: color })
 
