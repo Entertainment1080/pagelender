@@ -100,7 +100,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                             <td>{book.author}</td>
 
                             <td>
-                                <Button id="editButton">
+                                <Button className="editButton">
                                     <Link to={`/lend/${book.id}`}>
                                         Edit
                                     </Link>

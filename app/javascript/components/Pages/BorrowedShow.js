@@ -25,7 +25,7 @@ const BorrowedShow = ({ book, parseDate }) => (
             <p className="apt-info">Due Date: {parseDate(book.rentals[0].due_date)}</p>
             <br />
             <Link to="/library" className="button">
-                <Button className="info">Back to your Library</Button>
+                <Button className="editButton">Back to your Library</Button>
             </Link>
         </div>
     </div >

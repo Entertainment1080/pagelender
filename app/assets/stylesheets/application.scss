@@ -95,6 +95,12 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 overflow: hidden;
+
+}
+
+.text h3{
+  font-family: "Fredoka One", cursive;
+  padding-bottom: 4vh;
 }
 
 img{
@@ -136,11 +142,11 @@ background-image: url("");
   color: black
 }
 
-#editButton{
+.editButton{
   background-color: #46C2A5;
   }
 
-#editButton:hover{
+.editButton:hover{
   background-color: #4CDBB9;
   }
 
