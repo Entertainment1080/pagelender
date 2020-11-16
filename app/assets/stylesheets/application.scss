@@ -198,7 +198,12 @@ background-image: url("");
 }
 
 // .................................................. Borrow
-
+#borrowPage{
+  // height: 100%;
+  overflow: hidden;
+  padding-top: 0vh;
+  padding-bottom: 6vh;
+}
 
 #borrow-body {
   display: flex;
