@@ -83,13 +83,23 @@ a:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  overflow:hidden;
+  width: 100%;
+  height: 100vh;
+  max-height: auto;
+  // overflow:hidden;
 }
 
 .devise h1{
   font-size: 7vw;
   font-family: 'Fredoka One', cursive;
   color: white;
+  padding-bottom: 8vh;
+}
+
+.devise h2{
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  margin-bottom: 3vh;
 }
 
 .devise hr{
@@ -101,12 +111,38 @@ a:hover {
   padding: 10px;
   color: white;
   border-radius: 20px;
-  width: 30vw;
+  width: 40vw;
   height:auto;
 }
 
+.devise-create{
+  background-image: url(devise-background2.png);
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 150vh;
+  max-height: auto;
+  // overflow:hidden;
+}
+
+.devise-create h1{
+  font-size: 7vw;
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  padding-bottom: 8vh;
+}
+
+.devise-create h2{
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  margin-bottom: 3vh;
+}
+
 .field {
-  margin: 10px;
+  margin-bottom: 20px;
 }
 
 // .................................................. Home
