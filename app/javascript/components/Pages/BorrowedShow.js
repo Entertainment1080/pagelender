@@ -7,7 +7,7 @@ import Book from '../../../assets/images/book.png'
 
 const BorrowedShow = ({ book, parseDate }) => (
     <div className="page" style={{ backgroundColor: "#E3F8F2" }}>
-        <div className="imgCard">
+        <div className="imgCard" style={{ border: "3px solid #46C2A5" }}>
             {book.img_url === "" &&
                 <img src={Book} />
             }
@@ -15,7 +15,7 @@ const BorrowedShow = ({ book, parseDate }) => (
                 <img src={book.img_url} />
             }
         </div>
-        <div className="detailsCard">
+        <div className="detailsCard" style={{ border: "3px solid #46C2A5" }}>
             <h3 className="heading">{book.title}</h3>
             <p className="apt-info">Author: {book.author}</p>
             <p className="apt-info">Description: {book.description}</p>

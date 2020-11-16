@@ -7,14 +7,16 @@ import Book from '../../../assets/images/book.png'
 
 const BorrowShow = ({ book }) => (
 
-    <div className="show">
-        <div className="bookCard">
+    <div className="page" style={{ backgroundColor: "#ECFDFF" }}>
+        <div className="imgCard" style={{ border: "3px solid #044F6D" }}>
             {book.img_url === "" &&
                 <img className="bookImg" src={Book} />
             }
             {book.img_url.length > 0 &&
                 <img className="bookImg" src={book.img_url} />
             }
+        </div>
+        <div className="detailsCard" style={{ border: "3px solid #044F6D" }}>
             <h3 className="heading">{book.title}</h3>
             <p className="apt-info">Author: {book.author}</p>
             <p className="apt-info">Description: {book.description}</p>
@@ -24,15 +26,13 @@ const BorrowShow = ({ book }) => (
             {/* <p className="apt-info">Pick Up Date: {parseDate(book.rentals[0].pick_up_date)}</p>
             <p className="apt-info">Due Date: {parseDate(book.rentals[0].due_date)}</p> */}
             <Link to={`/rental?book_id=${book.id}`} className="button">
-                <Button className="info">Rent Book</Button>
+                <Button className="borrowInfoButton">Rent Book</Button>
             </Link>
-
             <Link to="/borrow" className="button">
-                <Button className="info">Back to All Books</Button>
+                <Button className="borrowInfoButton">Back to All Books</Button>
             </Link>
         </div>
-    </div>
-
+    </div >
 )
 
 export default BorrowShow;

@@ -11,7 +11,7 @@ const LendedShow = ({ book, parseDate }) => (
 
         {book.rentals.length > 0 &&
             <div>
-                <div className="imgCard">
+                <div className="imgCard" style={{ border: "3px solid #46C2A5" }}>
                     {book.img_url === "" &&
                         <img src={Book} />
                     }
@@ -19,7 +19,7 @@ const LendedShow = ({ book, parseDate }) => (
                         <img src={book.img_url} />
                     }
                 </div>
-                <div className="detailsCard">
+                <div className="detailsCard" style={{ border: "3px solid #46C2A5" }}>
                     <h3 className="heading">{book.title}</h3>
                     <p className="apt-info">Author: {book.author}</p>
                     <p className="apt-info">Description: {book.description}</p>
@@ -35,7 +35,7 @@ const LendedShow = ({ book, parseDate }) => (
         }
         {book.rentals.length === 0 &&
             <div>
-                <div className="imgCard">
+                <div className="imgCard" style={{ border: "3px solid #46C2A5" }}>
                     {book.img_url === "" &&
                         <img className="bookImg" src={Book} />
                     }
@@ -43,7 +43,7 @@ const LendedShow = ({ book, parseDate }) => (
                         <img className="bookImg" src={book.img_url} />
                     }
                 </div>
-                <div className="detailsCard">
+                <div className="detailsCard" style={{ border: "3px solid #46C2A5" }}>
                     <h3 className="heading">{book.title}</h3>
                     <p className="apt-info">Author: {book.author}</p>
                     <p className="apt-info">Description: {book.description}</p>
