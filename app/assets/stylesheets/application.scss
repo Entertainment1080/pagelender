@@ -2,18 +2,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@200;400&display=swap");
 // font-family: 'Fredoka One', cursive;
 // font-family: 'Poppins', sans-serif;
+
+
 *{
   margin: 0;
 }
 
-html, body {
+html,
+body {
   text-align: center;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-  // height: 100%;
-  // margin: 0;
-  // background-color: transparent;
-  // padding-bottom: 5vh;
+  height: 100%;
+  background-color: transparent;
 }
 
 .title {
@@ -25,12 +26,12 @@ html, body {
   padding: 5vw;
 }
 
-.page {
-  padding: 3vw;
-  height: 100%;
-  overflow: hidden;
-}
 
+
+.headerText{
+  font-family: "Fredoka One", cursive;
+  padding-top: 3vh;
+}
 // .myLibrary{
 //   background-color:#E3F8F2;
 //   padding-bottom: 5vh;
@@ -70,6 +71,78 @@ a:hover {
   color: white;
 }
 
+
+// .................................................. Devise
+
+.devise{
+  background-image: url(devise-background2.png);
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  max-height: auto;
+  // overflow:hidden;
+}
+
+.devise h1{
+  font-size: 7vw;
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  padding-bottom: 8vh;
+}
+
+.devise h2{
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  margin-bottom: 3vh;
+}
+
+.devise hr{
+  border: 1px solid white;
+}
+
+.devise-box{
+  background-color: rgba($color: #044F6D, $alpha: 0.8);
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+  width: 40vw;
+  height:auto;
+}
+
+.devise-create{
+  background-image: url(devise-background2.png);
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 150vh;
+  max-height: auto;
+  // overflow:hidden;
+}
+
+.devise-create h1{
+  font-size: 7vw;
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  padding-bottom: 8vh;
+}
+
+.devise-create h2{
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  margin-bottom: 3vh;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
 // .................................................. Home
 
 .homeImg {
@@ -97,24 +170,32 @@ align-items: center;
 overflow: hidden;
 }
 
-img{
+.text h3{
+  font-family: "Fredoka One", cursive;
+  padding-bottom: 4vh;
+}
+
+img {
   object-fit: cover;
 }
 
-#lendButton{
-background-image: url("");
+#lendButton {
+  background-image: url("");
 }
 
 // .................................................. Library
-.libraryHeaderText{
-  font-family: "Fredoka One", cursive;
-  color: #46C2A5;
-  padding-top: 3vh;
+.page {
+  height: 100%;
+  overflow: hidden;
+  padding: 3vh 3vw 6vh 3vw;
 }
 
-// #borrowedHeader{
-//   padding-top: 2vh
-// }
+.libraryPage {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 0vh;
+  padding-bottom: 6vh;
+}
 
 .table{
   margin-left:auto;
@@ -132,15 +213,15 @@ background-image: url("");
   background-color: white;
 }
 
-.libraryLink{
-  color: black
+.libraryLink {
+  color: black;
 }
 
-#editButton{
+.editButton{
   background-color: #46C2A5;
   }
 
-#editButton:hover{
+.editButton:hover{
   background-color: #4CDBB9;
   }
 
@@ -152,10 +233,11 @@ background-image: url("");
   background-color:#FF6060 ;
   }
 
-// .................................................. Library-Books You Borrowed Page
+// .................................................. Library-Books You Borrow/Borrowed/Lended Page
+
+
 
 .imgCard{
-  border: 2px solid #46C2A5;
   background-color: white;
   padding: 20px;
   border-radius: 20px;
@@ -178,7 +260,6 @@ background-image: url("");
 }
 
 .detailsCard{
-  border: 2px solid #46C2A5;
   background-color: white;
   padding: 20px;
   border-radius: 20px;
@@ -188,34 +269,100 @@ background-image: url("");
   float:right;
 }
 
-// .................................................. Library-Books You Borrowed Page
-
-
 // .................................................. Borrow
-
-.bookImg{
-  width: 15vw;
+#borrowPage{
+  // height: 100%;
+  overflow: hidden;
+  padding-top: 0vh;
+  padding-bottom: 6vh;
 }
+
+#borrow-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 2vh;
+  padding-bottom: 4vh;
+  height: 100%;
+  overflow: hidden;
+}
+
+.borrowCard {
+  border: 3px solid #21618c;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 28vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4vh;
+  background-color: white;
+}
+
+.borrowCard img{
+  width: 25vw;
+  height: auto;
+  max-height: 65vh;
+  border-radius: 20px;
+}
+
+.borrowInfoButton{
+  background-color: #044F6D;
+  margin: 1vw;
+  }
+
+.borrowInfoButton:hover{
+  background-color: #1186B5;
+  }
+
 
 // .................................................. Lend
 
 .form-page {
+  height: 95vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   flex-direction: column;
+  padding: 2rem;
+}
+
+.heading {
+  padding: 2px;
+  background-color: #f8c922;
+  width: 25vw;
+  align-items: center;
 }
 
 .form {
-  width: 30vw;
+  padding: 0.5rem 1rem 3rem 1.3rem;
+  color: black;
+  font-size: 400;
+  // border: 1px solid black;
+  // margin-bottom: 1rem;
 }
 
+#container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.form-submit-btn {
+  background-color: #f8c922;
+  color: black;
+  margin-top: 0.3rem;
+}
 // .................................................. Footer
 
 div#footer {
-  position: fixed;
+  position: fixed; //fixed
   bottom: 0;
   width: 100%;
+  height: 3em; //was not here
   // text-align: center;
   display: flex;
   justify-content: center;
@@ -229,7 +376,42 @@ div#footer {
   vertical-align: middle;
 }
 
+p#copy {
+  margin-bottom: 0;
+}
+
 #top {
   margin-left: 20vw;
   text-align: right;
+  vertical-align: middle;
+}
+
+p#top {
+  margin-bottom: 0;
+}
+
+//.................................................About Us
+
+.aboutUs {
+  height: 100%;
+  width: 100vw;
+}
+
+.whatIsPagelender {
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+}
+
+.mission {
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+}
+
+.whoWeAre {
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+  padding-bottom: 10px;
 }
