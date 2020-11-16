@@ -30,6 +30,8 @@ export default class App extends React.Component {
       books: [],
       rentals: [],
       headerColor: "#044f6d",
+      headerButtonBackgroundColor: "#044f6d",
+      headerButtonTextColor: "white",
       newBook: null
     }
   }
@@ -171,6 +173,10 @@ export default class App extends React.Component {
 
   changeColor = (color) => this.setState({ headerColor: color })
 
+  changeButtonColor = (color) => this.setState({ headerButtonBackgroundColor: color })
+
+  changeButtonTextColor = (color) => this.setState({ headerButtonTextColor: color })
+
   render() {
     const {
       logged_in,
@@ -188,7 +194,11 @@ export default class App extends React.Component {
           sign_up_route={sign_up_route}
           sign_out_route={sign_out_route}
           changeColor={this.changeColor}
+          changeButtonColor={this.changeButtonColor}
+          changeButtonTextColor={this.changeButtonTextColor}
           headerColor={this.state.headerColor}
+          headerButtonBackgoundColor={this.state.headerButtonBackgoundColor}
+          headerButtonTextColor={this.state.headerButtonTextColor}
         />
 
         <Switch>

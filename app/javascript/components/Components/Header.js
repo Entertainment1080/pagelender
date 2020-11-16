@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Nav, NavItem } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
-const Header = ({ sign_out_route, changeColor, headerColor }) => {
+const Header = ({ sign_out_route, changeColor, headerColor, changeButtonColor, headerButtonBackgroundColor, changeButtonTextColor, headerButtonTextColor }) => {
     return (
 
         <div id="header" style={{ backgroundColor: headerColor }} >
@@ -11,11 +11,15 @@ const Header = ({ sign_out_route, changeColor, headerColor }) => {
 
             <Nav>
 
-                <NavItem>
-                    <Link to="/library" onClick={() => changeColor("#46C2A5")}>Library</Link>
+                <NavItem >
+                    <Link to="/library" onClick={() =>
+                        changeColor("#46C2A5")
+                        // changeButtonColor("#E3F8F2"),
+                        // changeButtonTextColor("#46C2A5")
+                    }>Library</Link>
                 </NavItem>
 
-                <NavItem>
+                <NavItem style={{ backgroundColor: headerColor }}>
                     <Link to="/borrow" onClick={() => changeColor("#044F6D")}>Borrow</Link>
                 </NavItem>
 
@@ -32,7 +36,7 @@ const Header = ({ sign_out_route, changeColor, headerColor }) => {
                 </NavItem>
 
             </Nav>
-        </div>
+        </div >
     )
 }
 

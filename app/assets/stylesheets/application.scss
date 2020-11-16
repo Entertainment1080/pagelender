@@ -39,9 +39,8 @@ html, body {
 // .................................................. Header
 
 .nav {
-  margin: 2vh 3vw 2vh 40vw;
+  margin: 0vh 0vw 0vh 50vw;
   display: flex;
-  justify-content: space-around;
   position: sticky;
   width: 100%;
   font-weight: 200;
@@ -50,6 +49,8 @@ html, body {
 
 .nav-item {
   color: white;
+  width: 7vw;
+  padding-top: 2vh;
 }
 
 #header {
