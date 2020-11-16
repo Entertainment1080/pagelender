@@ -1,11 +1,23 @@
 import React, { Component } from "react"
 
-export default class NotFound extends Component {
-    render() {
+import noBook from '../../../assets/images/bookNotHere.png'
+
+export default class NotFound extends Component
+{
+    render()
+    {
         return (
-            <>
-                <h3>Error: Page Not Found</h3>
-            </>
+            <div className="notFoundPage" style={{ backgroundColor: "#E3F8F2" }}>
+                <h1  class="libraryHeaderText" style={{margin: '25px', paddingTop: "0vw"}}>
+                    Sorry for the inconvience, <br/>
+                    the page you were looking for <br/>
+                    could not be found.
+                </h1>
+                    <br/>
+                <div>
+                    <img style={{height: '600px', width: '600px'}} src={noBook} />
+                </div>
+            </div>
         )
     }
 }
