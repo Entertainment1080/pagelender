@@ -29,8 +29,6 @@ const BorrowShow = ({ book }) => {
         init()
     }, [])
 
-    console.log(review);
-
     return (
         <div className="show">
             <div className="bookCard">
@@ -41,10 +39,10 @@ const BorrowShow = ({ book }) => {
                     <img className="bookImg" src={book.img_url} />
                 }
                 <h3 className="heading">{book.title}</h3>
-                <p className="apt-info">Author: {book.author}</p>
-                <p className="apt-info">Description: {book.description}</p>
-                <p className="apt-info">Pages: {book.pages}</p>
-                <p className="apt-info">Series: {book.series}</p>
+                <p>Author: {book.author}</p>
+                <p>Description: {book.description}</p>
+                <p>Pages: {book.pages}</p>
+                <p>Series: {book.series}</p>
 
                 <Link to={`/rental?book_id=${book.id}`} className="button">
                     <Button className="info">Rent Book</Button>
