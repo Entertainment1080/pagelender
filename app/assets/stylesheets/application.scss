@@ -332,6 +332,32 @@ img {
   background-color: #1186B5;
   }
 
+// .................................................. Borrow Show
+
+#review{
+  float: middle;
+  // display: flex;
+  // align-items: center;
+}
+
+// #review h2{
+//   font-family: "Fredoka One", cursive;
+
+// }
+
+#goodReadsBox{
+  margin-top: 90vh;
+  align-items: center;
+  display: flex;
+  flex-direction:column;
+  // justify-content: center;
+  // width:0px !important;
+}
+
+#goodreads-widget a{
+color: #044F6D !important;
+font-weight: 900;
+}
 
 // .................................................. Lend
 
@@ -402,6 +428,7 @@ div#footer {
 p#copy {
   margin-bottom: 0;
   color: white;
+  padding-top: 2vh;
 }
 
 #top {
@@ -413,6 +440,7 @@ p#copy {
 h6#top {
   margin-bottom: 0;
   color: white;
+  padding-top: 2vh;
 }
 
 //.................................................About Us

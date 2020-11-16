@@ -30,37 +30,44 @@ const BorrowShow = ({ book }) => {
     }, [])
 
     return (
-        <div className="show">
-            <div className="bookCard">
+        <div className="page" style={{ backgroundColor: "#ECFDFF" }}>
+            <div className="imgCard" style={{ border: "3px solid #044F6D" }}>
                 {book.img_url === "" &&
-                    <img className="bookImg" src={Book} />
+                    <img src={Book} />
                 }
                 {book.img_url.length > 0 &&
-                    <img className="bookImg" src={book.img_url} />
+                    <img src={book.img_url} />
                 }
+            </div>
+            <div className="detailsCard" style={{ border: "3px solid #044F6D" }}>
                 <h3 className="heading">{book.title}</h3>
-                <p>Author: {book.author}</p>
-                <p>Description: {book.description}</p>
-                <p>Pages: {book.pages}</p>
-                <p>Series: {book.series}</p>
+                <p><span class="boldText">Author: </span>{book.author}</p>
+                <p><span class="boldText">Description: </span>{book.description}</p>
+                <p><span class="boldText">Pages: </span>{book.pages}</p>
+                {book.series &&
+                    <p><span class="boldText">Series: </span>{book.series}</p>
+                }
 
                 <Link to={`/rental?book_id=${book.id}`} className="button">
-                    <Button className="info">Rent Book</Button>
+                    <Button className="borrowInfoButton">Rent Book</Button>
                 </Link>
 
                 <Link to="/borrow" className="button">
-                    <Button className="info">Back to All Books</Button>
+                    <Button className="borrowInfoButton">Back to All Books</Button>
                 </Link>
-
+            </div>
+            <div id="review">
+                {/* <h2 style={{ color: "#044F6D" }}>Reviews:</h2> */}
                 {review &&
-                    <div dangerouslySetInnerHTML={{ __html: review.reviews_widget }} />
+                    <div id="goodReadsBox" dangerouslySetInnerHTML={{ __html: review.reviews_widget }} />
                 }
-
             </div>
         </div>
     )
-
 }
+
+
+
 
 export default BorrowShow;
 

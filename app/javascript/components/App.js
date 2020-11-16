@@ -375,7 +375,7 @@ export default class App extends React.Component {
             }}
           />
 
-          <Route component={AboutUs} />
+          <Route path="/aboutus" component={AboutUs} />
 
           <Route component={NotFound} />
 

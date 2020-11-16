@@ -24,7 +24,7 @@ const Header = ({ sign_out_route, changeColor, headerColor }) => {
                 </NavItem>
 
                 <NavItem>
-                    <Link to="/" onClick={() => changeColor("#044F6D")}>About Us</Link>
+                    <Link to="/aboutus" onClick={() => changeColor("#044F6D")}>About Us</Link>
                 </NavItem>
 
                 <NavItem>
