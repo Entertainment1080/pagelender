@@ -5,8 +5,8 @@ import { Button, Table } from 'reactstrap'
 
 const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }) => (
 
-    <div class="page" style={{ backgroundColor: "#E3F8F2" }}>
-        <h2 class="libraryHeaderText" style={{ paddingTop: "0vw" }}>Books You Borrowed:</h2>
+    <div class="libraryPage" style={{ backgroundColor: "#E3F8F2" }}>
+        <h2 class="headerText" style={{ color: "#46C2A5" }}>Books You Borrowed:</h2>
         <Table hover class="table">
             <thead class="mainRow">
                 <tr>
@@ -41,7 +41,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
             </tbody>
         </Table>
 
-        <h2 class="libraryHeaderText">Books You Lent:</h2>
+        <h2 h2 class="headerText" style={{ color: "#46C2A5" }}>Books You Lent:</h2>
 
         <Table hover class="table">
             <thead class="mainRow">
@@ -75,7 +75,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
             </tbody>
         </Table>
 
-        <h2 class="libraryHeaderText">Your Available Books:</h2>
+        <h2 class="headerText" style={{ color: "#46C2A5" }}>Your Available Books:</h2>
 
 
         <Table hover class="table">
@@ -100,7 +100,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                             <td>{book.author}</td>
 
                             <td>
-                                <Button id="editButton">
+                                <Button className="editButton">
                                     <Link to={`/lend/${book.id}`}>
                                         Edit
                                     </Link>
