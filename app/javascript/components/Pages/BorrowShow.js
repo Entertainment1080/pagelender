@@ -1,38 +1,66 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import Book from '../../../assets/images/book.png'
 
+const fetchReview = (title, author) => {
+    return fetch(`/reviews?title=${title}&author=${author}`)
+        .then(response => {
+            return response.json()
+        })
+        .then(payload => {
+            console.log(payload);
+            return payload
+        })
+        .catch(errors => {
+            console.log("review errors: ", errors)
+        })
+}
 
-const BorrowShow = ({ book }) => (
+const BorrowShow = ({ book }) => {
+    const [review, setReview] = useState(null)
 
-    <div className="page" style={{ backgroundColor: "#ECFDFF" }}>
-        <div className="imgCard" style={{ border: "3px solid #044F6D" }}>
-            {book.img_url === "" &&
-                <img className="bookImg" src={Book} />
-            }
-            {book.img_url.length > 0 &&
-                <img className="bookImg" src={book.img_url} />
-            }
+    useEffect(() => {
+        const init = async () => {
+            let review = await fetchReview(book.title, book.author)
+            setReview(review)
+        }
+        init()
+    }, [])
+
+    return (
+        <div className="show">
+            <div className="bookCard">
+                {book.img_url === "" &&
+                    <img className="bookImg" src={Book} />
+                }
+                {book.img_url.length > 0 &&
+                    <img className="bookImg" src={book.img_url} />
+                }
+                <h3 className="heading">{book.title}</h3>
+                <p>Author: {book.author}</p>
+                <p>Description: {book.description}</p>
+                <p>Pages: {book.pages}</p>
+                <p>Series: {book.series}</p>
+
+                <Link to={`/rental?book_id=${book.id}`} className="button">
+                    <Button className="info">Rent Book</Button>
+                </Link>
+
+                <Link to="/borrow" className="button">
+                    <Button className="info">Back to All Books</Button>
+                </Link>
+
+                {review &&
+                    <div dangerouslySetInnerHTML={{ __html: review.reviews_widget }} />
+                }
+
+            </div>
         </div>
-        <div className="detailsCard" style={{ border: "3px solid #044F6D" }}>
-            <h3 className="heading">{book.title}</h3>
-            <p><span class="boldText">Author: </span>{book.author}</p>
-            <p><span class="boldText">Description: </span>{book.description}</p>
-            <p><span class="boldText">Pages: </span>{book.pages}</p>
-            {book.series &&
-                <p><span class="boldText">Series: </span>{book.series}</p>
-            }
-            <Link to={`/rental?book_id=${book.id}`} className="button">
-                <Button className="borrowInfoButton">Rent Book</Button>
-            </Link>
-            <Link to="/borrow" className="button">
-                <Button className="borrowInfoButton">Back to All Books</Button>
-            </Link>
-        </div>
-    </div >
-)
+    )
+
+}
 
 export default BorrowShow;
 
