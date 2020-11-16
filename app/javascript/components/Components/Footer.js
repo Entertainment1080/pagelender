@@ -8,8 +8,8 @@ const scrollTop = () => {
 const Footer = ({ headerColor }) => (
 
     <div id="footer" style={{ backgroundColor: headerColor }}>
-        <p id="copy">PageLender &copy; 2020</p>
-        <h6 id="top" onClick={scrollTop}>Back to Top</h6>
+        <p style={{ color: "white"}}  id="copy">PageLender &copy; 2020</p>
+        <h6 style={{ color: "white"}} id="top" onClick={scrollTop}>Back to Top</h6>
     </div>
 )
 

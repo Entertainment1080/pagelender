@@ -26,7 +26,7 @@ body {
   font-family: "Fredoka One", cursive;
 }
 
-.homePage{
+.homePage {
   padding: 5vw;
 }
 
@@ -165,26 +165,25 @@ a:hover {
   box-shadow: 5px 5px 2.5px #5d5d5d;
 }
 
-.text{
-object-fit: cover;
-position: absolute;
-color: white;
-padding: 5vw;
-bottom: 5px;
-top:5px;
-right:5px;
-left:5px;
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-overflow: hidden;
+.text {
+  object-fit: cover;
+  position: absolute;
+  color: white;
+  padding: 5vw;
+  bottom: 5px;
+  top: 5px;
+  right: 5px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .text h3{
   font-family: "Fredoka One", cursive;
   padding-bottom: 4vh;
-
 }
 
 img {
@@ -209,19 +208,19 @@ img {
   padding-bottom: 6vh;
 }
 
-.table{
-  margin-left:auto;
-  margin-right:auto;
+.table {
+  margin-left: auto;
+  margin-right: auto;
   width: 90vw;
   box-shadow: 3px 3px 2.5px #5d5d5d;
 }
 
-.mainRow{
-  background-color: #46C2A5;
-  color: white
+.mainRow {
+  background-color: #46c2a5;
+  color: white;
 }
 
-.bodyRow{
+.bodyRow {
   background-color: white;
 }
 
@@ -241,19 +240,19 @@ img {
   background-color: #4CDBB9;
   }
 
-#deleteButton{
-  background-color: #F14B4B;
-  }
+#deleteButton {
+  background-color: #f14b4b;
+}
 
-#deleteButton:hover{
-  background-color:#FF6060 ;
-  }
+#deleteButton:hover {
+  background-color: #ff6060;
+}
 
 // .................................................. Library-Books You Borrow/Borrowed/Lended Page
 
 
 
-.imgCard{
+.imgCard {
   background-color: white;
   padding: 20px;
   border-radius: 20px;
@@ -264,7 +263,7 @@ img {
   float: left;
 }
 
-.imgCard img{
+.imgCard img {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -281,11 +280,8 @@ img {
   border-radius: 20px;
   width: 60%;
   height: 80vh;
-  float:right;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-
+  text-align: center;
+  float: right;
 }
 
 // .................................................. Borrow
@@ -392,7 +388,7 @@ div#footer {
   // text-align: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   width: 100%;
 }
 
@@ -400,6 +396,7 @@ div#footer {
   margin-right: 20vw;
   text-align: left;
   vertical-align: middle;
+  align-items: center;
 }
 
 p#copy {

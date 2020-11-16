@@ -5,6 +5,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
+
 import { Spinner } from 'reactstrap'
 import Home from './Pages/Home'
 import MyLibrary from './Pages/MyLibrary'
@@ -17,6 +18,7 @@ import LendConfirmation from './Pages/LendConfirmation'
 import LendedShow from './Pages/LendedShow'
 import LendEdit from './Pages/LendEdit'
 import Rental from './Pages/Rental'
+import AboutUs from './Pages/AboutUs'
 import NotFound from './Pages/NotFound'
 
 import Header from './Components/Header'
@@ -372,6 +374,8 @@ export default class App extends React.Component {
               }
             }}
           />
+
+          <Route component={AboutUs} />
 
           <Route component={NotFound} />
 
