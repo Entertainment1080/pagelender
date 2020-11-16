@@ -2,18 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@200;400&display=swap");
 // font-family: 'Fredoka One', cursive;
 // font-family: 'Poppins', sans-serif;
-*{
-  margin: 0;
-}
 
-html, body {
+html,
+body {
   text-align: center;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-  // height: 100%;
-  // margin: 0;
-  // background-color: transparent;
-  // padding-bottom: 5vh;
+  height: 100%;
+  background-color: transparent;
 }
 
 .title {
@@ -103,12 +99,12 @@ overflow: hidden;
   padding-bottom: 4vh;
 }
 
-img{
+img {
   object-fit: cover;
 }
 
-#lendButton{
-background-image: url("");
+#lendButton {
+  background-image: url("");
 }
 
 // .................................................. Library
@@ -141,8 +137,8 @@ background-image: url("");
   background-color: white;
 }
 
-.libraryLink{
-  color: black
+.libraryLink {
+  color: black;
 }
 
 .editButton{
@@ -248,22 +244,49 @@ background-image: url("");
 // .................................................. Lend
 
 .form-page {
+  height: 95vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   flex-direction: column;
+  padding: 2rem;
+}
+
+.heading {
+  padding: 2px;
+  background-color: #f8c922;
+  width: 25vw;
+  align-items: center;
 }
 
 .form {
-  width: 30vw;
+  padding: 0.5rem 1rem 3rem 1.3rem;
+  color: black;
+  font-size: 400;
+  // border: 1px solid black;
+  // margin-bottom: 1rem;
 }
 
+#container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.form-submit-btn {
+  background-color: #f8c922;
+  color: black;
+  margin-top: 0.3rem;
+}
 // .................................................. Footer
 
 div#footer {
-  position: fixed;
+  position: fixed; //fixed
   bottom: 0;
   width: 100%;
+  height: 3em; //was not here
   // text-align: center;
   display: flex;
   justify-content: center;
@@ -277,7 +300,42 @@ div#footer {
   vertical-align: middle;
 }
 
+p#copy {
+  margin-bottom: 0;
+}
+
 #top {
   margin-left: 20vw;
   text-align: right;
+  vertical-align: middle;
+}
+
+p#top {
+  margin-bottom: 0;
+}
+
+//.................................................About Us
+
+.aboutUs {
+  height: 100%;
+  width: 100vw;
+}
+
+.whatIsPagelender {
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+}
+
+.mission {
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+}
+
+.whoWeAre {
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+  padding-bottom: 10px;
 }
