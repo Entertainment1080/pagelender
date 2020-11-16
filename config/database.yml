@@ -83,3 +83,4 @@ production:
   database: pagelender_production
   username: pagelender
   password: <%= ENV['PAGELENDER_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

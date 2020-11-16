@@ -139,8 +139,6 @@ books = [
     }
 ]
 
-test_user = User.first
-
 books.each do |attributes|
    Book.create attributes
     puts "creating #{attributes}"

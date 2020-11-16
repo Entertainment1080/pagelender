@@ -9,7 +9,7 @@ export default class Home extends Component {
     render() {
         const { changeColor } = this.props
         return (
-            <div className="page" style={{ backgroundColor: "#ECFDFF" }}>
+            <div className="homePage" style={{ backgroundColor: "#ECFDFF" }}>
                 <Row>
                     <Col>
                         <Link to="/library" onClick={() => changeColor("#46C2A5")}>
