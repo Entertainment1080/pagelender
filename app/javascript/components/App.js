@@ -157,21 +157,6 @@ export default class App extends React.Component {
       })
   }
 
-  // fetchReview = (title, author) => {
-  //   return fetch(`https://www.goodreads.com/book/title.json?key=C6ADuioOC7UwvXyJm2pGQ&title=${title}&author=${author}`)
-  //     .then(response => {
-  //       return response
-  //     })
-  //     .then(payload => {
-  //       this.setState({
-  //         bookReview: payload
-  //       })
-  //     })
-  //     .catch(errors => {
-  //       console.log("review errors: ", errors)
-  //     })
-  // }
-
   //........................................... Helper Methods
 
   findItem = (arr, id) => arr.find(item => item.id === Number(id))
@@ -291,8 +276,7 @@ export default class App extends React.Component {
             )
           }} />
 
-          <Route
-            path="/borrowed/:id"
+          <Route path="/borrowed/:id"
             render={(props) => {
               let book = this.findItem(this.state.books, props.match.params.id)
               if (book) {
@@ -344,8 +328,7 @@ export default class App extends React.Component {
             }}
           />
 
-          <Route
-            path="/lended/:id"
+          <Route path="/lended/:id"
             render={(props) => {
               let id = props.match.params.id
               let book = this.findItem(this.state.books, parseInt(id))
@@ -398,7 +381,7 @@ export default class App extends React.Component {
           headerColor={this.state.headerColor}
         />
 
-      </Router>
+      </Router >
     );
   }
 }
