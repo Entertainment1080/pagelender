@@ -38,22 +38,22 @@ export default class Lend extends Component {
         return (
 
             <div
-            id="container"
-            style={{
-              backgroundImage: `url(${lendBackground})`,
-              backgroundPosition: 'center',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-            }}>
+                id="container"
+                style={{
+                    backgroundImage: `url(${lendBackground})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                }}>
 
-                <div  className="form-page"> 
+                <div className="form-page">
 
                     <div className="form">
-                        
+
                         <h3 className="heading"
-                            style={{backgroundSize: '1px'}}
-                            >
-                                Add a Book
+                            style={{ backgroundSize: '1px' }}
+                        >
+                            Add a Book
                         </h3>
 
                         <Form>
@@ -123,11 +123,10 @@ export default class Lend extends Component {
                         name="submit"
                         className="form-submit-btn"
                         onClick={this.handleSubmit}
-                        >
+                    >
                         Add a new Book!
                     </Button>
-                    { success && <Redirect to="/rental" />}
-
+                    {success && <Redirect to="/lendconfirmation" />}
                 </div>
             </div>
         )
