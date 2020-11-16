@@ -7,7 +7,7 @@ const Header = ({ sign_out_route, changeColor, headerColor }) => {
 
         <div id="header" style={{ backgroundColor: headerColor }} >
 
-            <Link to="/" onClick={() => changeColor("#044F6D")}><h2 className="title">PageLender</h2></Link>
+            <Link to="/" onClick={() => changeColor("#044F6D")}><h1 className="title">PageLender</h1></Link>
 
             <Nav>
 

@@ -39,7 +39,7 @@ export default class Home extends Component {
                                 <img className="homeImg" src={lend} />
                                 <div className="text">
                                     <h3>Lend</h3>
-                                    <p>Put your books up for other users to rent.</p>
+                                    <p>Put your books up for other users to borrow.</p>
                                 </div>
                             </div>
                         </Link>

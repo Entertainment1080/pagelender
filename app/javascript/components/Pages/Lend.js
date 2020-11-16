@@ -50,13 +50,13 @@ export default class Lend extends Component {
 
                     <div className="form">
 
-                        <h3 className="heading"
+                        <h3 className="lendHeading"
                             style={{ backgroundSize: '1px' }}
                         >
                             Add a Book
                         </h3>
 
-                        <Form>
+                        <Form className="lendForm">
 
                             <FormGroup>
                                 <Label>Title</Label>

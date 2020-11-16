@@ -18,13 +18,12 @@ const BorrowShow = ({ book }) => (
         </div>
         <div className="detailsCard" style={{ border: "3px solid #044F6D" }}>
             <h3 className="heading">{book.title}</h3>
-            <p className="apt-info">Author: {book.author}</p>
-            <p className="apt-info">Description: {book.description}</p>
-            <p className="apt-info">Pages: {book.pages}</p>
-            <p className="apt-info">Series: {book.series}</p>
-            {/* Will impliment once I get create for rentals working */}
-            {/* <p className="apt-info">Pick Up Date: {parseDate(book.rentals[0].pick_up_date)}</p>
-            <p className="apt-info">Due Date: {parseDate(book.rentals[0].due_date)}</p> */}
+            <p><span class="boldText">Author: </span>{book.author}</p>
+            <p><span class="boldText">Description: </span>{book.description}</p>
+            <p><span class="boldText">Pages: </span>{book.pages}</p>
+            {book.series &&
+                <p><span class="boldText">Series: </span>{book.series}</p>
+            }
             <Link to={`/rental?book_id=${book.id}`} className="button">
                 <Button className="borrowInfoButton">Rent Book</Button>
             </Link>
