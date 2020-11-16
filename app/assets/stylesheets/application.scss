@@ -2,8 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@200;400&display=swap");
 // font-family: 'Fredoka One', cursive;
 // font-family: 'Poppins', sans-serif;
-* {
+
+
+*{
   margin: 0;
+}
+
+p{
+  margin-bottom: 0.7rem;
 }
 
 html,
@@ -11,10 +17,8 @@ body {
   text-align: center;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-  // height: 100%;
-  // margin: 0;
-  // background-color: transparent;
-  // padding-bottom: 5vh;
+  height: 100%;
+  background-color: transparent;
 }
 
 .title {
@@ -26,17 +30,17 @@ body {
   padding: 5vw;
 }
 
-.page {
-  padding: 3vw;
-  height: 100%;
-  overflow: hidden;
+.heading {
+  padding: 2px;
 }
 
-// .myLibrary{
-//   background-color:#E3F8F2;
-//   padding-bottom: 5vh;
-//   padding-top: 5vh;
-// }
+
+
+.boldText{
+font-weight: bolder;
+font-size: large;
+}
+
 // .................................................. Header
 
 .nav {
@@ -51,6 +55,7 @@ body {
 
 .nav-item {
   color: white;
+  padding-top: 1vh;
 }
 
 #header {
@@ -59,6 +64,12 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 1;
+}
+
+.headerText{
+  font-family: "Fredoka One", cursive;
+  padding-top: 3vh;
 }
 
 a {
@@ -69,6 +80,78 @@ a {
 a:hover {
   text-decoration: none !important;
   color: white;
+}
+
+
+// .................................................. Devise
+
+.devise{
+  background-image: url(devise-background.jpg);
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  max-height: auto;
+  // overflow:hidden;
+}
+
+.devise h1{
+  font-size: 7vw;
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  padding-bottom: 8vh;
+}
+
+.devise h2{
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  margin-bottom: 3vh;
+}
+
+.devise hr{
+  border: 1px solid white;
+}
+
+.devise-box{
+  background-color: rgba($color: #044F6D, $alpha: 0.8);
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+  width: 40vw;
+  height:auto;
+}
+
+.devise-create{
+  background-image: url(devise-background.jpg);
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 150vh;
+  max-height: auto;
+  // overflow:hidden;
+}
+
+.devise-create h1{
+  font-size: 7vw;
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  padding-bottom: 8vh;
+}
+
+.devise-create h2{
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  margin-bottom: 3vh;
+}
+
+.field {
+  margin-bottom: 20px;
 }
 
 // .................................................. Home
@@ -98,6 +181,11 @@ a:hover {
   overflow: hidden;
 }
 
+.text h3{
+  font-family: "Fredoka One", cursive;
+  padding-bottom: 4vh;
+}
+
 img {
   object-fit: cover;
 }
@@ -107,15 +195,18 @@ img {
 }
 
 // .................................................. Library
-.libraryHeaderText {
-  font-family: "Fredoka One", cursive;
-  color: #46c2a5;
-  padding-top: 3vh;
+.page {
+  height: 100%;
+  overflow: hidden;
+  padding: 3vh 3vw 6vh 3vw;
 }
 
-// #borrowedHeader{
-//   padding-top: 2vh
-// }
+.libraryPage {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 0vh;
+  padding-bottom: 6vh;
+}
 
 .table {
   margin-left: auto;
@@ -137,13 +228,17 @@ img {
   color: black;
 }
 
-#editButton {
-  background-color: #46c2a5;
+.libraryLink:hover {
+  color: #46C2A5;
 }
 
-#editButton:hover {
-  background-color: #4cdbb9;
-}
+.editButton{
+  background-color: #46C2A5;
+  }
+
+.editButton:hover{
+  background-color: #4CDBB9;
+  }
 
 #deleteButton {
   background-color: #f14b4b;
@@ -153,10 +248,11 @@ img {
   background-color: #ff6060;
 }
 
-// .................................................. Library-Books You Borrowed Page
+// .................................................. Library-Books You Borrow/Borrowed/Lended Page
+
+
 
 .imgCard {
-  border: 2px solid #46c2a5;
   background-color: white;
   padding: 20px;
   border-radius: 20px;
@@ -178,8 +274,7 @@ img {
   border-radius: 20px;
 }
 
-.detailsCard {
-  border: 2px solid #46c2a5;
+.detailsCard{
   background-color: white;
   padding: 20px;
   border-radius: 20px;
@@ -189,64 +284,108 @@ img {
   float: right;
 }
 
-// .................................................. Library-Books You Borrowed Page
-
 // .................................................. Borrow
-
-.bookImg {
-  width: 15vw;
+#borrowPage{
+  // height: 100%;
+  overflow: hidden;
+  padding-top: 0vh;
+  padding-bottom: 6vh;
 }
+
+#borrow-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 2vh;
+  padding-bottom: 4vh;
+  height: 100%;
+  overflow: hidden;
+}
+
+.borrowCard {
+  border: 3px solid #21618c;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 28vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4vh;
+  background-color: white;
+  box-shadow: 5px 5px 2.5px #5d5d5d;
+}
+
+.borrowCard img{
+  width: 25vw;
+  height: auto;
+  max-height: 65vh;
+  border-radius: 20px;
+}
+
+.borrowInfoButton{
+  background-color: #044F6D;
+  margin: 1vw;
+  }
+
+.borrowInfoButton:hover{
+  background-color: #1186B5;
+  }
+
 
 // .................................................. Lend
 
 .form-page {
+  height: 95vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   flex-direction: column;
+  padding: 2rem;
+  z-index: -1;
 }
 
-.form {
-  width: 30vw;
+
+.lendHeading {
+  padding: 2px;
+  background-color: #f8c922;
+  width: 25vw;
+  align-items: center;
 }
 
-// .................................................. Lend
-
-#intro {
-  display: block;
-  padding: 10px;
-  margin: 25px 5px 25px 5px;
+.lendForm {
+  padding: 0.5rem 1rem 3rem 1.3rem;
+  color: black;
+  font-size: 14px;
+  // border: 1px solid black;
+  // margin-bottom: 1rem;
 }
 
-.whatIsPage {
-  margin: 25px;
+.form-control{
+  height: 5vh;
 }
 
-#appUse {
-  display: block;
-  padding: 10px;
-  margin: 25px 5px 25px 5px;
+#container {
+  position: relative;
+  text-align: center;
+  color: black;
 }
 
-.mission {
-  margin: 25px;
+.form-submit-btn {
+  background-color: #f8c922;
+  color: black;
+  margin-top: 0.3rem;
 }
-
-#whoWeAre {
-  display: block;
-  padding: 10px;
-  margin: 25px 5px 25px 5px;
-}
-.team {
-  margin: 25px;
-}
-
 // .................................................. Footer
 
 div#footer {
-  position: fixed;
+  position: fixed; //fixed
   bottom: 0;
   width: 100%;
+  height: 3em; //was not here
+  // text-align: center;
   display: flex;
   justify-content: center;
   // align-items: center;
@@ -260,9 +399,44 @@ div#footer {
   align-items: center;
 }
 
+p#copy {
+  margin-bottom: 0;
+  color: white;
+}
+
 #top {
   margin-left: 20vw;
   text-align: right;
   vertical-align: middle;
-  align-items: center;
+}
+
+h6#top {
+  margin-bottom: 0;
+  color: white;
+}
+
+//.................................................About Us
+
+.aboutUs {
+  height: 100%;
+  width: 100vw;
+}
+
+.whatIsPagelender {
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+}
+
+.mission {
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+}
+
+.whoWeAre {
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+  padding-bottom: 10px;
 }

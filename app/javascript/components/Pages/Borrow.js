@@ -6,31 +6,35 @@ import Book from '../../../assets/images/book.png'
 
 const Borrow = ({ books }) => (
     <>
-        <h3 className="heading">All Books</h3>
-        {books.map((book, index) => {
-            return (
-                <div key={`book-${index}`} className="bookCard">
-                    {book.img_url === "" &&
-                        <img className="bookImg" src={Book} />
-                    }
-                    {book.img_url.length > 0 &&
-                        <img className="bookImg" src={book.img_url} />
-                    }
-                    <p>{book.title}</p>
-                    <div className="info">
-                        <h4>Author: {book.author}</h4>
-                        <p>Description: {book.description}</p>
-                        <p>Series: {book.series}</p>
-                        <p>Pages: {book.pages}</p>
-                    </div>
-                    <br />
-                    <Link to={`/borrow/${book.id}`} className="button">
-                        <Button className="info">More Info</Button>
-                    </Link>
-                </div>
-            )
-        })
-        }
+        <div id="borrowPage" style={{ backgroundColor: "#ECFDFF" }}>
+            <h2 className="headerText" style={{ color: "#044F6D" }}>Available Books:</h2>
+            <div id="borrow-body" >
+                {books.map((book, index) => {
+                    return (
+                        <div key={`book-${index}`} className="borrowCard">
+                            {book.img_url === "" &&
+                                <img src={Book} />
+                            }
+                            {book.img_url.length > 0 &&
+                                <img src={book.img_url} />
+                            }
+                            <h4>{book.title}</h4>
+                            <div className="info">
+                                <p>Author: {book.author}</p>
+                                {book.series &&
+                                    <p >Series: {book.series}</p>
+                                }
+                                <p>Pages: {book.pages}</p>
+                            </div>
+                            <Link to={`/borrow/${book.id}`}>
+                                <Button className="borrowInfoButton">More Info</Button>
+                            </Link>
+                        </div>
+                    )
+                })
+                }
+            </div>
+        </div>
     </>
 )
 

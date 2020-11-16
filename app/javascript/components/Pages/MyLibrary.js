@@ -5,10 +5,10 @@ import { Button, Table } from 'reactstrap'
 
 const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }) => (
 
-    <div class="page" style={{ backgroundColor: "#E3F8F2" }}>
-        <h2 class="libraryHeaderText" style={{ paddingTop: "0vw" }}>Books You Borrowed:</h2>
+    <div class="libraryPage" style={{ backgroundColor: "#E3F8F2" }}>
+        <h2 class="headerText" style={{ color: "#46C2A5" }}>Books You Borrowed:</h2>
         <Table hover class="table">
-            <thead class="mainRow">
+            <thead className="mainRow">
                 <tr>
                     <th>Book</th>
                     <th>Author</th>
@@ -16,7 +16,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                     <th>Due Date</th>
                 </tr>
             </thead>
-            <tbody class="bodyRow">
+            <tbody className="bodyRow">
                 {rentedBooks.map((book, index) => {
                     {
                         return book.rentals.map(rental => {
@@ -41,10 +41,10 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
             </tbody>
         </Table>
 
-        <h2 class="libraryHeaderText">Books You Lent:</h2>
+        <h2 h2 class="headerText" style={{ color: "#46C2A5" }}>Books You Lent:</h2>
 
-        <Table hover class="table">
-            <thead class="mainRow">
+        <Table hover className="table">
+            <thead className="mainRow">
                 <tr>
                     <th>Book</th>
                     <th>Author</th>
@@ -52,7 +52,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                     <th>Due Date</th>
                 </tr>
             </thead>
-            <tbody class="bodyRow">
+            <tbody className="bodyRow">
                 {books.map((book) => {
                     return book.rentals.map(rental => {
                         return (
@@ -75,11 +75,11 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
             </tbody>
         </Table>
 
-        <h2 class="libraryHeaderText">Your Available Books:</h2>
+        <h2 class="headerText" style={{ color: "#46C2A5" }}>Your Available Books:</h2>
 
 
-        <Table hover class="table">
-            <thead class="mainRow">
+        <Table hover className="table">
+            <thead className="mainRow">
                 <tr>
                     <th>Book</th>
                     <th>Author</th>
@@ -87,7 +87,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                     <th>Delete Book</th>
                 </tr>
             </thead>
-            <tbody class="bodyRow">
+            <tbody className="bodyRow">
                 {nonRentedBooks.map((book) => {
                     return (
 
@@ -100,7 +100,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                             <td>{book.author}</td>
 
                             <td>
-                                <Button id="editButton">
+                                <Button className="editButton">
                                     <Link to={`/lend/${book.id}`}>
                                         Edit
                                     </Link>
