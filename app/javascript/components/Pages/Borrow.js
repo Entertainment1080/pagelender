@@ -21,7 +21,9 @@ const Borrow = ({ books }) => (
                             <h4>{book.title}</h4>
                             <div className="info">
                                 <p>Author: {book.author}</p>
-                                <p>Series: {book.series}</p>
+                                {book.series &&
+                                    <p >Series: {book.series}</p>
+                                }
                                 <p>Pages: {book.pages}</p>
                             </div>
                             <Link to={`/borrow/${book.id}`}>

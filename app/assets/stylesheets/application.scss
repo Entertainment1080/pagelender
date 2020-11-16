@@ -8,6 +8,10 @@
   margin: 0;
 }
 
+p{
+  margin-bottom: 0.7rem;
+}
+
 html,
 body {
   text-align: center;
@@ -26,17 +30,17 @@ body {
   padding: 5vw;
 }
 
-
-
-.headerText{
-  font-family: "Fredoka One", cursive;
-  padding-top: 3vh;
+.heading {
+  padding: 2px;
 }
-// .myLibrary{
-//   background-color:#E3F8F2;
-//   padding-bottom: 5vh;
-//   padding-top: 5vh;
-// }
+
+
+
+.boldText{
+font-weight: bolder;
+font-size: large;
+}
+
 // .................................................. Header
 
 .nav {
@@ -51,6 +55,7 @@ body {
 
 .nav-item {
   color: white;
+  padding-top: 1vh;
 }
 
 #header {
@@ -59,6 +64,12 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 1;
+}
+
+.headerText{
+  font-family: "Fredoka One", cursive;
+  padding-top: 3vh;
 }
 
 a {
@@ -75,7 +86,7 @@ a:hover {
 // .................................................. Devise
 
 .devise{
-  background-image: url(devise-background2.png);
+  background-image: url(devise-background.jpg);
   background-size: 100% 100%;
   display: flex;
   justify-content: center;
@@ -114,7 +125,7 @@ a:hover {
 }
 
 .devise-create{
-  background-image: url(devise-background2.png);
+  background-image: url(devise-background.jpg);
   background-size: 100% 100%;
   display: flex;
   justify-content: center;
@@ -173,6 +184,7 @@ overflow: hidden;
 .text h3{
   font-family: "Fredoka One", cursive;
   padding-bottom: 4vh;
+
 }
 
 img {
@@ -215,6 +227,10 @@ img {
 
 .libraryLink {
   color: black;
+}
+
+.libraryLink:hover {
+  color: #46C2A5;
 }
 
 .editButton{
@@ -265,8 +281,11 @@ img {
   border-radius: 20px;
   width: 60%;
   height: 80vh;
-  text-align: center;
   float:right;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+
 }
 
 // .................................................. Borrow
@@ -298,6 +317,7 @@ img {
   margin-right: auto;
   margin-bottom: 4vh;
   background-color: white;
+  box-shadow: 5px 5px 2.5px #5d5d5d;
 }
 
 .borrowCard img{
@@ -328,21 +348,27 @@ img {
   text-align: center;
   flex-direction: column;
   padding: 2rem;
+  z-index: -1;
 }
 
-.heading {
+
+.lendHeading {
   padding: 2px;
   background-color: #f8c922;
   width: 25vw;
   align-items: center;
 }
 
-.form {
+.lendForm {
   padding: 0.5rem 1rem 3rem 1.3rem;
   color: black;
-  font-size: 400;
+  font-size: 14px;
   // border: 1px solid black;
   // margin-bottom: 1rem;
+}
+
+.form-control{
+  height: 5vh;
 }
 
 #container {
@@ -378,6 +404,7 @@ div#footer {
 
 p#copy {
   margin-bottom: 0;
+  color: white;
 }
 
 #top {
@@ -386,8 +413,9 @@ p#copy {
   vertical-align: middle;
 }
 
-p#top {
+h6#top {
   margin-bottom: 0;
+  color: white;
 }
 
 //.................................................About Us
