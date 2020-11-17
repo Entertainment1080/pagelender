@@ -2,18 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import Borrow from '../components/Pages/Borrow'
+import MyLibrary from '../components/Pages/MyLibrary'
 
 
 Enzyme.configure({ adapter: new Adapter() })
 jest.mock('react-router-dom', () => { return { Link: props => <x-Link {...props} /> } })
 
-it('Borrow renders without crashing', () => {
+it('MyLibrary renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<Borrow />, div)
+    ReactDOM.render(<MyLibrary />, div)
 })
 
-it('Borrow renders content', () => {
-    const borrow = shallow(<Borrow />)
-    expect(borrow.find("h3").text()).toEqual("All Books")
+it('MyLibrary renders content', () => {
+    const myLibrary = shallow(<MyLibrary />)
+    expect(myLibrary.find("[data-testid='library']").text()).toEqual("Books You Borrowed:")
 })
