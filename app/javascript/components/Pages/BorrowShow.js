@@ -10,7 +10,6 @@ const fetchReview = (title, author) => {
             return response.json()
         })
         .then(payload => {
-            console.log(payload);
             return payload
         })
         .catch(errors => {

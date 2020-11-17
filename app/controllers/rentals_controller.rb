@@ -18,6 +18,15 @@ class RentalsController < ApplicationController
         end
     end
 
+    def destroy
+        rental = current_user.rentals.find(params[:id])
+        if rental.destroy
+            render json: rental
+        else
+            render json: rental.errors, status: 422
+        end
+    end
+
     private
     def rental_params
         params.require(:rental).permit(:book_id, :pick_up_date, :due_date, :user_id)

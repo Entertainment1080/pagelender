@@ -30,7 +30,8 @@ export default class App extends React.Component {
       rentals: [],
       users: [],
       headerColor: "#044f6d",
-      newBook: null
+      newBook: null,
+      deleteCheck: false
     }
   }
 
@@ -170,6 +171,27 @@ export default class App extends React.Component {
       .then(response => {
         if (response.status === 200) {
           this.bookIndex()
+        }
+        return response.json()
+      })
+      .catch(errors => {
+        console.log("delete errors:", errors)
+      })
+  }
+
+  // Delete a Rental
+  deleteRental = (id) => {
+    return fetch(`/rentals/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+      .then(response => {
+        if (response.status === 200) {
+          this.setState({ deleteCheck: true })
+          this.rentalIndex()
+          location.reload()
         }
         return response.json()
       })
@@ -319,7 +341,9 @@ export default class App extends React.Component {
                   <BorrowedShow
                     book={book}
                     user={user}
+                    deleteCheck={this.state.deleteCheck}
                     parseDate={this.parseDate}
+                    deleteRental={this.deleteRental}
                   />
                 )
               } else {

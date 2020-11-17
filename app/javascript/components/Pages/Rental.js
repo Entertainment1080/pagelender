@@ -68,7 +68,7 @@ export default class Rental extends Component {
                     </Form>
                 </div>
 
-                { success && <Redirect to="/lendconfirmation" />}
+                { success && <Redirect to="/borrowconfirmation" />}
 
             </div>
         )
