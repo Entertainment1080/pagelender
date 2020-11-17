@@ -5,9 +5,9 @@ import { Button, Table } from 'reactstrap'
 
 const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }) => (
 
-    <div class="libraryPage" style={{ backgroundColor: "#E3F8F2" }}>
-        <h2 class="headerText" style={{ color: "#46C2A5" }}>Books You Borrowed:</h2>
-        <Table hover class="table">
+    <div className="libraryPage" style={{ backgroundColor: "#E3F8F2" }}>
+        <h2 className="headerText" style={{ color: "#46C2A5" }}>Books You Borrowed:</h2>
+        <Table hover className="table">
             <thead className="mainRow">
                 <tr>
                     <th>Book</th>
@@ -41,7 +41,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
             </tbody>
         </Table>
 
-        <h2 h2 class="headerText" style={{ color: "#46C2A5" }}>Books You Lent:</h2>
+        <h2 className="headerText" style={{ color: "#46C2A5" }}>Books You Lent:</h2>
 
         <Table hover className="table">
             <thead className="mainRow">
@@ -59,7 +59,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
 
                             <tr key={`book-${rental.id}`}>
                                 <td>
-                                    <Link className="libraryLink" to={`/lended/${book.id}`}>
+                                    <Link className="libraryLink" to={`/lent/${book.id}`}>
                                         {book.title}
                                     </Link>
                                 </td>
@@ -75,7 +75,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
             </tbody>
         </Table>
 
-        <h2 class="headerText" style={{ color: "#46C2A5" }}>Your Available Books:</h2>
+        <h2 className="headerText" style={{ color: "#46C2A5" }}>Your Available Books:</h2>
 
 
         <Table hover className="table">
@@ -93,7 +93,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
 
                         <tr key={`book-${book.id}`}>
                             <td>
-                                <Link className="libraryLink" to={`/lended/${book.id}`}>
+                                <Link className="libraryLink" to={`/lent/${book.id}`}>
                                     {book.title}
                                 </Link>
                             </td>

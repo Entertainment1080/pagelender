@@ -5,7 +5,7 @@ import { Button } from 'reactstrap'
 import Book from '../../../assets/images/book.png'
 
 
-const BorrowedShow = ({ book, parseDate }) => (
+const BorrowedShow = ({ book, parseDate, user }) => (
     <div className="page" style={{ backgroundColor: "#E3F8F2" }}>
         <div className="imgCard" style={{ border: "3px solid #46C2A5" }}>
             {book.img_url === "" &&
@@ -26,6 +26,8 @@ const BorrowedShow = ({ book, parseDate }) => (
             <p><span class="boldText">Pick Up Date: </span>{parseDate(book.rentals[0].pick_up_date)}</p>
             <p><span class="boldText">Due Date: </span>{parseDate(book.rentals[0].due_date)}</p>
             <br />
+            <p><span class="boldText">Owner's Name: </span>{user.first_name} {user.last_name}</p>
+            <p><span class="boldText">Owner's Email: </span>{user.email}</p>
             <Link to="/library" className="button">
                 <Button className="editButton">Back to your Library</Button>
             </Link>
