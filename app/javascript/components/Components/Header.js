@@ -1,30 +1,32 @@
 import React, { useState } from "react"
 import { Nav, NavItem } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-const Header = ({ sign_out_route, changeColor, headerColor }) => {
+const Header = ({ sign_out_route}) => {
+    const currentPage = useLocation()
+    const headerClass = currentPage.pathname.replace("/", "")
     return (
 
-        <div id="header" style={{ backgroundColor: headerColor }} >
+        <div id="header" className={headerClass}>
 
-            <Link to="/" onClick={() => changeColor("#044F6D")}><h1 className="title">PageLender</h1></Link>
+            <Link to="/"><h1 className="title">PageLender</h1></Link>
 
             <Nav>
 
                 <NavItem>
-                    <Link to="/library" onClick={() => changeColor("#46C2A5")}>Library</Link>
+                    <Link to="/library">Library</Link>
                 </NavItem>
 
                 <NavItem>
-                    <Link to="/borrow" onClick={() => changeColor("#044F6D")}>Borrow</Link>
+                    <Link to="/borrow">Borrow</Link>
                 </NavItem>
 
                 <NavItem>
-                    <Link to="/lend" onClick={() => changeColor("#F8C922")}>Lend</Link>
+                    <Link to="/lend">Lend</Link>
                 </NavItem>
 
                 <NavItem>
-                    <Link to="/aboutus" onClick={() => changeColor("#044F6D")}>About Us</Link>
+                    <Link to="/aboutus">About Us</Link>
                 </NavItem>
 
                 <NavItem>

@@ -3,12 +3,20 @@
 // font-family: 'Fredoka One', cursive;
 // font-family: 'Poppins', sans-serif;
 
+//..................................Colors
+$lightyellow: #faf2d6;
 
-*{
+//.................................End Colors
+$headerHeight: 72px;
+// --lightyellow: #faf2d6; (CSS)
+// background-color: var(--lightyellow) (CSS calling) Variables are scoped in CSS not SCSS
+//:root{} ^^ Applied to all
+
+* {
   margin: 0;
 }
 
-p{
+p {
   margin-bottom: 0.7rem;
 }
 
@@ -28,17 +36,16 @@ body {
 
 .homePage {
   padding: 5vw;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
 .heading {
   padding: 2px;
 }
 
-
-
-.boldText{
-font-weight: bolder;
-font-size: large;
+.boldText {
+  font-weight: bolder;
+  font-size: large;
 }
 
 // .................................................. Header
@@ -59,15 +66,32 @@ font-size: large;
 }
 
 #header {
+  height: $headerHeight;
+  background-color: #044f6d;
   display: flex;
   color: white;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1;
+  &.library {
+    background-color: #46c2a5;
+  }
+  &[class^="borrowed"] {
+    background-color: #044f6d;
+  }
+  &.lend {
+    background-color: #f8c922;
+  }
+  &.lended:id {
+    background-color: #46c2a5;
+  }
+  &.aboutus {
+    background-color: #044f6d;
+  }
 }
 
-.headerText{
+.headerText {
   font-family: "Fredoka One", cursive;
   padding-top: 3vh;
 }
@@ -82,10 +106,9 @@ a:hover {
   color: white;
 }
 
-
 // .................................................. Devise
 
-.devise{
+.devise {
   background-image: url(devise-background.jpg);
   background-size: 100% 100%;
   display: flex;
@@ -98,33 +121,33 @@ a:hover {
   // overflow:hidden;
 }
 
-.devise h1{
+.devise h1 {
   font-size: 7vw;
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
   color: white;
   padding-bottom: 8vh;
 }
 
-.devise h2{
-  font-family: 'Fredoka One', cursive;
+.devise h2 {
+  font-family: "Fredoka One", cursive;
   color: white;
   margin-bottom: 3vh;
 }
 
-.devise hr{
+.devise hr {
   border: 1px solid white;
 }
 
-.devise-box{
-  background-color: rgba($color: #044F6D, $alpha: 0.8);
+.devise-box {
+  background-color: rgba($color: #044f6d, $alpha: 0.8);
   padding: 10px;
   color: white;
   border-radius: 20px;
   width: 40vw;
-  height:auto;
+  height: auto;
 }
 
-.devise-create{
+.devise-create {
   background-image: url(devise-background.jpg);
   background-size: 100% 100%;
   display: flex;
@@ -137,15 +160,15 @@ a:hover {
   // overflow:hidden;
 }
 
-.devise-create h1{
+.devise-create h1 {
   font-size: 7vw;
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
   color: white;
   padding-bottom: 8vh;
 }
 
-.devise-create h2{
-  font-family: 'Fredoka One', cursive;
+.devise-create h2 {
+  font-family: "Fredoka One", cursive;
   color: white;
   margin-bottom: 3vh;
 }
@@ -181,7 +204,7 @@ a:hover {
   overflow: hidden;
 }
 
-.text h3{
+.text h3 {
   font-family: "Fredoka One", cursive;
   padding-bottom: 4vh;
 }
@@ -199,6 +222,7 @@ img {
   height: 100%;
   overflow: hidden;
   padding: 3vh 3vw 6vh 3vw;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
 .libraryPage {
@@ -206,6 +230,7 @@ img {
   overflow: hidden;
   padding-top: 0vh;
   padding-bottom: 6vh;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
 .table {
@@ -229,16 +254,16 @@ img {
 }
 
 .libraryLink:hover {
-  color: #46C2A5;
+  color: #46c2a5;
 }
 
-.editButton{
-  background-color: #46C2A5;
-  }
+.editButton {
+  background-color: #46c2a5;
+}
 
-.editButton:hover{
-  background-color: #4CDBB9;
-  }
+.editButton:hover {
+  background-color: #4cdbb9;
+}
 
 #deleteButton {
   background-color: #f14b4b;
@@ -249,8 +274,6 @@ img {
 }
 
 // .................................................. Library-Books You Borrow/Borrowed/Lended Page
-
-
 
 .imgCard {
   background-color: white;
@@ -274,7 +297,7 @@ img {
   border-radius: 20px;
 }
 
-.detailsCard{
+.detailsCard {
   background-color: white;
   padding: 20px;
   border-radius: 20px;
@@ -285,11 +308,12 @@ img {
 }
 
 // .................................................. Borrow
-#borrowPage{
+#borrowPage {
   // height: 100%;
   overflow: hidden;
   padding-top: 0vh;
   padding-bottom: 6vh;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
 #borrow-body {
@@ -316,25 +340,25 @@ img {
   box-shadow: 5px 5px 2.5px #5d5d5d;
 }
 
-.borrowCard img{
+.borrowCard img {
   width: 25vw;
   height: auto;
   max-height: 65vh;
   border-radius: 20px;
 }
 
-.borrowInfoButton{
-  background-color: #044F6D;
+.borrowInfoButton {
+  background-color: #044f6d;
   margin: 1vw;
-  }
+}
 
-.borrowInfoButton:hover{
-  background-color: #1186B5;
-  }
+.borrowInfoButton:hover {
+  background-color: #1186b5;
+}
 
 // .................................................. Borrow Show
 
-#review{
+#review {
   float: middle;
   // display: flex;
   // align-items: center;
@@ -345,18 +369,18 @@ img {
 
 // }
 
-#goodReadsBox{
+#goodReadsBox {
   margin-top: 90vh;
   align-items: center;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   // justify-content: center;
   // width:0px !important;
 }
 
-#goodreads-widget a{
-color: #044F6D !important;
-font-weight: 900;
+#goodreads-widget a {
+  color: #044f6d !important;
+  font-weight: 900;
 }
 
 // .................................................. Lend
@@ -373,10 +397,10 @@ font-weight: 900;
   z-index: -1;
 }
 
-
 .lendHeading {
   padding: 2px;
-  background-color: #f8c922;
+  font-family: "Fredoka One", cursive;
+  color: #f8c922;
   width: 25vw;
   align-items: center;
 }
@@ -389,11 +413,12 @@ font-weight: 900;
   // margin-bottom: 1rem;
 }
 
-.form-control{
+.form-control {
   height: 5vh;
 }
 
 #container {
+  padding-bottom: 50px;
   position: relative;
   text-align: center;
   color: black;
@@ -407,6 +432,7 @@ font-weight: 900;
 // .................................................. Footer
 
 div#footer {
+  background-color: #044f6d;
   position: fixed; //fixed
   bottom: 0;
   width: 100%;
@@ -416,6 +442,18 @@ div#footer {
   justify-content: center;
   // align-items: center;
   width: 100%;
+  &.library {
+    background-color: #46c2a5;
+  }
+  &.borrow {
+    background-color: #044f6d;
+  }
+  &.lend {
+    background-color: #f8c922;
+  }
+  &.aboutus {
+    background-color: #044f6d;
+  }
 }
 
 #copy {
@@ -446,11 +484,15 @@ h6#top {
 //.................................................About Us
 
 .aboutUs {
-  height: 100%;
+  display: flex;
+  justify-content: center;
   width: 100vw;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
 .whatIsPagelender {
+  display: flex;
+  justify-content: center;
   height: auto;
   width: 100vw;
   padding: 10px;
@@ -458,13 +500,20 @@ h6#top {
 
 .mission {
   height: auto;
-  width: 100vw;
   padding: 10px;
 }
 
 .whoWeAre {
+  display: flex;
+  justify-content: center;
   height: auto;
   width: 100vw;
   padding: 10px;
   padding-bottom: 10px;
+}
+
+//.......Not found
+
+.notFoundPage {
+  min-height: calc(100vh - #{$headerHeight});
 }

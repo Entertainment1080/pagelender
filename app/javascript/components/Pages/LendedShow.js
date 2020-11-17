@@ -1,16 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import Book from '../../../assets/images/book.png'
 
-const LendedShow = ({ book, parseDate }) => (
-
-
-    <div className="page" style={{ backgroundColor: "#E3F8F2" }}>
+const LendedShow = ({ book, parseDate }) => {
+    const currentPage = useLocation()
+    const headerClass = currentPage.pathname.replace("/", "")
+    return(
+    <div className="page" className={headerClass}>
 
         {book.rentals.length > 0 &&
-            <div>
+            <div className="page">
                 <div className="imgCard" style={{ border: "3px solid #46C2A5" }}>
                     {book.img_url === "" &&
                         <img src={Book} />
@@ -60,7 +61,7 @@ const LendedShow = ({ book, parseDate }) => (
             </div>
         }
     </div>
-)
+)}
 
 export default LendedShow;
 
@@ -73,3 +74,4 @@ LendedShow.propTypes = {
         series: PropTypes.string,
     }).isRequired
 }
+

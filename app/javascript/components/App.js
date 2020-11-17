@@ -174,8 +174,6 @@ export default class App extends React.Component {
     return format(parsedIso, "MMM, do y h:m a")
   }
 
-  changeColor = (color) => this.setState({ headerColor: color })
-
   render() {
     const {
       logged_in,
@@ -192,8 +190,6 @@ export default class App extends React.Component {
           sign_in_route={sign_in_route}
           sign_up_route={sign_up_route}
           sign_out_route={sign_out_route}
-          changeColor={this.changeColor}
-          headerColor={this.state.headerColor}
         />
 
         <Switch>
@@ -381,9 +377,7 @@ export default class App extends React.Component {
 
         </Switch>
 
-        <Footer
-          headerColor={this.state.headerColor}
-        />
+        <Footer />
 
       </Router >
     );

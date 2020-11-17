@@ -8,7 +8,8 @@ export default class NotFound extends Component
     {
         return (
             <div className="notFoundPage" style={{ backgroundColor: "#E3F8F2" }}>
-                <h1  class="libraryHeaderText" style={{margin: '25px', paddingTop: "0vw"}}>
+                <br/>
+                <h1 style={{paddingTop: "0vw"}}>
                     Sorry for the inconvience, <br/>
                     the page you were looking for <br/>
                     could not be found.

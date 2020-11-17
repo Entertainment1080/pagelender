@@ -2,13 +2,15 @@ import React, { Component } from "react"
 import { Container, Row, Col, Media } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
+import david from '../../../assets/images/david.jpg'
 import drew from '../../../assets/images/drew.jpg'
+import joel from '../../../assets/images/joel.jpg'
 
 export default class AboutUs extends Component {
     render() {
         const { changeColor } = this.props
         return (
-            <div style={{height: "95vh"}} className="pages">
+            <div style={{height: "95vh"}} className="page">
                     <Container>
                     
                     <section id="appUse">
@@ -19,7 +21,7 @@ export default class AboutUs extends Component {
                             </h6>
                         </Row>
                     </section> 
-
+                        <lr />
                     <section id="intro">
                         <h2 className="whatIsPage"> What is Pagelender? </h2>
                         <Row xs="2">
@@ -41,7 +43,7 @@ export default class AboutUs extends Component {
                         <h2 className="team">Meet the Team</h2>
                         <Media>
                             <Media left top href="#">
-                                <Media object src={drew} alt="Generic placeholder image" style={{height: "64px", width: "64px", margin: "20px"}}/>
+                                <Media object src={david} alt="Generic placeholder image" style={{height: "64px", width: "64px", margin: "20px"}}/>
                             </Media>
                             <Media body style={{margin: "20px"}}>
                                 <Media heading={{margin: "15px"}}>
@@ -59,7 +61,7 @@ export default class AboutUs extends Component {
                                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                             </Media>
                             <Media className="mt-1" left bottom href="#">
-                                <Media object src={drew} alt="Generic placeholder image" style={{height: "64px", width: "64px", margin: "20px"}}/>
+                                <Media object src={joel} alt="Generic placeholder image" style={{height: "64px", width: "64px", margin: "20px"}}/>
                             </Media>
                             <Media body style={{margin: "20px"}}>
                                 <Media heading={{margin: "15px"}}>
