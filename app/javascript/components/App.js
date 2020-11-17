@@ -15,7 +15,7 @@ import BorrowConfirmation from './Pages/BorrowConfirmation'
 import BorrowedShow from './Pages/BorrowedShow'
 import Lend from './Pages/Lend'
 import LendConfirmation from './Pages/LendConfirmation'
-import LendedShow from './Pages/LendedShow'
+import LentShow from './Pages/LentShow'
 import LendEdit from './Pages/LendEdit'
 import Rental from './Pages/Rental'
 import AboutUs from './Pages/AboutUs'
@@ -326,13 +326,13 @@ export default class App extends React.Component {
             }}
           />
 
-          <Route path="/lended/:id"
+          <Route path="/lent/:id"
             render={(props) => {
               let id = props.match.params.id
               let book = this.findItem(this.state.books, parseInt(id))
               if (book) {
                 return (
-                  <LendedShow
+                  <LentShow
                     book={book}
                     parseDate={this.parseDate}
                   />

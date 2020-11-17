@@ -59,7 +59,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
 
                             <tr key={`book-${rental.id}`}>
                                 <td>
-                                    <Link className="libraryLink" to={`/lended/${book.id}`}>
+                                    <Link className="libraryLink" to={`/lent/${book.id}`}>
                                         {book.title}
                                     </Link>
                                 </td>
@@ -93,7 +93,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
 
                         <tr key={`book-${book.id}`}>
                             <td>
-                                <Link className="libraryLink" to={`/lended/${book.id}`}>
+                                <Link className="libraryLink" to={`/lent/${book.id}`}>
                                     {book.title}
                                 </Link>
                             </td>
