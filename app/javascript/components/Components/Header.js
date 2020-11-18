@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 const Header = ({ sign_out_route}) => {
     const currentPage = useLocation()
-    const headerClass = currentPage.pathname.replace("/", "")
+    const headerClass = currentPage.pathname.replaceAll("/", "")
     return (
 
         <div id="header" className={headerClass}>

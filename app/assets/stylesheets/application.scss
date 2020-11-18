@@ -8,6 +8,7 @@ $lightyellow: #faf2d6;
 
 //.................................End Colors
 $headerHeight: 72px;
+$footerHeight: 42px;
 // --lightyellow: #faf2d6; (CSS)
 // background-color: var(--lightyellow) (CSS calling) Variables are scoped in CSS not SCSS
 //:root{} ^^ Applied to all
@@ -77,14 +78,15 @@ body {
   &.library {
     background-color: #46c2a5;
   }
-  &[class^="borrowed"] {
+  &.borrow {
     background-color: #044f6d;
+  }
+  &[class^="lent"],
+  &[class^="borrowed"] {
+    background-color: #46c2a5;
   }
   &.lend {
     background-color: #f8c922;
-  }
-  &.lended:id {
-    background-color: #46c2a5;
   }
   &.aboutus {
     background-color: #044f6d;
@@ -454,6 +456,10 @@ div#footer {
   &.aboutus {
     background-color: #044f6d;
   }
+  &[class^="lent"],
+  &[class^="borrowed"] {
+    background-color: #46c2a5;
+  }
 }
 
 #copy {
@@ -490,17 +496,30 @@ h6#top {
   min-height: calc(100vh - #{$headerHeight});
 }
 
-.whatIsPagelender {
-  display: flex;
-  justify-content: center;
+.whatIsPage {
   height: auto;
-  width: 100vw;
   padding: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.team {
+  height: auto;
+  padding: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.teamNames {
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
 }
 
 .mission {
   height: auto;
   padding: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
 }
 
 .whoWeAre {
@@ -510,6 +529,12 @@ h6#top {
   width: 100vw;
   padding: 10px;
   padding-bottom: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.aboutLine {
+  border: 3px solid #044f6d;
 }
 
 //.......Not found
