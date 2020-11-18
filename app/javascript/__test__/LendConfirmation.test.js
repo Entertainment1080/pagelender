@@ -15,5 +15,5 @@ it('LendConfirmation renders without crashing', () => {
 
 it('LendConfirmation renders content', () => {
     const lendedConfirmation = shallow(<LendConfirmation />)
-    expect(lendedConfirmation.find("h5").text()).toEqual("Your book is on the market! We'll notify you if someone wants to borrow it.")
+    expect(lendedConfirmation.find("h4").text()).toEqual("Your book is on the market! We'll notify you if someone wants to borrow it.")
 })
