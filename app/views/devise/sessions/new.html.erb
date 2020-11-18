@@ -1,8 +1,8 @@
-<div class="devise">
+<div class="devise-login">
   
 
   <h1>Pagelender</h1>
-  <div class="devise-box">
+  <div class="devise-box-login">
     <h2>Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -27,7 +27,7 @@
         <%= f.submit "Log in" %>
       </div>
 
-      <hr>
+      <hr class="row">
     
     <% end %>
 
