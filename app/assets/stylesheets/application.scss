@@ -3,6 +3,16 @@
 // font-family: 'Fredoka One', cursive;
 // font-family: 'Poppins', sans-serif;
 
+//..................................Colors
+$lightyellow: #faf2d6;
+
+//.................................End Colors
+$headerHeight: 72px;
+$footerHeight: 42px;
+// --lightyellow: #faf2d6; (CSS)
+// background-color: var(--lightyellow) (CSS calling) Variables are scoped in CSS not SCSS
+//:root{} ^^ Applied to all
+
 * {
   margin: 0;
 }
@@ -27,6 +37,7 @@ body {
 
 .homePage {
   padding: 5vw;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
 .heading {
@@ -56,12 +67,30 @@ body {
 }
 
 #header {
+  height: $headerHeight;
+  background-color: #044f6d;
   display: flex;
   color: white;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1;
+  &.library {
+    background-color: #46c2a5;
+  }
+  &.borrow {
+    background-color: #044f6d;
+  }
+  &[class^="lent"],
+  &[class^="borrowed"] {
+    background-color: #46c2a5;
+  }
+  &.lend {
+    background-color: #f8c922;
+  }
+  &.aboutus {
+    background-color: #044f6d;
+  }
 }
 
 .headerText {
@@ -240,6 +269,7 @@ img {
   height: 100%;
   overflow: hidden;
   padding: 3vh 3vw 6vh 3vw;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
 .libraryPage {
@@ -247,6 +277,7 @@ img {
   overflow: hidden;
   padding-top: 0vh;
   padding-bottom: 6vh;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
 .table {
@@ -329,6 +360,7 @@ img {
   overflow: hidden;
   padding-top: 0vh;
   padding-bottom: 6vh;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
 #borrow-body {
@@ -435,7 +467,8 @@ font-weight: 900 !important;
 
 .lendHeading {
   padding: 2px;
-  background-color: #f8c922;
+  font-family: "Fredoka One", cursive;
+  color: #f8c922;
   width: 25vw;
   align-items: center;
 }
@@ -453,6 +486,7 @@ font-weight: 900 !important;
 }
 
 #container {
+  padding-bottom: 50px;
   position: relative;
   text-align: center;
   color: black;
@@ -466,6 +500,7 @@ font-weight: 900 !important;
 // .................................................. Footer
 
 div#footer {
+  background-color: #044f6d;
   position: fixed; //fixed
   bottom: 0;
   width: 100%;
@@ -475,6 +510,22 @@ div#footer {
   justify-content: center;
   // align-items: center;
   width: 100%;
+  &.library {
+    background-color: #46c2a5;
+  }
+  &.borrow {
+    background-color: #044f6d;
+  }
+  &.lend {
+    background-color: #f8c922;
+  }
+  &.aboutus {
+    background-color: #044f6d;
+  }
+  &[class^="lent"],
+  &[class^="borrowed"] {
+    background-color: #46c2a5;
+  }
 }
 
 #copy {
@@ -505,27 +556,57 @@ h6#top {
 //.................................................About Us
 
 .aboutUs {
-  height: 100%;
+  display: flex;
+  justify-content: center;
   width: 100vw;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
-.whatIsPagelender {
+.whatIsPage {
   height: auto;
-  width: 100vw;
   padding: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.team {
+  height: auto;
+  padding: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.teamNames {
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
 }
 
 .mission {
   height: auto;
-  width: 100vw;
   padding: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
 }
 
 .whoWeAre {
+  display: flex;
+  justify-content: center;
   height: auto;
   width: 100vw;
   padding: 10px;
   padding-bottom: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.aboutLine {
+  border: 3px solid #044f6d;
+}
+
+//.......Not found
+
+.notFoundPage {
+  min-height: calc(100vh - #{$headerHeight});
 }
 
 //.................................................... Not Found Page

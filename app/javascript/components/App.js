@@ -240,8 +240,6 @@ export default class App extends React.Component {
           sign_in_route={sign_in_route}
           sign_up_route={sign_up_route}
           sign_out_route={sign_out_route}
-          changeColor={this.changeColor}
-          headerColor={this.state.headerColor}
         />
 
         <Switch>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
 
-import lendBackground from '../../components/Assets/lendBackground2.png'
+// import lendBackground from '../../components/Assets/lendBackground2.png'
 
 export default class Lend extends Component {
     constructor(props) {
@@ -37,24 +37,23 @@ export default class Lend extends Component {
         let { form, success } = this.state
         return (
 
-            <div
+            <div className="page"
                 id="container"
-                style={{
-                    backgroundImage: `url(${lendBackground})`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                }}>
+                style={{ backgroundColor: '#faf2d6' }}>
 
                 <div className="form-page">
 
-                    <div className="form">
-
-                        <h3 className="lendHeading"
-                            style={{ backgroundSize: '1px' }}
+                    <div className="form"
+                        style={{backgroundColor: 'white',
+                                padding: '50px',
+                                borderBottomLeftRadius: '50px',
+                                borderTopLeftRadius: '50px'
+                        }}
                         >
-                            Add a Book
-                        </h3>
+
+                        <h2 className="lendHeading">
+                            Add a Book:
+                        </h2>
 
                         <Form className="lendForm">
 
@@ -118,15 +117,16 @@ export default class Lend extends Component {
                                 />
                             </FormGroup>
                         </Form>
-                    </div>
-                    <Button
+                        <Button
                         name="submit"
                         className="form-submit-btn"
                         onClick={this.handleSubmit}
                     >
-                        Add a new Book!
+                        Add!
                     </Button>
                     {success && <Redirect to="/lendconfirmation" />}
+                    </div>
+                    
                 </div>
             </div>
         )
