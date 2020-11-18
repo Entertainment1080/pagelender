@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Container, Row, Col, Media } from 'reactstrap'
+import { Row, Col, Media } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 import david from '../../../assets/images/david.jpg'
@@ -31,7 +31,7 @@ export default class AboutUs extends Component {
                             </Col>
                             <Col>
                                 <h5>Lend a Book:</h5>
-                                <p style={{fontSize: '15px'}}>Something on how to lend a book. Something on what kind of book it could be. Something on how to give the book.</p>
+                                <p style={{fontSize: '15px'}}>Something on how to borrow a book. Something on what kind of book it could be. Something on how to get the book.</p>
                             </Col>
                             <Col>
                                 <h5>Editing Your Book:</h5>
@@ -50,35 +50,52 @@ export default class AboutUs extends Component {
                         <h2 className="team">Meet the Team</h2>
                         <Media>
                             <Media left top href="#">
-                            <Media object src={david} alt="David Profile Pic" style={{height: "104px", width: "104px", margin: "20px"}}/>
+                            <Media object src={david} alt="David Profile Pic" style={{height: "145px", width: "145px", margin: "20px"}}/>
                             </Media>
                             <Media body style={{margin: "20px", textAlign: "left"}}>
                             <Media className="teamNames" heading style={{margin: "15px", textAlign: "left"}}>
                             David
                             </Media>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            As the Design Lead, David was in charge of the overall design process of Pagelender. He created a low fidelity design prototype and wireframe using Balsamiq, and transitioned that skeleton over into a high fidelity design prototype on Figma. With a template to work off of, David was able to style a majority of the react-in-rails application with the help of his teammates. 
+                            <br/>
+                            <br/>
+                            David is a full-stack developer/product designer and is a member of the Delta 2020 cohort at LEARN Academy. He is confident in his skills as a designer and is always eager to learn more about full-stack and further his skillset with practice. 
+                            <br/>
+                            See more of his work:
+                            <a target="_blank" href="https://github.com/davidkim4"><p style={{color: "black"}}>Github</p></a>
                             </Media>
                         </Media>
                         <Media className="mt-1">
                             <Media left middle href="#">
-                            <Media object src={drew} alt="David Profile Pic" style={{height: "104px", width: "104px", margin: "20px"}} />
+                            <Media object src={drew} alt="David Profile Pic" style={{height: "145px", width: "145px", margin: "20px"}} />
                             </Media>
                             <Media body style={{margin: "20px", textAlign: "left"}}>
                             <Media className="teamNames" heading style={{margin: "15px", textAlign: "left"}}>
                                 Drew
                             </Media>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            Drew is a full-stack developer and Delta 2020 cohort member at LEARN Academy. He is passionate about creative problem-solving and intuitive and accessible web applications. He is also an actor all around San Diego at such theaters as the La Jolla Playhouse, San Diego Musical Theater, Cygnet Theater, The Moonlight Amphitheater and many more. 
+                            <br/>
+                            Check him out at:
+                            <a target="_blank" href="https://github.com/Drewbrad4"><p style={{color: "black"}}>Github</p></a>
                             </Media>
                         </Media>
                         <Media className="mt-1">
                             <Media left bottom href="#">
-                            <Media object src={joel} alt="David Profile Pic" style={{height: "104px", width: "104px", margin: "20px"}} />
+                            <Media object src={joel} alt="David Profile Pic" style={{height: "145px", width: "145px", margin: "20px"}} />
                             </Media>
                             <Media body style={{margin: "20px", textAlign: "left"}}>
                             <Media className="teamNames" heading style={{margin: "15px", textAlign: "left"}}>
                                 Joel
                             </Media>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            As the Production Lead, Joel oversaw and supported both the technical development and design creation of Pagelender. He created multiple images, logos, and helped in both programming and designing the app.
+                            <br/>
+                            <br />
+                            Joel is a full-stack web developer backed with 4 years of experience in video production, marketing, team leadership, and customer service. Believes that every person has a story to tell and that technology allows for individuals to share those experiences together. He is excited to bring a storytelling driven approach to web development and design.
+                            <br/>
+                            Check him out at:
+                            <a target="_blank" href="https://www.linkedin.com/in/devjoelmichael/"><p style={{color: "black", fontSize: "bolder"}}>LinkedIn</p></a>
+                            <a target="_blank" href="https://github.com/devJoelMichael"><p style={{color: "black"}}>Github</p></a>
+                            <a target="_blank" href="https://twitter.com/devJoelMichael"><p style={{color: "black"}}>Twitter</p></a>
                             </Media>
                         </Media>
                     </section>
