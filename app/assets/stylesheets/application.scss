@@ -103,6 +103,11 @@ body {
   }
 }
 
+.logo {
+  width: 20vw;
+  height: 10vh;
+}
+
 .headerText {
   font-family: "Fredoka One", cursive;
   padding-top: 3vh;
@@ -226,7 +231,7 @@ a:hover {
   height: auto;
 }
 
-.row {
+.devise-row {
   border: 1px solid white;
 }
 

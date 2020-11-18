@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Nav, NavItem } from 'reactstrap'
 import { Link, useLocation } from 'react-router-dom'
+import pagelenderLogo from '../../../assets/images/pagelenderLogoTransparent.png'
 
 const Header = ({ sign_out_route }) => {
     const currentPage = useLocation()
@@ -9,7 +10,7 @@ const Header = ({ sign_out_route }) => {
 
         <div id="header" className={headerClass}>
 
-            <Link to="/"><h1 className="title">Pagelender</h1></Link>
+            <Link to="/"><img className="logo" src={pagelenderLogo} /></Link>
 
             <Nav>
 
