@@ -1,24 +1,18 @@
-# README
+![Pagelender Photo](/app/assets/images/loginPage.png) 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Pagelender
 
-Things you may want to cover:
+Are you not a fan of e books and screens? Do you prefer to have a physical text in your hand but lack the space to keep them? Do you love the smell of paper, running your fingers through the texture of the parchment, and the sensation you get when you turn the page and you’re just that much closer to finishing a book? We’re Pagelender, an easy to use alternative to help you borrow or lend a book to others in your area. If you just don’t have the space to keep books or want to prevent eye fatigue, then use Pagelender to save space, read, and enjoy! 
 
-* Ruby version
+***
 
-* System dependencies
+### LEARN Academy - Delta 2020 Capstone Project
 
-* Configuration
+Built by [David Kim](https://github.com/davidkim4), [Drew Bradford](https://github.com/drewbrad4), and [Joel Poirier](https://github.com/devJoelMichael)
 
-* Database creation
+**Built with:**
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* React in Rails
+* Reactstrap
+* Goodreads Review API
+* date-fns

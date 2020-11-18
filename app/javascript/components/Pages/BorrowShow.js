@@ -40,11 +40,11 @@ const BorrowShow = ({ book }) => {
             </div>
             <div className="detailsCard" style={{ border: "3px solid #044F6D" }}>
                 <h3 className="heading">{book.title}</h3>
-                <p><span class="boldText">Author: </span>{book.author}</p>
-                <p><span class="boldText">Description: </span>{book.description}</p>
-                <p><span class="boldText">Pages: </span>{book.pages}</p>
+                <p><span className="boldText">Author: </span>{book.author}</p>
+                <p><span className="boldText">Description: </span>{book.description}</p>
+                <p><span className="boldText">Pages: </span>{book.pages}</p>
                 {book.series &&
-                    <p><span class="boldText">Series: </span>{book.series}</p>
+                    <p><span className="boldText">Series: </span>{book.series}</p>
                 }
 
                 <Link to={`/rental?book_id=${book.id}`} className="button">

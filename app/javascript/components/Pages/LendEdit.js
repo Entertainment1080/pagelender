@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
-import { Redirect, useLocation } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 export default class Lend extends Component {
     constructor(props) {
@@ -33,9 +33,14 @@ export default class Lend extends Component {
     render() {
         let { form, success } = this.state
         return (
-            <div className="form-page page">
-                <h3 className="heading">Edit Book</h3>
-                <div className="form">
+            <div className="form-page page" style={{ backgroundColor: '#faf2d6' }}>
+                <h2 className="headerText" style={{color: "#f8c922"}}>Edit Book</h2>
+                <div className="form" 
+                style={{backgroundColor: 'white',
+                                padding: '50px',
+                                borderBottomLeftRadius: '50px',
+                                borderTopLeftRadius: '50px'
+                        }}>
                     <Form>
 
                         <FormGroup>

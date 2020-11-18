@@ -1,15 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import Book from '../../../assets/images/book.png'
 
 const LentShow = ({ book, parseDate }) => {
     return (
-        <div className="page">
+        <div >
 
             {book.rentals.length > 0 &&
-                <div className="page">
+                <div className="page" style={{ backgroundColor: "#E3F8F2" }}>
                     <div className="imgCard" style={{ border: "3px solid #46C2A5" }}>
                         {book.img_url === "" &&
                             <img src={Book} />
@@ -20,14 +20,14 @@ const LentShow = ({ book, parseDate }) => {
                     </div>
                     <div className="detailsCard" style={{ border: "3px solid #46C2A5" }}>
                         <h3 className="heading">{book.title}</h3>
-                        <p><span class="boldText">Author: </span>{book.author}</p>
-                        <p><span class="boldText">Description: </span>{book.description}</p>
-                        <p><span class="boldText">Pages: </span>{book.pages}</p>
+                        <p><span className="boldText">Author: </span>{book.author}</p>
+                        <p><span className="boldText">Description: </span>{book.description}</p>
+                        <p><span className="boldText">Pages: </span>{book.pages}</p>
                         {book.series &&
-                            <p><span class="boldText">Series: </span>{book.series}</p>
+                            <p><span className="boldText">Series: </span>{book.series}</p>
                         }
-                        <p><span class="boldText">Pick Up Date: </span>{parseDate(book.rentals[0].pick_up_date)}</p>
-                        <p><span class="boldText">Due Date: </span>{parseDate(book.rentals[0].due_date)}</p>
+                        <p><span className="boldText">Pick Up Date: </span>{parseDate(book.rentals[0].pick_up_date)}</p>
+                        <p><span className="boldText">Due Date: </span>{parseDate(book.rentals[0].due_date)}</p>
                         <Link to="/library" className="button">
                             <Button className="editButton">Back to Library</Button>
                         </Link>
@@ -46,11 +46,11 @@ const LentShow = ({ book, parseDate }) => {
                     </div>
                     <div className="detailsCard" style={{ border: "3px solid #46C2A5" }}>
                         <h3 className="heading">{book.title}</h3>
-                        <p><span class="boldText">Author: </span>{book.author}</p>
-                        <p><span class="boldText">Description: </span>{book.description}</p>
-                        <p><span class="boldText">Pages: </span>{book.pages}</p>
+                        <p><span className="boldText">Author: </span>{book.author}</p>
+                        <p><span className="boldText">Description: </span>{book.description}</p>
+                        <p><span className="boldText">Pages: </span>{book.pages}</p>
                         {book.series &&
-                            <p><span class="boldText">Series: </span>{book.series}</p>
+                            <p><span className="boldText">Series: </span>{book.series}</p>
                         }
                         <Link to="/library" className="button">
                             <Button className="editButton">Back to Library</Button>
