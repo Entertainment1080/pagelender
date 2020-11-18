@@ -6,6 +6,7 @@ import david from '../../../assets/images/david.jpg'
 import drew from '../../../assets/images/drew.jpg'
 import joel from '../../../assets/images/joel.jpg'
 
+
 export default class AboutUs extends Component {
     render() {
         return (
@@ -24,22 +25,18 @@ export default class AboutUs extends Component {
                         <br />
                     <section style={{margin: '25px'}} id="intro">
                         <h2 className="whatIsPage"> What is Pagelender? </h2>
-                        <Row xs="2">
+                        <Row xs="3">
                             <Col>
-                                <h5>Borrow a Book:</h5>
-                                <p style={{fontSize: '15px'}}>Something on how to borrow a book. Something on what kind of book it could be. Something on how to get the book.</p>
+                            <h5>Library:</h5>
+                                <p style={{fontSize: '15px'}}>In your Library, you can see three different tables for books you have borrowed, books you have lent, and your books that are available. Here, you are able to see  the books you are borrowing from other users as well as see the books that people have borrowed from you. Additionaly, you can return a book early or cancel the pick up, and as see who you are borrowing the book from and how to contact them by clicking on a book title in the first table. You can also edit or delete your book listing before someone decides to borrow it form you.</p>
                             </Col>
                             <Col>
-                                <h5>Lend a Book:</h5>
-                                <p style={{fontSize: '15px'}}>Something on how to borrow a book. Something on what kind of book it could be. Something on how to get the book.</p>
+                                <h5>Borrow:</h5>
+                                <p style={{fontSize: '15px'}}>In Borrow, users can see all available books from other users. Users can click on more info to see the book details and trusted reviews from Goodreads, then decide if they want to borrow it or not. Once borrowed, users will be able to see the book inside of Borrowed table in their Library.</p>
                             </Col>
                             <Col>
-                                <h5>Editing Your Book:</h5>
-                                <p style={{fontSize: '15px'}}>Something on how to edit your own book. Something on why you would need or want too.</p>
-                            </Col>
-                            <Col>
-                                <h5>Delete Your Book:</h5>
-                                <p style={{fontSize: '15px'}}>Something on how to delete your book. Something on why you would want it to be deleted.</p>
+                                <h5>Lend:</h5>
+                                <p style={{fontSize: '15px'}}>In Lend, users can create a listing for a book they want to put up so others can borrow. Users will be bet with a form to add any important information about the book they are putting up. Once posted, that book listing will be in the users Available Books table in their Library until someone borrows it from them.</p>
                             </Col>
                         </Row>
                     </section>
@@ -53,7 +50,7 @@ export default class AboutUs extends Component {
                             <Media object src={david} alt="David Profile Pic" style={{height: "145px", width: "145px", margin: "20px"}}/>
                             </Media>
                             <Media body style={{margin: "20px", textAlign: "left"}}>
-                            <Media className="teamNames" heading style={{margin: "15px", textAlign: "left"}}>
+                            <Media className="teamNames" heading style={{textAlign: "left"}}>
                             David
                             </Media>
                             As the Design Lead, David was in charge of the overall design process of Pagelender. He created a low fidelity design prototype and wireframe using Balsamiq, and transitioned that skeleton over into a high fidelity design prototype on Figma. With a template to work off of, David was able to style a majority of the react-in-rails application with the help of his teammates. 
@@ -61,8 +58,10 @@ export default class AboutUs extends Component {
                             <br/>
                             David is a full-stack developer/product designer and is a member of the Delta 2020 cohort at LEARN Academy. He is confident in his skills as a designer and is always eager to learn more about full-stack and further his skillset with practice. 
                             <br/>
-                            See more of his work:
-                            <a target="_blank" href="https://github.com/davidkim4"><p style={{color: "black"}}>Github</p></a>
+                            <br/>
+                            Check him out at:
+                            <a target="_blank" href="https://github.com/davidkim4" ><p style={{color: "black"}}>Github</p></a>
+                            <a target="_blank" href="https://www.linkedin.com/in/david-khangseok-kim/"><p style={{color: "black"}}>LinkedIn</p></a>
                             </Media>
                         </Media>
                         <Media className="mt-1">
@@ -70,7 +69,7 @@ export default class AboutUs extends Component {
                             <Media object src={drew} alt="David Profile Pic" style={{height: "145px", width: "145px", margin: "20px"}} />
                             </Media>
                             <Media body style={{margin: "20px", textAlign: "left"}}>
-                            <Media className="teamNames" heading style={{margin: "15px", textAlign: "left"}}>
+                            <Media className="teamNames" heading style={{ textAlign: "left"}}>
                                 Drew
                             </Media>
                             Drew is a full-stack developer and Delta 2020 cohort member at LEARN Academy. He is passionate about creative problem-solving and intuitive and accessible web applications. He is also an actor all around San Diego at such theaters as the La Jolla Playhouse, San Diego Musical Theater, Cygnet Theater, The Moonlight Amphitheater and many more. 
@@ -84,7 +83,7 @@ export default class AboutUs extends Component {
                             <Media object src={joel} alt="David Profile Pic" style={{height: "145px", width: "145px", margin: "20px"}} />
                             </Media>
                             <Media body style={{margin: "20px", textAlign: "left"}}>
-                            <Media className="teamNames" heading style={{margin: "15px", textAlign: "left"}}>
+                            <Media className="teamNames" heading style={{ textAlign: "left"}}>
                                 Joel
                             </Media>
                             As the Production Lead, Joel oversaw and supported both the technical development and design creation of Pagelender. He created multiple images, logos, and helped in both programming and designing the app.
