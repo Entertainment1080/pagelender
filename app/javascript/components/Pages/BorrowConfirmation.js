@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom'
 
 export default class BorrowConfirmation extends Component {
     render() {
-        const { changeColor } = this.props
         return (
-            <>
-                <h5>Thank you for borrowing a book. We'll notify the owner right away!</h5>
+            <div className="rental-page" style={{ backgroundColor: "#ECFDFF" }}>
+                <div className="confirmation-card">
+                <h4 className="headerText" style={{ color: "#044F6D" }}>Thank you for borrowing a book. We'll notify the owner right away!</h4>
 
-                <Link to="/library" onClick={() => changeColor("#46C2A5")}>
-                    <Button>Go to Your Library</Button>
+                <Link to="/library" >
+                    <Button className="borrowInfoButton">Go to Your Library</Button>
                 </Link>
-            </>
+                </div>
+            </div>
         )
     }
 }

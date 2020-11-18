@@ -6,10 +6,10 @@ import Book from '../../../assets/images/book.png'
 
 const LentShow = ({ book, parseDate }) => {
     return (
-        <div className="page">
+        <div >
 
             {book.rentals.length > 0 &&
-                <div className="page">
+                <div className="page" style={{ backgroundColor: "#E3F8F2" }}>
                     <div className="imgCard" style={{ border: "3px solid #46C2A5" }}>
                         {book.img_url === "" &&
                             <img src={Book} />
