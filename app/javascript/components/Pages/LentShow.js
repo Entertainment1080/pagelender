@@ -20,14 +20,14 @@ const LentShow = ({ book, parseDate }) => {
                     </div>
                     <div className="detailsCard" style={{ border: "3px solid #46C2A5" }}>
                         <h3 className="heading">{book.title}</h3>
-                        <p><span class="boldText">Author: </span>{book.author}</p>
-                        <p><span class="boldText">Description: </span>{book.description}</p>
-                        <p><span class="boldText">Pages: </span>{book.pages}</p>
+                        <p><span className="boldText">Author: </span>{book.author}</p>
+                        <p><span className="boldText">Description: </span>{book.description}</p>
+                        <p><span className="boldText">Pages: </span>{book.pages}</p>
                         {book.series &&
-                            <p><span class="boldText">Series: </span>{book.series}</p>
+                            <p><span className="boldText">Series: </span>{book.series}</p>
                         }
-                        <p><span class="boldText">Pick Up Date: </span>{parseDate(book.rentals[0].pick_up_date)}</p>
-                        <p><span class="boldText">Due Date: </span>{parseDate(book.rentals[0].due_date)}</p>
+                        <p><span className="boldText">Pick Up Date: </span>{parseDate(book.rentals[0].pick_up_date)}</p>
+                        <p><span className="boldText">Due Date: </span>{parseDate(book.rentals[0].due_date)}</p>
                         <Link to="/library" className="button">
                             <Button className="editButton">Back to Library</Button>
                         </Link>
@@ -46,11 +46,11 @@ const LentShow = ({ book, parseDate }) => {
                     </div>
                     <div className="detailsCard" style={{ border: "3px solid #46C2A5" }}>
                         <h3 className="heading">{book.title}</h3>
-                        <p><span class="boldText">Author: </span>{book.author}</p>
-                        <p><span class="boldText">Description: </span>{book.description}</p>
-                        <p><span class="boldText">Pages: </span>{book.pages}</p>
+                        <p><span className="boldText">Author: </span>{book.author}</p>
+                        <p><span className="boldText">Description: </span>{book.description}</p>
+                        <p><span className="boldText">Pages: </span>{book.pages}</p>
                         {book.series &&
-                            <p><span class="boldText">Series: </span>{book.series}</p>
+                            <p><span className="boldText">Series: </span>{book.series}</p>
                         }
                         <Link to="/library" className="button">
                             <Button className="editButton">Back to Library</Button>

@@ -6,7 +6,7 @@ import { Button, Table } from 'reactstrap'
 const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }) => (
 
     <div className="libraryPage" style={{ backgroundColor: "#E3F8F2" }}>
-        <h2 className="headerText" style={{ color: "#46C2A5" }}>Books You Borrowed:</h2>
+        <h2 className="headerText" data-testid="library" style={{ color: " #46C2A5" }}>Books You Borrowed:</h2>
         <Table hover className="table">
             <thead className="mainRow">
                 <tr>
