@@ -5,10 +5,8 @@ import { Button } from 'reactstrap'
 import Book from '../../../assets/images/book.png'
 
 const LentShow = ({ book, parseDate }) => {
-    const currentPage = useLocation()
-    const headerClass = currentPage.pathname.replace("/", "")
     return (
-        <div className="page" className={headerClass}>
+        <div className="page">
 
             {book.rentals.length > 0 &&
                 <div className="page">

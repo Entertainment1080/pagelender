@@ -32,10 +32,8 @@ export default class Lend extends Component {
 
     render() {
         let { form, success } = this.state
-        const currentPage = useLocation()
-        const headerClass = currentPage.pathname.replace("/", "")
         return (
-            <div className="form-page page" className={headerClass}>
+            <div className="form-page page">
                 <h3 className="heading">Edit Book</h3>
                 <div className="form">
                     <Form>
