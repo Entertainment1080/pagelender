@@ -96,6 +96,7 @@ export default class AboutUs extends Component {
                             <br />
                             Joel is a full-stack web developer backed with 4 years of experience in video production, marketing, team leadership, and customer service. Believes that every person has a story to tell and that technology allows for individuals to share those experiences together. He is excited to bring a storytelling driven approach to web development and design.
                             <br />
+                            <br />
                             Check him out at:
                             <a target="_blank" className="aboutUsLink" href="https://www.linkedin.com/in/devjoelmichael/"><p>LinkedIn</p></a>
                             <a target="_blank" className="aboutUsLink" href="https://github.com/devJoelMichael"><p>Github</p></a>

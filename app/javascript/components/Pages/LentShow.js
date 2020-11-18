@@ -35,7 +35,7 @@ const LentShow = ({ book, parseDate }) => {
                 </div>
             }
             {book.rentals.length === 0 &&
-                <div>
+                <div className="page" style={{ backgroundColor: "#E3F8F2" }}>
                     <div className="imgCard" style={{ border: "3px solid #46C2A5" }}>
                         {book.img_url === "" &&
                             <img className="bookImg" src={Book} />
