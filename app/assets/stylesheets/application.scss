@@ -91,6 +91,12 @@ body {
   &.aboutus {
     background-color: #044f6d;
   }
+  &.lendconfirmation {
+    background-color: #f8c922;
+  }
+  &.borrowconfirmation {
+    background-color: #044f6d;
+  }
 }
 
 .headerText {
@@ -525,6 +531,12 @@ div#footer {
   &[class^="lent"],
   &[class^="borrowed"] {
     background-color: #46c2a5;
+  }
+  &.lendconfirmation {
+    background-color: #f8c922;
+  }
+  &.borrowconfirmation {
+    background-color: #044f6d;
   }
 }
 
