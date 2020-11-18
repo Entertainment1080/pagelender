@@ -5,10 +5,10 @@ import { Button, Table } from 'reactstrap'
 
 const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }) => (
 
-    <div class="page" style={{ backgroundColor: "#E3F8F2" }}>
-        <h2 class="libraryHeaderText" data-testid="library" style={{ paddingTop: "0vw" }}>Books You Borrowed:</h2>
-        <Table hover class="table">
-            <thead class="mainRow">
+    <div className="libraryPage" style={{ backgroundColor: "#E3F8F2" }}>
+        <h2 className="headerText" data-testid="library" style={{ color: " #46C2A5" }}>Books You Borrowed:</h2>
+        <Table hover className="table">
+            <thead className="mainRow">
                 <tr>
                     <th>Book</th>
                     <th>Author</th>
@@ -16,7 +16,7 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                     <th>Due Date</th>
                 </tr>
             </thead>
-            <tbody class="bodyRow">
+            <tbody className="bodyRow">
                 {rentedBooks.map((book, index) => {
                     {
                         return book.rentals.map(rental => {
@@ -41,10 +41,10 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
             </tbody>
         </Table>
 
-        <h2 class="libraryHeaderText">Books You Lent:</h2>
+        <h2 className="headerText" style={{ color: "#46C2A5" }}>Books You Lent:</h2>
 
-        <Table hover class="table">
-            <thead class="mainRow">
+        <Table hover className="table">
+            <thead className="mainRow">
                 <tr>
                     <th>Book</th>
                     <th>Author</th>
@@ -52,14 +52,14 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                     <th>Due Date</th>
                 </tr>
             </thead>
-            <tbody class="bodyRow">
+            <tbody className="bodyRow">
                 {books.map((book) => {
                     return book.rentals.map(rental => {
                         return (
 
                             <tr key={`book-${rental.id}`}>
                                 <td>
-                                    <Link className="libraryLink" to={`/lended/${book.id}`}>
+                                    <Link className="libraryLink" to={`/lent/${book.id}`}>
                                         {book.title}
                                     </Link>
                                 </td>
@@ -75,11 +75,11 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
             </tbody>
         </Table>
 
-        <h2 class="libraryHeaderText">Your Available Books:</h2>
+        <h2 className="headerText" style={{ color: "#46C2A5" }}>Your Available Books:</h2>
 
 
-        <Table hover class="table">
-            <thead class="mainRow">
+        <Table hover className="table">
+            <thead className="mainRow">
                 <tr>
                     <th>Book</th>
                     <th>Author</th>
@@ -87,20 +87,20 @@ const MyLibrary = ({ books, rentedBooks, nonRentedBooks, deleteBook, parseDate }
                     <th>Delete Book</th>
                 </tr>
             </thead>
-            <tbody class="bodyRow">
+            <tbody className="bodyRow">
                 {nonRentedBooks.map((book) => {
                     return (
 
                         <tr key={`book-${book.id}`}>
                             <td>
-                                <Link className="libraryLink" to={`/lended/${book.id}`}>
+                                <Link className="libraryLink" to={`/lent/${book.id}`}>
                                     {book.title}
                                 </Link>
                             </td>
                             <td>{book.author}</td>
 
                             <td>
-                                <Button id="editButton">
+                                <Button className="editButton">
                                     <Link to={`/lend/${book.id}`}>
                                         Edit
                                     </Link>

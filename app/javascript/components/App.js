@@ -1,11 +1,6 @@
 import React from "react"
-import PropTypes from "prop-types"
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from 'react-router-dom'
-import { Spinner } from 'reactstrap'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 import Home from './Pages/Home'
 import MyLibrary from './Pages/MyLibrary'
 import Borrow from './Pages/Borrow'
@@ -14,11 +9,13 @@ import BorrowConfirmation from './Pages/BorrowConfirmation'
 import BorrowedShow from './Pages/BorrowedShow'
 import Lend from './Pages/Lend'
 import LendConfirmation from './Pages/LendConfirmation'
-import LendedShow from './Pages/LendedShow'
+import LentShow from './Pages/LentShow'
 import LendEdit from './Pages/LendEdit'
 import Rental from './Pages/Rental'
+import AboutUs from './Pages/AboutUs'
 import NotFound from './Pages/NotFound'
 
+import { Spinner } from 'reactstrap'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 
@@ -31,18 +28,23 @@ export default class App extends React.Component {
     this.state = {
       books: [],
       rentals: [],
+      users: [],
       headerColor: "#044f6d",
-      newBook: null
+      newBook: null,
+      deleteCheck: false
     }
   }
 
+  // Fetches all Books, Rentals, and Users and sets to state
   componentDidMount() {
     this.bookIndex()
     this.rentalIndex()
+    this.userIndex()
   }
 
   //........................................... Fetch Requests
 
+  // Fetch all Books
   bookIndex = () => {
     fetch("/books")
       .then(response => {
@@ -58,6 +60,7 @@ export default class App extends React.Component {
       })
   }
 
+  // Fetch all Rentals
   rentalIndex = () => {
     fetch("/rentals")
       .then(response => {
@@ -73,6 +76,23 @@ export default class App extends React.Component {
       })
   }
 
+  // Fetch all Users
+  userIndex = () => {
+    fetch("/user")
+      .then(response => {
+        return response.json()
+      })
+      .then(userArr => {
+        this.setState({
+          users: userArr
+        })
+      })
+      .catch(errors => {
+        console.log("index errors: ", errors)
+      })
+  }
+
+  // Create a Book
   createNewBook = (newBook) => {
     return fetch("/books", {
       body: JSON.stringify(newBook),
@@ -96,6 +116,7 @@ export default class App extends React.Component {
       })
   }
 
+  // Create a Rental
   createNewRental = (newRental) => {
     return fetch("/rentals", {
       body: JSON.stringify(newRental),
@@ -119,7 +140,7 @@ export default class App extends React.Component {
       })
   }
 
-
+  // Update a Book
   updateBook = (book, id) => {
     return fetch(`/books/${id}`, {
       body: JSON.stringify(book),
@@ -139,6 +160,7 @@ export default class App extends React.Component {
       })
   }
 
+  // Delete a Book
   deleteBook = (id) => {
     return fetch(`/books/${id}`, {
       headers: {
@@ -157,36 +179,48 @@ export default class App extends React.Component {
       })
   }
 
-  // fetchReview = (title, author) => {
-  //   return fetch(`https://www.goodreads.com/book/title.json?key=C6ADuioOC7UwvXyJm2pGQ&title=${title}&author=${author}`)
-  //     .then(response => {
-  //       return response
-  //     })
-  //     .then(payload => {
-  //       this.setState({
-  //         bookReview: payload
-  //       })
-  //     })
-  //     .catch(errors => {
-  //       console.log("review errors: ", errors)
-  //     })
-  // }
+  // Delete a Rental
+  deleteRental = (id) => {
+    return fetch(`/rentals/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+      .then(response => {
+        if (response.status === 200) {
+          this.setState({ deleteCheck: true })
+          this.rentalIndex()
+          location.reload()
+        }
+        return response.json()
+      })
+      .catch(errors => {
+        console.log("delete errors:", errors)
+      })
+  }
 
   //........................................... Helper Methods
 
+  // Returns an item with an id equal to the second arg
   findItem = (arr, id) => arr.find(item => item.id === Number(id))
 
+  // Returns books rented by the user
   findRentedBooks = (arr, id) => arr.filter(book => book.rentals.length > 0 && book.rentals[0].user_id === id)
 
+  // Returns owned books with no rentals
   findUsersNonRentedBooks = (arr) => arr.filter(book => book.rentals.length === 0)
 
+  // Returns non-owned books with no rentals
   findNonRentedBooks = (arr, id) => arr.filter(book => book.rentals.length === 0 && book.user_id !== id)
 
+  // Takes in ISO date and returns more legible date ex. 'Nov, 6th 2020 1:10 PM'
   parseDate = (isoString) => {
     let parsedIso = parseISO(isoString)
     return format(parsedIso, "MMM, do y h:m a")
   }
 
+  // Changes the Header Component's background-color
   changeColor = (color) => this.setState({ headerColor: color })
 
   render() {
@@ -200,17 +234,17 @@ export default class App extends React.Component {
     return (
       <Router>
 
+        {/* Header Component - Renders on every page. Includes title that links to the home root and navbar */}
         <Header
           logged_in={logged_in}
           sign_in_route={sign_in_route}
           sign_up_route={sign_up_route}
           sign_out_route={sign_out_route}
-          changeColor={this.changeColor}
-          headerColor={this.state.headerColor}
         />
 
         <Switch>
 
+          {/* Home Page */}
           <Route exact path="/" render={(props) => {
             return (
               <Home
@@ -219,6 +253,7 @@ export default class App extends React.Component {
             )
           }} />
 
+          {/* My Library Page - Lists all of the user's  borrowed books, lent books, and books lent but availible */}
           <Route path="/library"
             render={(props) => {
               let user = current_user.id
@@ -238,6 +273,7 @@ export default class App extends React.Component {
             }}
           />
 
+          {/* Borrow Index Page - Shows all books (except user's books) currently availible to borrow */}
           <Route exact path="/borrow"
             render={(props) => {
               let user = current_user.id
@@ -261,6 +297,7 @@ export default class App extends React.Component {
             }}
           />
 
+          {/* Borrow Show Page - Lists info for a specific book availible to borrow */}
           <Route
             path="/borrow/:id"
             render={(props) => {
@@ -283,6 +320,7 @@ export default class App extends React.Component {
             }}
           />
 
+          {/* Borrow Confirmation Page - Gives the user confirmation that they have borrowed a book */}
           <Route path="/borrowconfirmation" render={(props) => {
             return (
               <BorrowConfirmation
@@ -291,15 +329,19 @@ export default class App extends React.Component {
             )
           }} />
 
-          <Route
-            path="/borrowed/:id"
+          {/* Borrowed Show Page - Lists info for a specific book that is borrowed */}
+          <Route path="/borrowed/:id"
             render={(props) => {
               let book = this.findItem(this.state.books, props.match.params.id)
-              if (book) {
+              let user = this.findItem(this.state.users, book.user_id)
+              if (book && user) {
                 return (
                   <BorrowedShow
                     book={book}
+                    user={user}
+                    deleteCheck={this.state.deleteCheck}
                     parseDate={this.parseDate}
+                    deleteRental={this.deleteRental}
                   />
                 )
               } else {
@@ -313,6 +355,7 @@ export default class App extends React.Component {
             }}
           />
 
+          {/* Lend Form Page - Shows the user a form to submit a new book to be borrowed */}
           <Route exact path="/lend"
             render={(props) => {
               return (
@@ -324,6 +367,7 @@ export default class App extends React.Component {
             }}
           />
 
+          {/* Lend Confirmation Page - Gives the user confirmation that they have submitted a book to be borrowed */}
           <Route path="/lendconfirmation" render={(props) => {
             return (
               <LendConfirmation
@@ -332,6 +376,7 @@ export default class App extends React.Component {
             )
           }} />
 
+          {/* Rental Form Page - Shows the user a form to enter a pick up and due date for a book they want to borrow */}
           <Route exact path="/rental"
             render={(props) => {
               return (
@@ -344,14 +389,14 @@ export default class App extends React.Component {
             }}
           />
 
-          <Route
-            path="/lended/:id"
+          {/* Lent Show Page - Lists info for a specific book that has been lent */}
+          <Route path="/lent/:id"
             render={(props) => {
               let id = props.match.params.id
               let book = this.findItem(this.state.books, parseInt(id))
               if (book) {
                 return (
-                  <LendedShow
+                  <LentShow
                     book={book}
                     parseDate={this.parseDate}
                   />
@@ -367,6 +412,7 @@ export default class App extends React.Component {
             }}
           />
 
+          {/* Lend Edit Page - Shows a form to edit a book lent but availible */}
           <Route path="/lend/:id"
             render={(props) => {
               let id = props.match.params.id
@@ -390,15 +436,20 @@ export default class App extends React.Component {
             }}
           />
 
+          {/* About Us Page - Shows Mission Statement and Bios for creators */}
+          <Route path="/aboutus" component={AboutUs} />
+
+          {/* Not Found Page */}
           <Route component={NotFound} />
 
         </Switch>
 
+        {/* Footer Component - Renders on every page. Includes copyright and scrollTop function  */}
         <Footer
           headerColor={this.state.headerColor}
         />
 
-      </Router>
+      </Router >
     );
   }
 }

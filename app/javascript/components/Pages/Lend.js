@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
 
+// import lendBackground from '../../components/Assets/lendBackground2.png'
+
 export default class Lend extends Component {
     constructor(props) {
         super(props)
@@ -34,83 +36,98 @@ export default class Lend extends Component {
     render() {
         let { form, success } = this.state
         return (
-            <div className="form-page">
-                <h3 className="heading">Add a Book</h3>
-                <div className="form">
-                    <Form>
 
-                        <FormGroup>
-                            <Label>Title</Label>
-                            <Input
-                                type="text"
-                                name="title"
-                                onChange={this.handleChange}
-                                value={form.title}
-                            />
-                        </FormGroup>
+            <div className="page"
+                id="container"
+                style={{ backgroundColor: '#faf2d6' }}>
 
-                        <FormGroup>
-                            <Label>Author</Label>
-                            <Input
-                                type="text"
-                                name="author"
-                                onChange={this.handleChange}
-                                value={form.author}
-                            />
-                        </FormGroup>
+                <div className="form-page">
 
-                        <FormGroup>
-                            <Label>Description</Label>
-                            <Input
-                                type="textarea"
-                                name="description"
-                                onChange={this.handleChange}
-                                value={form.description}
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label>Pages</Label>
-                            <Input
-                                type="number"
-                                name="pages"
-                                onChange={this.handleChange}
-                                value={form.pages}
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label>Series</Label>
-                            <Input
-                                type="text"
-                                name="series"
-                                onChange={this.handleChange}
-                                value={form.series}
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label>Image Url</Label>
-                            <Input
-                                type="text"
-                                name="img_url"
-                                onChange={this.handleChange}
-                                value={form.img_url}
-                            />
-                        </FormGroup>
-
-                        <Button
-                            name="submit"
-                            className="form-submit-btn"
-                            onClick={this.handleSubmit}
+                    <div className="form"
+                        style={{backgroundColor: 'white',
+                                padding: '50px',
+                                borderBottomLeftRadius: '50px',
+                                borderTopLeftRadius: '50px'
+                        }}
                         >
-                            Add a new Book!
-                        </Button>
-                    </Form>
+
+                        <h2 className="lendHeading">
+                            Add a Book:
+                        </h2>
+
+                        <Form className="lendForm">
+
+                            <FormGroup>
+                                <Label>Title</Label>
+                                <Input
+                                    type="text"
+                                    name="title"
+                                    onChange={this.handleChange}
+                                    value={form.title}
+                                />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Label>Author</Label>
+                                <Input
+                                    type="text"
+                                    name="author"
+                                    onChange={this.handleChange}
+                                    value={form.author}
+                                />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Label>Description</Label>
+                                <Input
+                                    type="textarea"
+                                    name="description"
+                                    onChange={this.handleChange}
+                                    value={form.description}
+                                />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Label>Pages</Label>
+                                <Input
+                                    type="number"
+                                    name="pages"
+                                    onChange={this.handleChange}
+                                    value={form.pages}
+                                />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Label>Series</Label>
+                                <Input
+                                    type="text"
+                                    name="series"
+                                    onChange={this.handleChange}
+                                    value={form.series}
+                                />
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Label>Image Url</Label>
+                                <Input
+                                    type="text"
+                                    name="img_url"
+                                    onChange={this.handleChange}
+                                    value={form.img_url}
+                                />
+                            </FormGroup>
+                        </Form>
+                        <Button
+                        name="submit"
+                        className="form-submit-btn"
+                        onClick={this.handleSubmit}
+                    >
+                        Add!
+                    </Button>
+                    {success && <Redirect to="/lendconfirmation" />}
+                    </div>
+                    
                 </div>
-
-                { success && <Redirect to="/lendconfirmation" />}
-
             </div>
         )
     }

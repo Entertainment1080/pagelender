@@ -33,7 +33,7 @@ export default class Rental extends Component {
     render() {
         let { form, success } = this.state
         return (
-            <div className="form-page">
+            <div className="form-page page">
                 <h3 className="heading">Set your Rental</h3>
                 <div className="form">
                     <Form>
@@ -68,7 +68,7 @@ export default class Rental extends Component {
                     </Form>
                 </div>
 
-                { success && <Redirect to="/lendconfirmation" />}
+                { success && <Redirect to="/borrowconfirmation" />}
 
             </div>
         )

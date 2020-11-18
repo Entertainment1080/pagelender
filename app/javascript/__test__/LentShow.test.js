@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import BorrowedShow from '../components/Pages/BorrowedShow'
+import LentShow from '../components/Pages/LentShow'
 import { format, parseISO } from 'date-fns'
 
 
@@ -27,23 +27,17 @@ const book = {
     ]
 }
 
-const user = {
-    first_name: "Bilbo",
-    last_name: "Baggins",
-    email: "test@testing.com"
-}
-
 function parseDate(isoString) {
     let parsedIso = parseISO(isoString)
     return format(parsedIso, "MMM, do y h:m a")
 }
 
-it('BorrowedShow renders without crashing', () => {
+it('LentShow renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<BorrowedShow parseDate={parseDate} book={book} user={user} />, div)
+    ReactDOM.render(<LentShow parseDate={parseDate} book={book} />, div)
 })
 
-it('BorrowedShow renders content', () => {
-    const borrowedShow = shallow(<BorrowedShow parseDate={parseDate} book={book} user={user} />)
-    expect(borrowedShow.find("h3").text()).toEqual("Harry Potter and the Sorcerer's Stone")
+it('LentShow renders content', () => {
+    const lentShow = shallow(<LentShow parseDate={parseDate} book={book} />)
+    expect(lentShow.find("h3").text()).toEqual("Harry Potter and the Sorcerer's Stone")
 })

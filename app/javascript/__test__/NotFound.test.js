@@ -14,7 +14,7 @@ it('NotFound renders without crashing', () => {
 
 it('NotFound renders content', () => {
     const notFound = shallow(<NotFound />)
-    expect(notFound.find("h3").text()).toEqual("Error: Page Not Found")
+    expect(notFound.find("h1").text()).toEqual("Sorry for the inconvience, the page you were looking for could not be found.")
 })
 
 

@@ -13,7 +13,7 @@ it('BorrowConfirmation renders without crashing', () => {
     ReactDOM.render(<BorrowConfirmation />, div)
 })
 
-it('Home renders content', () => {
+it('BorrowConfirmation renders content', () => {
     const borrowConfirmation = shallow(<BorrowConfirmation />)
     expect(borrowConfirmation.find("h5").text()).toEqual("Thank you for borrowing a book. We'll notify the owner right away!")
 })

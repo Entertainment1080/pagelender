@@ -2,18 +2,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@200;400&display=swap");
 // font-family: 'Fredoka One', cursive;
 // font-family: 'Poppins', sans-serif;
-*{
+
+//..................................Colors
+$lightyellow: #faf2d6;
+
+//.................................End Colors
+$headerHeight: 72px;
+$footerHeight: 42px;
+// --lightyellow: #faf2d6; (CSS)
+// background-color: var(--lightyellow) (CSS calling) Variables are scoped in CSS not SCSS
+//:root{} ^^ Applied to all
+
+* {
   margin: 0;
 }
 
-html, body {
+p {
+  margin-bottom: 0.7rem;
+}
+
+html,
+body {
   text-align: center;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-  // height: 100%;
-  // margin: 0;
-  // background-color: transparent;
-  // padding-bottom: 5vh;
+  height: 100%;
+  background-color: transparent;
 }
 
 .title {
@@ -21,21 +35,20 @@ html, body {
   font-family: "Fredoka One", cursive;
 }
 
-.homePage{
+.homePage {
   padding: 5vw;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
-.page {
-  padding: 3vw;
-  height: 100%;
-  overflow: hidden;
+.heading {
+  padding: 2px;
 }
 
-// .myLibrary{
-//   background-color:#E3F8F2;
-//   padding-bottom: 5vh;
-//   padding-top: 5vh;
-// }
+.boldText {
+  font-weight: bolder;
+  font-size: large;
+}
+
 // .................................................. Header
 
 .nav {
@@ -50,14 +63,45 @@ html, body {
 
 .nav-item {
   color: white;
+  padding-top: 1vh;
 }
 
 #header {
+  height: $headerHeight;
+  background-color: #044f6d;
   display: flex;
   color: white;
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 1;
+  &.library {
+    background-color: #46c2a5;
+  }
+  &.borrow {
+    background-color: #044f6d;
+  }
+  &[class^="lent"],
+  &[class^="borrowed"] {
+    background-color: #46c2a5;
+  }
+  &.lend {
+    background-color: #f8c922;
+  }
+  &.aboutus {
+    background-color: #044f6d;
+  }
+  &.lendconfirmation {
+    background-color: #f8c922;
+  }
+  &.borrowconfirmation {
+    background-color: #044f6d;
+  }
+}
+
+.headerText {
+  font-family: "Fredoka One", cursive;
+  padding-top: 3vh;
 }
 
 a {
@@ -68,6 +112,122 @@ a {
 a:hover {
   text-decoration: none !important;
   color: white;
+}
+
+// .................................................. Devise
+
+.devise-login {
+  background-image: url(loginPage.png);
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  max-height: auto;
+  // overflow:hidden;
+}
+
+.devise-login h1 {
+  font-size: 7vw;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+  padding-bottom: 8vh;
+}
+
+.devise-box-login {
+  background-color: rgba($color: #044f6d, $alpha: 0.8);
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+  width: 40vw;
+  height: auto;
+}
+
+.devise-box-login h2 {
+  font-family: "Fredoka One", cursive;
+  color: white;
+  margin-bottom: 3vh;
+}
+
+.devise-password {
+  background-image: url(editLoginPage.png);
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  max-height: auto;
+}
+
+.devise-password h1 {
+  font-size: 7vw;
+  font-family: "Fredoka One", cursive;
+  color: #f8c922;
+  padding-bottom: 8vh;
+}
+
+.devise-box-password {
+  background-color: rgba($color: #f8c922, $alpha: 0.8);
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+  width: 40vw;
+  height: auto;
+}
+
+.devise-box-password h2 {
+  font-family: "Fredoka One", cursive;
+  color: white;
+  margin-bottom: 3vh;
+}
+
+.devise-create {
+  background-image: url(signUpPage.png);
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 165vh;
+  max-height: auto;
+  // overflow:hidden;
+}
+
+.devise-create h1 {
+  font-size: 7vw;
+  font-family: "Fredoka One", cursive;
+  color: #46c2a5;
+  padding-bottom: 8vh;
+}
+
+.devise-create h2 {
+  font-family: "Fredoka One", cursive;
+  color: white;
+  margin-bottom: 3vh;
+  display: flex;
+  justify-content: center;
+}
+
+.devise-box-create {
+  background-color: rgba($color: #46c2a5, $alpha: 0.8);
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+  width: 40vw;
+  height: auto;
+}
+
+.row {
+  border: 1px solid white;
+}
+
+.field {
+  margin-bottom: 20px;
 }
 
 // .................................................. Home
@@ -81,81 +241,94 @@ a:hover {
   box-shadow: 5px 5px 2.5px #5d5d5d;
 }
 
-.text{
-object-fit: cover;
-position: absolute;
-color: white;
-padding: 5vw;
-bottom: 5px;
-top:5px;
-right:5px;
-left:5px;
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-overflow: hidden;
+.text {
+  object-fit: cover;
+  position: absolute;
+  color: white;
+  padding: 5vw;
+  bottom: 5px;
+  top: 5px;
+  right: 5px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-img{
+.text h3 {
+  font-family: "Fredoka One", cursive;
+  padding-bottom: 4vh;
+}
+
+img {
   object-fit: cover;
 }
 
-#lendButton{
-background-image: url("");
+#lendButton {
+  background-image: url("");
 }
 
 // .................................................. Library
-.libraryHeaderText{
-  font-family: "Fredoka One", cursive;
-  color: #46C2A5;
-  padding-top: 3vh;
+.page {
+  height: 100%;
+  overflow: hidden;
+  padding: 3vh 3vw 6vh 3vw;
+  min-height: calc(100vh - #{$headerHeight});
 }
 
-// #borrowedHeader{
-//   padding-top: 2vh
-// }
+.libraryPage {
+  height: 100%;
+  overflow: hidden;
+  padding-top: 0vh;
+  padding-bottom: 6vh;
+  min-height: calc(100vh - #{$headerHeight});
+}
 
-.table{
-  margin-left:auto;
-  margin-right:auto;
+.table {
+  margin-left: auto;
+  margin-right: auto;
   width: 90vw;
   box-shadow: 3px 3px 2.5px #5d5d5d;
 }
 
-.mainRow{
-  background-color: #46C2A5;
-  color: white
+.mainRow {
+  background-color: #46c2a5;
+  color: white;
 }
 
-.bodyRow{
+.bodyRow {
   background-color: white;
 }
 
-.libraryLink{
-  color: black
+.libraryLink {
+  color: black;
 }
 
-#editButton{
-  background-color: #46C2A5;
-  }
+.libraryLink:hover {
+  color: #46c2a5;
+}
 
-#editButton:hover{
-  background-color: #4CDBB9;
-  }
+.editButton {
+  background-color: #46c2a5;
+}
 
-#deleteButton{
-  background-color: #F14B4B;
-  }
+.editButton:hover {
+  background-color: #4cdbb9;
+}
 
-#deleteButton:hover{
-  background-color:#FF6060 ;
-  }
+#deleteButton {
+  background-color: #f14b4b;
+}
 
-// .................................................. Library-Books You Borrowed Page
+#deleteButton:hover {
+  background-color: #ff6060;
+}
 
-.imgCard{
-  border: 2px solid #46C2A5;
+// .................................................. Library-Books You Borrow/Borrowed/Lended Page
+
+.imgCard {
   background-color: white;
   padding: 20px;
   border-radius: 20px;
@@ -166,10 +339,10 @@ background-image: url("");
   float: left;
 }
 
-.imgCard img{
+.imgCard img {
   width: 100%;
   max-width: 100%;
-  height: auto; 
+  height: auto;
   max-height: 75vh;
   display: block;
   margin-left: auto;
@@ -177,59 +350,275 @@ background-image: url("");
   border-radius: 20px;
 }
 
-.detailsCard{
-  border: 2px solid #46C2A5;
+.detailsCard {
   background-color: white;
   padding: 20px;
   border-radius: 20px;
   width: 60%;
   height: 80vh;
   text-align: center;
-  float:right;
+  float: right;
 }
 
-// .................................................. Library-Books You Borrowed Page
-
-
 // .................................................. Borrow
+#borrowPage {
+  // height: 100%;
+  overflow: hidden;
+  padding-top: 0vh;
+  padding-bottom: 6vh;
+  min-height: calc(100vh - #{$headerHeight});
+}
 
-.bookImg{
-  width: 15vw;
+#borrow-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 2vh;
+  padding-bottom: 4vh;
+  height: 100%;
+  overflow: hidden;
+}
+
+.borrowCard {
+  border: 3px solid #21618c;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 28vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4vh;
+  background-color: white;
+  box-shadow: 5px 5px 2.5px #5d5d5d;
+}
+
+.borrowCard img {
+  width: 25vw;
+  height: auto;
+  max-height: 65vh;
+  border-radius: 20px;
+}
+
+.borrowInfoButton {
+  background-color: #044f6d;
+  margin: 1vw;
+}
+
+.borrowInfoButton:hover {
+  background-color: #1186b5;
+}
+
+.book-title {
+  margin-top: 1.2vh;
+}
+
+// .................................................. Borrow Show
+
+#review {
+  float: middle;
+  // display: flex;
+  // align-items: center;
+}
+
+// #review h2{
+//   font-family: "Fredoka One", cursive;
+
+// }
+
+#goodReadsBox {
+  margin-top: 90vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // width:0px !important;
+}
+
+#goodreads-widget a {
+  color: #044f6d !important;
+  font-weight: 900 !important;
+}
+
+#goodreads-widget {
+  border: 3px solid #044f6d;
+  border-radius: 20px;
+  margin: 2rem !important;
+  padding: 2rem !important;
+  width: auto !important;
+}
+
+.gr_review_container {
+  padding: 1rem !important;
+}
+
+#the_iframe {
+  background-color: #ecfdff !important;
+  padding: 1.5rem !important;
 }
 
 // .................................................. Lend
 
 .form-page {
+  height: 95vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   flex-direction: column;
+  padding: 2rem;
+  z-index: -1;
 }
 
-.form {
-  width: 30vw;
+.lendHeading {
+  padding: 2px;
+  font-family: "Fredoka One", cursive;
+  color: #f8c922;
+  width: 25vw;
+  align-items: center;
 }
 
+.lendForm {
+  padding: 0.5rem 1rem 3rem 1.3rem;
+  color: black;
+  font-size: 14px;
+  // border: 1px solid black;
+  // margin-bottom: 1rem;
+}
+
+.form-control {
+  height: 5vh;
+}
+
+#container {
+  padding-bottom: 50px;
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.form-submit-btn {
+  background-color: #f8c922;
+  color: black;
+  margin-top: 0.3rem;
+}
 // .................................................. Footer
 
 div#footer {
-  position: fixed;
+  background-color: #044f6d;
+  position: fixed; //fixed
   bottom: 0;
   width: 100%;
+  height: 3em; //was not here
   // text-align: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   width: 100%;
+  &.library {
+    background-color: #46c2a5;
+  }
+  &.borrow {
+    background-color: #044f6d;
+  }
+  &.lend {
+    background-color: #f8c922;
+  }
+  &.aboutus {
+    background-color: #044f6d;
+  }
+  &[class^="lent"],
+  &[class^="borrowed"] {
+    background-color: #46c2a5;
+  }
+  &.lendconfirmation {
+    background-color: #f8c922;
+  }
+  &.borrowconfirmation {
+    background-color: #044f6d;
+  }
 }
 
 #copy {
   margin-right: 20vw;
   text-align: left;
   vertical-align: middle;
+  align-items: center;
+}
+
+p#copy {
+  margin-bottom: 0;
+  color: white;
+  padding-top: 2vh;
 }
 
 #top {
   margin-left: 20vw;
   text-align: right;
+  vertical-align: middle;
 }
+
+h6#top {
+  margin-bottom: 0;
+  color: white;
+  padding-top: 2vh;
+}
+
+//.................................................About Us
+
+.aboutUs {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  min-height: calc(100vh - #{$headerHeight});
+}
+
+.whatIsPage {
+  height: auto;
+  padding: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.team {
+  height: auto;
+  padding: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.teamNames {
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.mission {
+  height: auto;
+  padding: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.whoWeAre {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+  padding-bottom: 10px;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
+}
+
+.aboutLine {
+  border: 3px solid #044f6d;
+}
+
+//.......Not found
+
+.notFoundPage {
+  min-height: calc(100vh - #{$headerHeight});
+}
+
+//.................................................... Not Found Page

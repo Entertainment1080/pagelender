@@ -33,7 +33,7 @@ export default class Lend extends Component {
     render() {
         let { form, success } = this.state
         return (
-            <div className="form-page">
+            <div className="form-page page">
                 <h3 className="heading">Edit Book</h3>
                 <div className="form">
                     <Form>
@@ -108,7 +108,7 @@ export default class Lend extends Component {
                     </Form>
                 </div>
 
-                { success && <Redirect to={`/lended/${this.props.book.id}`} />}
+                { success && <Redirect to={`/lent/${this.props.book.id}`} />}
 
             </div>
         )

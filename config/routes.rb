@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :rentals
   resources :books
   devise_for :users
+  get '/reviews', to: 'reviews#get'
+  get '/user', to: 'user#index'
   get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
-  # root to: 'home#index'
 
   devise_scope :user do
     authenticated  do
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
       root to: 'devise/sessions#new', as: 'unauthenticated_root'
     end
   end
+
 end
