@@ -3,12 +3,11 @@
 // font-family: 'Fredoka One', cursive;
 // font-family: 'Poppins', sans-serif;
 
-
-*{
+* {
   margin: 0;
 }
 
-p{
+p {
   margin-bottom: 0.7rem;
 }
 
@@ -34,11 +33,9 @@ body {
   padding: 2px;
 }
 
-
-
-.boldText{
-font-weight: bolder;
-font-size: large;
+.boldText {
+  font-weight: bolder;
+  font-size: large;
 }
 
 // .................................................. Header
@@ -67,7 +64,7 @@ font-size: large;
   z-index: 1;
 }
 
-.headerText{
+.headerText {
   font-family: "Fredoka One", cursive;
   padding-top: 3vh;
 }
@@ -82,11 +79,10 @@ a:hover {
   color: white;
 }
 
-
 // .................................................. Devise
 
-.devise{
-  background-image: url(devise-background.jpg);
+.devise-login {
+  background-image: url(loginPage.png);
   background-size: 100% 100%;
   display: flex;
   justify-content: center;
@@ -98,56 +94,101 @@ a:hover {
   // overflow:hidden;
 }
 
-.devise h1{
+.devise-login h1 {
   font-size: 7vw;
-  font-family: 'Fredoka One', cursive;
-  color: white;
+  font-family: "Fredoka One", cursive;
+  color: #044f6d;
   padding-bottom: 8vh;
 }
 
-.devise h2{
-  font-family: 'Fredoka One', cursive;
-  color: white;
-  margin-bottom: 3vh;
-}
-
-.devise hr{
-  border: 1px solid white;
-}
-
-.devise-box{
-  background-color: rgba($color: #044F6D, $alpha: 0.8);
+.devise-box-login {
+  background-color: rgba($color: #044f6d, $alpha: 0.8);
   padding: 10px;
   color: white;
   border-radius: 20px;
   width: 40vw;
-  height:auto;
+  height: auto;
 }
 
-.devise-create{
-  background-image: url(devise-background.jpg);
+.devise-box-login h2 {
+  font-family: "Fredoka One", cursive;
+  color: white;
+  margin-bottom: 3vh;
+}
+
+.devise-password {
+  background-image: url(editLoginPage.png);
   background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 150vh;
+  height: 100vh;
+  max-height: auto;
+}
+
+.devise-password h1 {
+  font-size: 7vw;
+  font-family: "Fredoka One", cursive;
+  color: #f8c922;
+  padding-bottom: 8vh;
+}
+
+.devise-box-password {
+  background-color: rgba($color: #f8c922, $alpha: 0.8);
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+  width: 40vw;
+  height: auto;
+}
+
+.devise-box-password h2 {
+  font-family: "Fredoka One", cursive;
+  color: white;
+  margin-bottom: 3vh;
+}
+
+.devise-create {
+  background-image: url(signUpPage.png);
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 165vh;
   max-height: auto;
   // overflow:hidden;
 }
 
-.devise-create h1{
+.devise-create h1 {
   font-size: 7vw;
-  font-family: 'Fredoka One', cursive;
-  color: white;
+  font-family: "Fredoka One", cursive;
+  color: #46c2a5;
   padding-bottom: 8vh;
 }
 
-.devise-create h2{
-  font-family: 'Fredoka One', cursive;
+.devise-create h2 {
+  font-family: "Fredoka One", cursive;
   color: white;
   margin-bottom: 3vh;
+  display: flex;
+  justify-content: center;
+}
+
+.devise-box-create {
+  background-color: rgba($color: #46c2a5, $alpha: 0.8);
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+  width: 40vw;
+  height: auto;
+}
+
+.row {
+  border: 1px solid white;
 }
 
 .field {
@@ -181,7 +222,7 @@ a:hover {
   overflow: hidden;
 }
 
-.text h3{
+.text h3 {
   font-family: "Fredoka One", cursive;
   padding-bottom: 4vh;
 }
@@ -229,16 +270,16 @@ img {
 }
 
 .libraryLink:hover {
-  color: #46C2A5;
+  color: #46c2a5;
 }
 
-.editButton{
-  background-color: #46C2A5;
-  }
+.editButton {
+  background-color: #46c2a5;
+}
 
-.editButton:hover{
-  background-color: #4CDBB9;
-  }
+.editButton:hover {
+  background-color: #4cdbb9;
+}
 
 #deleteButton {
   background-color: #f14b4b;
@@ -249,8 +290,6 @@ img {
 }
 
 // .................................................. Library-Books You Borrow/Borrowed/Lended Page
-
-
 
 .imgCard {
   background-color: white;
@@ -274,7 +313,7 @@ img {
   border-radius: 20px;
 }
 
-.detailsCard{
+.detailsCard {
   background-color: white;
   padding: 20px;
   border-radius: 20px;
@@ -285,7 +324,7 @@ img {
 }
 
 // .................................................. Borrow
-#borrowPage{
+#borrowPage {
   // height: 100%;
   overflow: hidden;
   padding-top: 0vh;
@@ -316,25 +355,25 @@ img {
   box-shadow: 5px 5px 2.5px #5d5d5d;
 }
 
-.borrowCard img{
+.borrowCard img {
   width: 25vw;
   height: auto;
   max-height: 65vh;
   border-radius: 20px;
 }
 
-.borrowInfoButton{
-  background-color: #044F6D;
+.borrowInfoButton {
+  background-color: #044f6d;
   margin: 1vw;
-  }
+}
 
-.borrowInfoButton:hover{
-  background-color: #1186B5;
-  }
+.borrowInfoButton:hover {
+  background-color: #1186b5;
+}
 
 // .................................................. Borrow Show
 
-#review{
+#review {
   float: middle;
   // display: flex;
   // align-items: center;
@@ -345,18 +384,18 @@ img {
 
 // }
 
-#goodReadsBox{
+#goodReadsBox {
   margin-top: 90vh;
   align-items: center;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   // justify-content: center;
   // width:0px !important;
 }
 
-#goodreads-widget a{
-color: #044F6D !important;
-font-weight: 900;
+#goodreads-widget a {
+  color: #044f6d !important;
+  font-weight: 900;
 }
 
 // .................................................. Lend
@@ -373,7 +412,6 @@ font-weight: 900;
   z-index: -1;
 }
 
-
 .lendHeading {
   padding: 2px;
   background-color: #f8c922;
@@ -389,7 +427,7 @@ font-weight: 900;
   // margin-bottom: 1rem;
 }
 
-.form-control{
+.form-control {
   height: 5vh;
 }
 
@@ -470,4 +508,3 @@ h6#top {
 }
 
 //.................................................... Not Found Page
-
