@@ -2,10 +2,8 @@ import React, { Component } from "react"
 
 import noBook from '../../../assets/images/bookNotHere.png'
 
-export default class NotFound extends Component
-{
-    render()
-    {
+export default class NotFound extends Component {
+    render() {
         return (
             <div className="notFoundPage" style={{ backgroundColor: "#E3F8F2" }}>
                 <br/>
@@ -14,9 +12,9 @@ export default class NotFound extends Component
                     the page you were looking for <br/>
                     could not be found.
                 </h1>
-                    <br/>
+                <br />
                 <div>
-                    <img style={{height: '600px', width: '600px'}} src={noBook} />
+                    <img style={{ height: '350px', width: '500px' }} src={noBook} />
                 </div>
             </div>
         )

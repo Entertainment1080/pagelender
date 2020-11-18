@@ -358,6 +358,10 @@ img {
   background-color: #1186b5;
 }
 
+.book-title {
+  margin-top: 1.2vh;
+}
+
 // .................................................. Borrow Show
 
 #review {
@@ -380,9 +384,26 @@ img {
   // width:0px !important;
 }
 
-#goodreads-widget a {
-  color: #044f6d !important;
-  font-weight: 900;
+#goodreads-widget a{
+color: #044F6D !important;
+font-weight: 900 !important;
+}
+
+#goodreads-widget {
+  border: 3px solid #044F6D;
+  border-radius: 20px;
+  margin: 2rem !important;
+  padding: 2rem !important;
+  width: auto !important;
+}
+
+.gr_review_container {
+  padding: 1rem !important;
+}
+
+#the_iframe {
+  background-color: #ECFDFF !important;
+  padding: 1.5rem !important;
 }
 
 // .................................................. Lend
@@ -542,3 +563,6 @@ h6#top {
 .notFoundPage {
   min-height: calc(100vh - #{$headerHeight});
 }
+
+//.................................................... Not Found Page
+

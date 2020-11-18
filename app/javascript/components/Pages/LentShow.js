@@ -75,4 +75,3 @@ LentShow.propTypes = {
         series: PropTypes.string,
     }).isRequired
 }
-

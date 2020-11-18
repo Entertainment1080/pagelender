@@ -10,7 +10,6 @@ const fetchReview = (title, author) => {
             return response.json()
         })
         .then(payload => {
-            console.log(payload);
             return payload
         })
         .catch(errors => {
@@ -57,7 +56,7 @@ const BorrowShow = ({ book }) => {
                 </Link>
             </div>
             <div id="review">
-                {/* <h2 style={{ color: "#044F6D" }}>Reviews:</h2> */}
+
                 {review &&
                     <div id="goodReadsBox" dangerouslySetInnerHTML={{ __html: review.reviews_widget }} />
                 }
