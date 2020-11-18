@@ -221,7 +221,7 @@ export default class App extends React.Component {
   }
 
   // Changes the Header Component's background-color
-  changeColor = (color) => this.setState({ headerColor: color })
+  // changeColor = (color) => this.setState({ headerColor: color })
 
   render() {
     const {
@@ -248,7 +248,6 @@ export default class App extends React.Component {
           <Route exact path="/" render={(props) => {
             return (
               <Home
-                changeColor={this.changeColor}
               />
             )
           }} />
@@ -324,7 +323,6 @@ export default class App extends React.Component {
           <Route path="/borrowconfirmation" render={(props) => {
             return (
               <BorrowConfirmation
-                changeColor={this.changeColor}
               />
             )
           }} />
@@ -371,7 +369,6 @@ export default class App extends React.Component {
           <Route path="/lendconfirmation" render={(props) => {
             return (
               <LendConfirmation
-                changeColor={this.changeColor}
               />
             )
           }} />

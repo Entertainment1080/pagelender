@@ -33,9 +33,9 @@ export default class Rental extends Component {
     render() {
         let { form, success } = this.state
         return (
-            <div className="form-page page">
-                <h3 className="heading">Set your Rental</h3>
-                <div className="form">
+            <div className="rental-page" style={{ backgroundColor: "#ECFDFF" }}>
+                <h2 className="headerText" style={{ color: "#044F6D" }}>Set your Rental</h2>
+                <div className="rental-card">
                     <Form>
 
                         <FormGroup>
@@ -60,7 +60,7 @@ export default class Rental extends Component {
 
                         <Button
                             name="submit"
-                            className="form-submit-btn"
+                            className="borrowInfoButton"
                             onClick={this.handleSubmit}
                         >
                             Create Rental

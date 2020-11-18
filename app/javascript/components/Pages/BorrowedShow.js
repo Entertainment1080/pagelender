@@ -29,7 +29,7 @@ const BorrowedShow = ({ book, parseDate, user, deleteRental, deleteCheck }) => (
             <p><span className="boldText">Owner's Name: </span>{user.first_name} {user.last_name}</p>
             <p><span className="boldText">Owner's Email: </span>{user.email}</p>
             <Link to="/library" className="button">
-                <Button className="editButton">Back to your Library</Button>
+                <Button className="editButton" style={{marginRight: "2vw"}}>Back to your Library</Button>
             </Link>
 
             <Button onClick={() => deleteRental(book.rentals[0].id)} id="deleteButton">
