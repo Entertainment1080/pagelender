@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Nav, NavItem } from 'reactstrap'
 import { Link, useLocation } from 'react-router-dom'
-import pagelenderLogo from '../../../assets/images/pagelenderLogoTransparent.png'
+import pagelenderLogo from '../../../assets/images/pagelenderLogo.png'
 
 const Header = ({ sign_out_route }) => {
     const currentPage = useLocation()
