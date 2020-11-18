@@ -14,4 +14,5 @@ Built by [David Kim](https://github.com/davidkim4), [Drew Bradford](https://gith
 
 * React in Rails
 * Reactstrap
+* Goodreads Review API
 * date-fns
