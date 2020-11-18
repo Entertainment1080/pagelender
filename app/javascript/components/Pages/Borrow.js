@@ -18,7 +18,7 @@ const Borrow = ({ books }) => (
                             {book.img_url.length > 0 &&
                                 <img src={book.img_url} />
                             }
-                            <h4>{book.title}</h4>
+                            <h4 className="book-title">{book.title}</h4>
                             <div className="info">
                                 <p>Author: {book.author}</p>
                                 {book.series &&
