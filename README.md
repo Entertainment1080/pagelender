@@ -10,6 +10,14 @@ Are you not a fan of e books and screens? Do you prefer to have a physical text 
 
 > https://pagelender.herokuapp.com/
 
+## Login Info: 
+You are welcome to create an account, but to just see the functionality, feel free to use this seed user. 
+
+Email: test@testing.com <br />
+Password: test123
+
+The user was created with books lended as well as books borrowed to see every aspect of the app. Enjoy!
+
 ### LEARN Academy - Delta 2020 Capstone Project
 
 Built by [David Kim](https://github.com/davidkim4), [Drew Bradford](https://github.com/drewbrad4), and [Joel Poirier](https://github.com/devJoelMichael)
